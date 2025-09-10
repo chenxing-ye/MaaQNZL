@@ -1,0 +1,305 @@
+{
+    "DragonDungeon": {
+        "next": [
+            "EnterDragonDungeon"
+        ],
+        "interrupt": [
+            "EnterDragon",
+            "ReturnMain"
+        ]
+    },
+    "EnterDragon": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1018,
+                    204,
+                    166,
+                    59
+                ],
+                "template": "Activity/Dragon/恶龙计划入口__1018_204_166_59__968_154_266_159.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DragonMain",
+            "EnterDragon"
+        ]
+    },
+    "DragonMain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    487,
+                    555,
+                    310,
+                    109
+                ],
+                "template": "Activity/Dragon/恶龙计划活动界面__487_555_310_109__437_505_410_209.png"
+            }
+        }
+    },
+    "EnterDragonDungeon": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    141,
+                    465,
+                    171,
+                    28
+                ],
+                "template": "Activity/Dragon/恶龙计划-进阶__141_465_171_28__91_415_271_128.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DungeonButtton",
+            "EnterDragonDungeon"
+        ]
+    },
+    "DungeonButtton": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    701,
+                    396,
+                    134,
+                    33
+                ],
+                "template": "Activity/Dragon/认证2-进阶__701_396_134_33__651_346_234_133.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DungeonBattle"
+        ]
+    },
+    "DungeonBattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    711,
+                    55,
+                    200,
+                    48
+                ],
+                "template": "Activity/Dragon/认证2进阶战斗界面__711_55_200_48__661_5_300_148.png"
+            }
+        },
+        "next": [
+            "DungeonQuickBattleMain"
+        ],
+        "interrupt": [
+            "DungeonQuickBattle"
+        ]
+    },
+    "DungeonQuickBattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    706,
+                    646,
+                    169,
+                    43
+                ],
+                "template": "Activity/Dragon/快速作战按钮__706_646_169_43__656_596_269_124.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "DungeonQuickBattleMain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    706,
+                    646,
+                    169,
+                    43
+                ],
+                "template": "Activity/Dragon/快速作战取消按钮__706_646_169_43__656_596_269_124.png"
+            }
+        },
+        "next": [
+            "DungeonQuickBattleMaX"
+        ]
+    },
+    "DungeonQuickBattleMaX": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1105,
+                    546,
+                    51,
+                    27
+                ],
+                "template": "Activity/Dragon/快速作战最大次数__1105_546_51_27__1055_496_151_127.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DungeonQuickBattleGo"
+        ]
+    },
+    "DungeonQuickBattleGo": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    924,
+                    650,
+                    156,
+                    37
+                ],
+                "template": "Activity/Dragon/快速作战出击__924_650_156_37__874_600_256_120.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DungeonQuickBattleFinish",
+            "DragonCloseEnergy"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "DragonCloseEnergy": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    421,
+                    483,
+                    84,
+                    35
+                ],
+                "template": "Common/关闭补充体力按钮__421_483_84_35__371_433_184_135.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "DungeonQuickBattleFinish": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    558,
+                    625,
+                    170,
+                    39
+                ],
+                "template": "Activity/Dragon/快速作战确认完成__558_625_170_39__508_575_270_139.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "DragonShop": {
+        "next": [
+            "EnterDragonShop"
+        ],
+        "interrupt": [
+            "EnterDragon",
+            "ReturnMain"
+        ]
+    },
+    "EnterDragonShop": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    873,
+                    604,
+                    155,
+                    36
+                ],
+                "template": "Activity/Dragon/完美计划补给__873_604_155_36__823_554_255_136.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DragonShopItem"
+        ]
+    },
+    "DragonShopItem": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    472,
+                    192,
+                    47,
+                    37
+                ],
+                "template": "Activity/Dragon/商店价格图标__472_192_47_37__422_142_147_137.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DragonShopItemMax"
+        ]
+    },
+    "DragonShopItemMax": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    765,
+                    468,
+                    56,
+                    43
+                ],
+                "template": "Activity/Dragon/商店物品最大值__765_468_56_43__715_418_156_143.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DragonShopItemBuy"
+        ]
+    },
+    "DragonShopItemBuy": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    832,
+                    562,
+                    67,
+                    27
+                ],
+                "template": "Activity/Dragon/商店物品购买__832_562_67_27__782_512_167_127.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

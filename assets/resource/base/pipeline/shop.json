@@ -1,0 +1,161 @@
+{
+    "Shop": {
+        "next": [
+            "StartShop"
+        ],
+        "interrupt": [
+            "ReturnMain"
+        ]
+    },
+    "StartShop": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    913,
+                    624,
+                    82,
+                    43
+                ],
+                "template": "Shop/商店__913_624_82_43__863_574_182_143.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ShopGift"
+        ]
+    },
+    "ShopGift": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    732,
+                    672,
+                    101,
+                    32
+                ],
+                "template": "Shop/礼包商店__732_672_101_32__682_622_201_98.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ShopGiftItem",
+            "ShopExchange"
+        ]
+    },
+    "ShopGiftItem": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    415,
+                    137,
+                    24,
+                    27
+                ],
+                "template": "Shop/感叹号商品__415_137_24_27__365_87_124_127.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ShopGiftBuy"
+        ]
+    },
+    "ShopGiftBuy": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    776,
+                    491,
+                    53,
+                    22
+                ],
+                "template": "Shop/礼包商店购买__776_491_53_22__726_441_153_122.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ShopGiftItem",
+            "ShopExchange"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "ShopExchange": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1136,
+                    671,
+                    92,
+                    30
+                ],
+                "template": "Shop/兑换商店__1136_671_92_30__1086_621_192_99.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ShopExchangeItem"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "ShopExchangeItem": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    234,
+                    134,
+                    885,
+                    485
+                ],
+                "template": "Shop/折扣商品标记__503_171_17_15__453_121_117_115.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ShopExchangeItemBuy"
+        ]
+    },
+    "ShopExchangeItemBuy": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    837,
+                    562,
+                    54,
+                    28
+                ],
+                "template": "Common/物品购买确认__837_562_54_28__787_512_154_128.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ShopExchangeItem"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+}

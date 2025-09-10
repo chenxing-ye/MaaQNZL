@@ -1,0 +1,135 @@
+{
+    "Daily": {
+        "next": [
+            "EnterDaily"
+        ],
+        "interrupt": [
+            "ReturnMain"
+        ]
+    },
+    "EnterDaily": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1008,
+                    33,
+                    36,
+                    20
+                ],
+                "template": "Daily/骰子入口__1008_33_36_20__958_0_136_103.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DailyRoll"
+        ]
+    },
+    "DailyRoll": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1119,
+                    612,
+                    484,
+                    21
+                ],
+                "template": "Daily/投掷__1119_612_48_21__1069_562_148_121.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DailyRollReturn"
+        ]
+    },
+    "DailyRollReturn": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    143,
+                    19,
+                    60,
+                    27
+                ],
+                "template": "Common/返回主界面按钮__143_19_60_27__93_0_160_96.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "DailyMailMain"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "DailyMailMain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    41,
+                    268,
+                    29,
+                    33
+                ],
+                "template": "Daily/邮箱__41_268_29_33__0_218_120_133.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DailyMailGain"
+        ]
+    },
+    "DailyMailGain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    120,
+                    602,
+                    77,
+                    22
+                ],
+                "template": "Daily/全部领取__120_602_77_22__70_552_177_122.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DailyMailReturn"
+        ]
+    },
+    "DailyMailReturn": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1224,
+                    67,
+                    33,
+                    29
+                ],
+                "template": "Daily/关闭邮箱__1224_67_33_29__1174_17_106_129.png"
+            }
+        },
+        "post_delay": 1000,
+        "action": {
+            "type": "Click"
+        },
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    }
+}

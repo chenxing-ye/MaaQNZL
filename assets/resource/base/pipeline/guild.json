@@ -1,0 +1,480 @@
+{
+    "GuildDaily": {
+        "next": [
+            "EnterGuild"
+        ],
+        "interrupt": [
+            "ReturnMain"
+        ]
+    },
+    "EnterGuild": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    601,
+                    594,
+                    107,
+                    80
+                ],
+                "template": "Guild/公会按钮__601_594_107_80__551_544_207_176.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildDonation",
+            "EnterGuild"
+        ]
+    },
+    "GuildDonation": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    928,
+                    672,
+                    95,
+                    34
+                ],
+                "template": "Guild/公会捐献__928_672_95_34__878_622_195_98.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildDonationFinish"
+        ],
+        "interrupt": [
+            "GuildDonationLoop",
+            "CloseGetItem"
+        ]
+    },
+    "GuildDonationLoop": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1104,
+                    497,
+                    51,
+                    56
+                ],
+                "template": "Guild/可捐献__1104_497_51_56__1054_447_151_156.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "GuildDonationFinish": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    650,
+                    534,
+                    36,
+                    23
+                ],
+                "threshold": 0.9,
+                "template": "Guild/捐献完成__650_534_36_23__600_484_136_123.png"
+            }
+        },
+        "next": [
+            "GuildInfo"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "GuildInfo": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    484,
+                    676,
+                    92,
+                    27
+                ],
+                "template": "Guild/成员信息__484_676_92_27__434_626_192_94.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildLikesFinish"
+        ],
+        "interrupt": [
+            "GuildLikes",
+            "CloseGetItem"
+        ]
+    },
+    "GuildLikes": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1146,
+                    82,
+                    90,
+                    532
+                ],
+                "template": "Guild/可点赞__1175_381_55_35__1125_331_155_135.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "GuildLikesFinish": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1141,
+                    615,
+                    50,
+                    26
+                ],
+                "threshold": 0.9,
+                "template": "Guild/点赞完成__1141_615_50_26__1091_565_150_126.png"
+            }
+        },
+        "next": [
+            "GuildActivity"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "GuildTask": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    707,
+                    675,
+                    96,
+                    24
+                ],
+                "template": "Guild/公会任务__707_675_96_24__657_625_196_95.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildDailyReward",
+            "GuildTaskWeekly"
+        ]
+    },
+    "GuildDailyReward": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    989,
+                    158,
+                    126,
+                    35
+                ],
+                "template": "Guild/公会全部领取__989_158_126_35__939_108_226_135.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "GuildTaskWeekly"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "GuildTaskWeekly": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1023,
+                    80,
+                    98,
+                    28
+                ],
+                "template": "Guild/公会每周任务__1023_80_98_28__973_30_198_128.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildWeeklyReward",
+            "ReturnMain"
+        ]
+    },
+    "GuildWeeklyReward": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    989,
+                    158,
+                    126,
+                    35
+                ],
+                "template": "Guild/公会全部领取__989_158_126_35__939_108_226_135.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "ReturnMain"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "GuildActivity": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    263,
+                    671,
+                    97,
+                    32
+                ],
+                "template": "Guild/公会活动__263_671_97_32__213_621_197_99.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildDerbyMain"
+        ]
+    },
+    "GuildBossMain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1024,
+                    167,
+                    139,
+                    63
+                ],
+                "template": "Guild/公会首领__1024_167_139_63__974_117_239_163.png"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -200,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "GuildBossStart",
+            "GuildBossMain"
+        ]
+    },
+    "GuildBossStart": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    579,
+                    621,
+                    152,
+                    44
+                ],
+                "template": "Guild/公会首领开始__579_621_152_44__529_571_252_144.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildBossCant",
+            "GuildBossFinish"
+        ],
+        "interrupt": [
+            "ClickBattleConfirm"
+        ]
+    },
+    "GuildBossCant": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    547,
+                    18,
+                    188,
+                    33
+                ],
+                "template": "Guild/公会首领次数已用完__547_18_188_33__497_0_288_101.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildBossReturn"
+        ]
+    },
+    "GuildBossFinish": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    877,
+                    546,
+                    124,
+                    43
+                ],
+                "template": "Guild/公会首领总伤害__877_546_124_43__827_496_224_143.png"
+            }
+        },
+        "timeout": 120000,
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildBossReturn"
+        ]
+    },
+    "GuildBossReturn": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    20,
+                    16,
+                    77,
+                    29
+                ],
+                "template": "Common/返回上一级按钮__20_16_77_29__0_0_147_95.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildTask"
+        ]
+    },
+    "GuildDerbyMain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1022,
+                    511,
+                    88,
+                    38
+                ],
+                "template": "Guild/公会圣殿杯__1022_511_88_38__972_461_188_138.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildDerbySelect"
+        ]
+    },
+    "GuildDerbySelect": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    887,
+                    652,
+                    71,
+                    38
+                ],
+                "template": "Guild/公会圣殿杯推赏__887_652_71_38__837_602_171_118.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildDerbyOK",
+            "GuildDerbyLimit"
+        ]
+    },
+    "GuildDerbyOK": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    765,
+                    513,
+                    58,
+                    31
+                ],
+                "template": "Guild/公会圣殿杯推赏确定__765_513_58_31__715_463_158_131.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildDerbyReturn"
+        ]
+    },
+    "GuildDerbyLimit": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    547,
+                    18,
+                    188,
+                    33
+                ],
+                "template": "Guild/公会圣殿杯上限__547_18_188_33__497_0_288_101.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildDerbyReturn"
+        ]
+    },
+    "GuildDerbyReturn": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    20,
+                    16,
+                    77,
+                    29
+                ],
+                "template": "Common/返回上一级按钮__20_16_77_29__0_0_147_95.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildBossMain"
+        ]
+    },
+}

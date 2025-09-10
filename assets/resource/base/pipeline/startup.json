@@ -1,0 +1,298 @@
+{
+    "StartUp": {
+        "post_wait_freezes": 300,
+        "timeout": 60000,
+        "next": [
+            "HomeFlag",
+            "StartGame"
+        ],
+        "interrupt": [
+            "启动logo",
+            "GameLoading",
+            "ClosePage",
+            "VictoryReturn",
+            "BackButton",
+            "HomeButton",
+            "StartQNZL",
+            "ClickHomeCount"
+        ]
+    },
+    "HomeFlag": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1060,
+                    529,
+                    125,
+                    140
+                ],
+                "template": "StartUp/主界面出击标识__1062_567_123_101__1012_517_223_201.png"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    576,
+                    298,
+                    68,
+                    64
+                ]
+            }
+        }
+    },
+    "StartGame": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    435,
+                    511,
+                    414,
+                    65
+                ],
+                "template": "StartUp/进入游戏按钮__435_511_414_65__385_461_514_165.png",
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "HomeFlag",
+            "StartGame"
+        ],
+        "interrupt": [
+            "ClosePage",
+            "BackButton",
+            "HomeButton",
+            "ClickHomeCount"
+        ]
+    },
+    "ReturnMain": {
+        "doc": "返回主界面（专供任务开始前使用）",
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "Count",
+                "custom_recognition_param": {
+                    "target": 2
+                }
+            }
+        },
+        "next": [
+            "HomeFlagCloseReturnMain"
+        ],
+        "interrupt": [
+            "HomeButton",
+            "BackButton",
+            "ClosePage",
+            "StartGame",
+            "VictoryReturn",
+            "CloseEnergy",
+            "ClickHomeCount"
+        ]
+    },
+    "StartQNZL": {
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.yingche.qnzl/com.inchigame.elf.YCActivity"
+            }
+        },
+        "next": [
+            "DisableStartQNZL"
+        ]
+    },
+    "DisableStartQNZL": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": {
+                    "node_name": "StartQNZL"
+                }
+            }
+        }
+    },
+    "启动logo": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    290,
+                    209,
+                    680,
+                    334
+                ],
+                "template": "StartUp/启动logo__290_209_680_334__240_159_780_434.png"
+            }
+        },
+        "post_delay": 3000
+    },
+    "GameLoading": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1142,
+                    616,
+                    59,
+                    67
+                ],
+                "template": "StartUp/启动文件加载__1142_616_59_67__1092_566_159_154.png"
+            }
+        },
+        "post_delay": 3000
+    },
+    "HomeFlagCloseReturnMain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1060,
+                    529,
+                    125,
+                    140
+                ],
+                "template": "StartUp/主界面出击标识__1062_567_123_101__1012_517_223_201.png"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "DisableNode",
+                "custom_action_param": {
+                    "node_name": "ReturnMain"
+                }
+            }
+        }
+    },
+    "BackButton": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    20,
+                    16,
+                    77,
+                    29
+                ],
+                "template": [
+                    "Common/返回上一级按钮__20_16_77_29__0_0_147_95.png"
+                ],
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "BackButtonWithDelay": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    20,
+                    16,
+                    77,
+                    29
+                ],
+                "template": [
+                    "Common/返回上一级按钮__20_16_77_29__0_0_147_95.png"
+                ],
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 3000
+    },
+    "HomeButton": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    143,
+                    19,
+                    60,
+                    27
+                ],
+                "template": [
+                    "Common/返回主界面按钮__143_19_60_27__93_0_160_96.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "ClickHomeCount": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "Count",
+                "custom_recognition_param": {
+                    "target": 20
+                }
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    611,
+                    4,
+                    10,
+                    3
+                ]
+            }
+        }
+    },
+    "ClosePage": {
+        // 用于关闭各种页面，如签到、公告、物品详情页
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1218,
+                    59,
+                    44,
+                    41
+                ],
+                "template": [
+                    "StartUp/关闭公告__1218_60_44_41__1168_10_112_141.png",
+                    "StartUp/进入游戏界面公告__1218_59_44_40__1168_9_112_140.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.6,
+                "order_by": "Score"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 3000
+    },
+    "VictoryReturn": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    811,
+                    73,
+                    283,
+                    75
+                ],
+                "expected": [
+                    "战斗胜利"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

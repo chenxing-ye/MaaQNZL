@@ -1,0 +1,242 @@
+{
+    "Harvest": {
+        "next": [
+            "StatrHarvest"
+        ],
+        "interrupt": [
+            "ReturnMain"
+        ]
+    },
+    "StatrHarvest": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    771,
+                    619,
+                    87,
+                    50
+                ],
+                "template": "Harvest/神谕司__771_619_87_50__721_569_187_150.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "EnterHarvest"
+        ]
+    },
+    "EnterHarvest": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    91,
+                    306,
+                    35,
+                    17
+                ],
+                "template": "Harvest/神谕司委托__91_306_35_17__41_256_135_117.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "HarvestGain",
+            "HarvestNoGain"
+        ]
+    },
+    "HarvestGain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    883,
+                    642,
+                    51,
+                    26
+                ],
+                "template": "Harvest/神谕司委托领取__883_642_51_26__833_592_151_126.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "HarvestDispatch"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "HarvestNoGain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    654,
+                    646,
+                    158,
+                    26
+                ],
+                "template": "Harvest/神谕司无可领奖励__654_646_158_26__604_596_258_124.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "HarvestDispatch"
+        ]
+    },
+    "HarvestDispatch": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1065,
+                    658,
+                    87,
+                    30
+                ],
+                "template": "Harvest/神谕司委托一键委任__1065_658_87_30__1015_608_187_112.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "HarvestReturn"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "HarvestReturn": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    20,
+                    16,
+                    77,
+                    29
+                ],
+                "template": "Common/返回上一级按钮__20_16_77_29__0_0_147_95.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "HarvestShop"
+        ]
+    },
+    "HarvestShop": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    90,
+                    361,
+                    32,
+                    26
+                ],
+                "template": "Harvest/神谕司商店按钮__90_361_32_26__40_311_132_126.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "HarvestShopItemClick"
+        ]
+    },
+    "HarvestShopItemClick": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    587,
+                    412,
+                    55,
+                    22
+                ],
+                "template": [
+                    "Harvest/可购买标记__602_414_40_21__552_364_140_121.png",
+                    "Harvest/可购买标记2__597_417_35_15__547_367_135_115.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "HarvestShopFinish",
+            "HarvestShopItemMax"
+        ]
+    },
+    "HarvestShopItemMax": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    768,
+                    475,
+                    51,
+                    28
+                ],
+                "template": "Common/物品数量Max__768_475_51_28__718_425_151_128.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "HarvestShopItemBuy"
+        ]
+    },
+    "HarvestShopItemBuy": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    837,
+                    562,
+                    54,
+                    28
+                ],
+                "template": "Common/物品购买确认__837_562_54_28__787_512_154_128.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "HarvestShopFinish",
+            "HarvestShopItemClick"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "HarvestShopFinish": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    525,
+                    483,
+                    75,
+                    34
+                ],
+                "template": "Harvest/神谕司已售罄__525_483_75_34__475_433_175_134.png"
+            }
+        },
+        "next": [
+            "ReturnMain"
+        ]
+    },
+}

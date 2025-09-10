@@ -1,0 +1,351 @@
+{
+    "AssistInFighting": {
+        "next": [
+            "ClickAssistButton",
+            "ClickBattleButton",
+            "ClickChapter1",
+            "EnterFighting"
+        ],
+        "interrupt": [
+            "ReturnMain"
+        ]
+    },
+    "EnterFighting": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1058,
+                    527,
+                    127,
+                    147
+                ],
+                "template": "AssistInFighting/出击按钮__1058_527_127_147__1008_477_227_243.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ClickAssistButton",
+            "ClickBattleButton",
+            "ClickChapter1",
+            "EnterFighting"
+        ],
+        "interrupt": [
+            "ClickStoryLine"
+        ]
+    },
+    "ClickChapter1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    548,
+                    178,
+                    211,
+                    35
+                ],
+                "template": "AssistInFighting/第一章名字_无罪的米德加尔__548_178_211_35__498_128_311_135.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ClickFirst"
+        ],
+        "interrupt": [
+            "Switchhard"
+        ]
+    },
+    "ClickStoryLine": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    102,
+                    670,
+                    90,
+                    30
+                ],
+                "expected": "主线故事"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "Switchhard": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    113,
+                    601,
+                    78,
+                    52
+                ],
+                "template": "AssistInFighting/表界__113_601_78_52__63_551_178_152.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "ClickFirst": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    303,
+                    434,
+                    95,
+                    30
+                ],
+                "template": "AssistInFighting/石河餐馆__303_434_95_30__253_384_195_130.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ClickBattleButton"
+        ]
+    },
+    "ClickBattleButton": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    874,
+                    284,
+                    161,
+                    41
+                ],
+                "template": "AssistInFighting/列表界面出击按钮__874_284_161_41__824_234_261_141.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ClickAssistButton"
+        ]
+    },
+    "ClickAssistButton": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1143,
+                    204,
+                    111,
+                    105
+                ],
+                "template": "AssistInFighting/支援星痕按钮__1143_204_111_105__1093_154_187_205.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ClickFirstAssist",
+            "ClickAssistButton"
+        ]
+    },
+    "ClickFirstAssist": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    326,
+                    79,
+                    36,
+                    401
+                ],
+                "template": [
+                    "AssistInFighting/支援选择依据__324_79_43_27__274_29_143_127.png",
+                    "AssistInFighting/支援选择依据2__331_454_29_24__281_404_129_124.png"
+                ],
+                "order_by": "Score"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ClickAssistConfirm"
+        ]
+    },
+    "ClickAssistConfirm": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1024,
+                    657,
+                    178,
+                    43
+                ],
+                "template": "AssistInFighting/支援界面确定按钮__1024_657_178_43__974_607_278_113.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ClickSelectPosition"
+        ]
+    },
+    "ClickSelectPosition": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    280,
+                    120,
+                    62,
+                    456
+                ],
+                "template": [
+                    "AssistInFighting/进入星痕选择界面按钮__296_569_22_15__246_519_122_115.png",
+                    "AssistInFighting/进入星痕选择界面按钮2__323_141_34_39__273_91_134_139.png",
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "HasPosition",
+            "ClickAssistNoAttack"
+        ]
+    },
+    "HasPosition": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    417,
+                    106,
+                    57,
+                    302
+                ],
+                "template": [
+                    "AssistInFighting/选星痕界面3__420_342_42_66__370_292_142_166.png",
+                    "AssistInFighting/选星痕界面2__420_225_49_64__370_175_149_164.png",
+                    "AssistInFighting/选星痕界面1__426_112_36_62__376_62_136_162.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ClickAssist"
+        ]
+    },
+    "ClickAssistNoAttack": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    785,
+                    155,
+                    16,
+                    15
+                ],
+                "template": "AssistInFighting/无主战星痕直接选择助战星痕__785_155_16_15__735_105_116_115.png"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -100,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "ClickSelectConfirm"
+        ],
+        "interrupt": [
+            "ClickReplaceOrRelieveConfirm"
+        ]
+    },
+    "ClickAssist": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    774,
+                    153,
+                    35,
+                    374
+                ],
+                "template": "AssistInFighting/支援标记__784_507_18_18__734_457_118_118.png"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -100,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "ClickSelectConfirm"
+        ],
+        "interrupt": [
+            "ClickReplaceOrRelieveConfirm"
+        ]
+    },
+    "ClickSelectConfirm": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1190,
+                    658,
+                    64,
+                    36
+                ],
+                "template": "AssistInFighting/选星痕界面确定按钮__1190_658_64_36__1140_608_140_112.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ClickBattleConfirm"
+        ],
+        "interrupt": [
+            "ClickReplaceOrRelieveConfirm"
+        ]
+    },
+    "ClickReplaceOrRelieveConfirm": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    767,
+                    459,
+                    160,
+                    32
+                ],
+                "template": "AssistInFighting/选星痕替换确定按钮__767_459_160_32__717_409_260_132.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

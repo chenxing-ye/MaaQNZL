@@ -29,9 +29,9 @@ body:
     attributes:
       label: Version
       description: >-
-        请提供 MXX 版本
+        请提供 MaaQNZL 版本
       placeholder: |
-        MXX Version:
+        MaaQNZL Version:
     validations:
       required: true
   - type: textarea
