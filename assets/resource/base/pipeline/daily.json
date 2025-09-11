@@ -198,6 +198,9 @@
         },
         "next": [
             "DailyFriendPointReturn"
+        ],
+        "interrupt": [
+            "CloseGetItem"
         ]
     },
     "DailyFriendPointReturn": {
