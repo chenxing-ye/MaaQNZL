@@ -219,6 +219,9 @@
         },
         "next": [
             "DungeonQuickBattleMaX"
+        ],
+        "interrupt": [
+            "CloseGetItem"
         ]
     },
     "DragonShop": {

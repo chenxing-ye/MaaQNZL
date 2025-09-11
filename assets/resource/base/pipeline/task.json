@@ -45,10 +45,36 @@
         },
         "post_delay": 2000,
         "next": [
+            "TaskDailyCloseGet",
             "TaskWeekly"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+        ]
+    },
+    "TaskDailyCloseGet": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    577,
+                    191,
+                    120,
+                    32
+                ],
+                "template": "Common/获得道具__577_191_120_32__527_141_220_132.png"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    100,
+                    100,
+                    10,
+                    10
+                ]
+            }
+        },
+        "next": [
+            "TaskWeekly"
         ]
     },
     "TaskDailyCant": {
@@ -89,7 +115,8 @@
         },
         "next": [
             "TaskWeeklyGain",
-            "TaskWeeklyCant"
+            "TaskWeeklyCant",
+            "TaskWeekly"
         ]
     },
     "TaskWeeklyGain": {

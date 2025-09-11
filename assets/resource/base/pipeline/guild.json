@@ -213,6 +213,7 @@
         "action": {
             "type": "Click"
         },
+        "timeout": 5000,
         "next": [
             "GuildWeeklyReward"
         ]
@@ -406,7 +407,9 @@
             "type": "Click"
         },
         "next": [
-            "GuildDerbySelect"
+            "GuildDerbySelect",
+            "GuildDerbyLimit",
+            "GuildDerbyWinner"
         ]
     },
     "GuildDerbySelect": {
@@ -426,9 +429,7 @@
             "type": "Click"
         },
         "next": [
-            "GuildDerbyOK",
-            "GuildDerbyLimit",
-            "GuildDerbyWinner"
+            "GuildDerbyOK"
         ]
     },
     "GuildDerbyOK": {
@@ -497,11 +498,14 @@
             "param": {
                 "roi": [
                     598,
-                    76,
-                    34,
-                    29
+                    73,
+                    37,
+                    34
                 ],
-                "template": "Guild/公会圣殿杯冠军__598_76_34_29__548_26_134_129.png"
+                "template": [
+                    "Guild/公会圣殿杯冠军__598_76_34_29__548_26_134_129.png",
+                    "Guild/公会圣殿杯冠军__598_73_37_34__548_23_137_134.png"
+                ]
             }
         },
         "action": {
