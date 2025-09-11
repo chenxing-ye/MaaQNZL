@@ -44,6 +44,26 @@
             "type": "Click"
         },
         "next": [
+            "ShopGiftMain"
+        ]
+    },
+    "ShopGiftMain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    103,
+                    141,
+                    102,
+                    39
+                ],
+                "template": "Shop/圣城供需官__103_141_102_39__53_91_202_139.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
             "ShopGiftItem",
             "ShopExchange"
         ]
@@ -133,6 +153,7 @@
         "action": {
             "type": "Click"
         },
+        "timeout": 5000,
         "next": [
             "ShopExchangeItem"
         ],
@@ -176,6 +197,7 @@
         "action": {
             "type": "Click"
         },
+        "timeout": 5000,
         "next": [
             "ShopExchangeItem"
         ],
