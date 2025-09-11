@@ -26,19 +26,21 @@
             "entry": "StartUp"
         },
         {
+            "name": "商店",
+            "entry": "Shop"
+        },
+        {
             "name": "出击-助战",
-            "entry": "AssistInFighting"
+            "entry": "AssistInFighting",
+            "repeatable": true,
+            "repeat_count": 3
         },
         {
-            "name": "公会每日",
-            "entry": "GuildDaily"
-        },
-        {
-            "name": "限时活动扫荡",
+            "name": "恶龙计划清体力",
             "entry": "DragonDungeon"
         },
         {
-            "name": "限时活动商店",
+            "name": "恶龙计划商店",
             "entry": "DragonShop"
         },
         {
@@ -50,8 +52,12 @@
             "entry": "Harvest"
         },
         {
-            "name": "商店",
-            "entry": "Shop"
+            "name": "公会每日",
+            "entry": "GuildDaily"
+        },
+        {
+            "name": "每日任务",
+            "entry": "Task"
         }
     ]
 }

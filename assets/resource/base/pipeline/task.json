@@ -1,0 +1,129 @@
+{
+    "Task": {
+        "next": [
+            "StartTask"
+        ],
+        "interrupt": [
+            "ReturnMain"
+        ]
+    },
+    "StartTask": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    43,
+                    129,
+                    24,
+                    33
+                ],
+                "template": "Task/任务__43_129_24_33__0_79_117_133.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "TaskDailyGain"
+        ]
+    },
+    "TaskDailyGain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1102,
+                    412,
+                    77,
+                    26
+                ],
+                "template": "Task/一键挑战__1102_412_77_26__1052_362_177_126.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 2000,
+        "next": [
+            "TaskWeekly"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "TaskDailyCant": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1094,
+                    409,
+                    85,
+                    29
+                ],
+                "template": "Task/不可一键挑战__1094_409_85_29__1044_359_185_129.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "TaskWeekly"
+        ]
+    },
+    "TaskWeekly": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    934,
+                    17,
+                    95,
+                    28
+                ],
+                "template": "Task/每周任务__934_17_95_28__884_0_195_95.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "TaskWeeklyGain",
+            "TaskWeeklyCant"
+        ]
+    },
+    "TaskWeeklyGain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1102,
+                    412,
+                    77,
+                    26
+                ],
+                "template": "Task/一键挑战__1102_412_77_26__1052_362_177_126.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "TaskWeeklyCant": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1094,
+                    409,
+                    85,
+                    29
+                ],
+                "template": "Task/不可一键挑战__1094_409_85_29__1044_359_185_129.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

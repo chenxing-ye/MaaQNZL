@@ -24,6 +24,7 @@
         "action": {
             "type": "Click"
         },
+        "pre_delay": 2000,
         "next": [
             "DragonMain",
             "EnterDragon"
@@ -212,9 +213,13 @@
                 "template": "Activity/Dragon/快速作战确认完成__558_625_170_39__508_575_270_139.png"
             }
         },
+        "pre_delay": 1500,
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "DungeonQuickBattleMaX"
+        ]
     },
     "DragonShop": {
         "next": [
@@ -238,6 +243,7 @@
                 "template": "Activity/Dragon/完美计划补给__873_604_155_36__823_554_255_136.png"
             }
         },
+        "post_delay": 1000,
         "action": {
             "type": "Click"
         },
@@ -300,6 +306,92 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "DragonShopReturn",
+            "DragonShopItemCant"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "DragonShopItemCant": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    560,
+                    18,
+                    164,
+                    31
+                ],
+                "template": "Common/货币不足无法购买__560_18_164_31__510_0_264_99.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "DragonShopReturn"
+        ]
+    },
+    "DragonShopReturn": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    20,
+                    16,
+                    77,
+                    29
+                ],
+                "template": "Common/返回上一级按钮__20_16_77_29__0_0_147_95.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DragonDaily"
+        ]
+    },
+    "DragonDaily": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    968,
+                    457,
+                    160,
+                    41
+                ],
+                "template": "Activity/Dragon/完美计划收获__968_457_160_41__918_407_260_141.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DragonDailyGain"
+        ]
+    },
+    "DragonDailyGain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1105,
+                    24,
+                    80,
+                    23
+                ],
+                "template": "Activity/Dragon/完美计划收获全部领取__1105_24_80_23__1055_0_180_97.png"
+            }
+        },
+        "action": {
+            "type": "Click"
         }
-    }
+    },
 }

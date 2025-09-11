@@ -214,8 +214,7 @@
             "type": "Click"
         },
         "next": [
-            "GuildWeeklyReward",
-            "ReturnMain"
+            "GuildWeeklyReward"
         ]
     },
     "GuildWeeklyReward": {
@@ -233,14 +232,7 @@
         },
         "action": {
             "type": "Click"
-        },
-        "post_wait_freezes": 300,
-        "next": [
-            "ReturnMain"
-        ],
-        "interrupt": [
-            "CloseGetItem"
-        ]
+        }
     },
     "GuildActivity": {
         "recognition": {
@@ -414,7 +406,8 @@
         },
         "next": [
             "GuildDerbyOK",
-            "GuildDerbyLimit"
+            "GuildDerbyLimit",
+            "GuildDerbyWinner"
         ]
     },
     "GuildDerbyOK": {
@@ -475,6 +468,26 @@
         },
         "next": [
             "GuildBossMain"
+        ]
+    },
+    "GuildDerbyWinner": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    598,
+                    76,
+                    34,
+                    29
+                ],
+                "template": "Guild/公会圣殿杯冠军__598_76_34_29__548_26_134_129.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildDerbyReturn"
         ]
     },
 }
