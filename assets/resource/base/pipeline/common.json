@@ -125,5 +125,63 @@
                 ]
             }
         }
+    },
+    "StorySkip": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1178,
+                    23,
+                    79,
+                    30
+                ],
+                "template": "Common/剧情跳过__1178_23_79_30__1128_0_152_103.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "StorySkipAll",
+            "StorySkip"
+        ]
+    },
+    "StorySkipAll": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    524,
+                    430,
+                    36,
+                    31
+                ],
+                "template": "Common/剧情跳过全部按钮__524_430_36_31__474_380_136_131.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "StorySkipOK"
+        ]
+    },
+    "StorySkipOK": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    524,
+                    430,
+                    36,
+                    31
+                ],
+                "template": "Common/剧情跳过确定__939_494_89_34__889_444_189_134.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

@@ -128,8 +128,32 @@
         "action": {
             "type": "Click"
         },
+        "timeout": 5,
         "interrupt": [
             "CloseGetItem"
+        ],
+        "next": [
+            "DailyMemory"
+        ]
+    },
+    "DailyMemory": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    997,
+                    154,
+                    273,
+                    363
+                ],
+                "template": "Daily/星痕记忆__1195_420_63_13__1145_370_135_113.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "StorySkip"
         ]
     }
 }
