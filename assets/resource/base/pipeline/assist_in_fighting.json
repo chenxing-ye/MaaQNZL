@@ -1,8 +1,8 @@
 {
     "AssistInFighting": {
         "next": [
-            "ClickAssistButton",
             "ClickBattleButton",
+            "ClickAssistButton",
             "ClickChapter1",
             "EnterFighting"
         ],
@@ -194,8 +194,10 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 3000,
         "next": [
-            "ClickSelectPosition"
+            "ClickSelectPosition",
+            "ClickSelectPosition1"
         ]
     },
     "ClickSelectPosition": {
@@ -203,19 +205,35 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    280,
-                    120,
-                    62,
-                    456
+                    305,
+                    523,
+                    41,
+                    41
                 ],
                 "template": [
-                    "AssistInFighting/进入星痕选择界面按钮__296_569_22_15__246_519_122_115.png",
-                    "AssistInFighting/进入星痕选择界面按钮2__323_141_34_39__273_91_134_139.png",
+                    "AssistInFighting/三号位无星痕__305_523_41_41__255_473_141_141.png"
                 ]
             }
         },
         "action": {
             "type": "Click"
+        },
+        "next": [
+            "ClickAssistNoAttack",
+            "ClickAssist"
+        ]
+    },
+    "ClickSelectPosition1": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    305,
+                    523,
+                    41,
+                    41
+                ]
+            }
         },
         "next": [
             "HasPosition",

@@ -301,6 +301,7 @@
         },
         "next": [
             "GuildBossCant",
+            "GuildBossCant1",
             "GuildBossFinish"
         ],
         "interrupt": [
@@ -318,6 +319,26 @@
                     33
                 ],
                 "template": "Guild/公会首领次数已用完__547_18_188_33__497_0_288_101.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GuildBossReturn"
+        ]
+    },
+    "GuildBossCant1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    556,
+                    20,
+                    166,
+                    27
+                ],
+                "template": "Guild/公会首领不在时间内__556_20_166_27__506_0_266_97.png"
             }
         },
         "action": {
