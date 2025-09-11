@@ -221,7 +221,8 @@
             "DungeonQuickBattleMaX"
         ],
         "interrupt": [
-            "CloseGetItem"
+            "CloseGetItem",
+            "CloseLevelUp"
         ]
     },
     "DragonShop": {

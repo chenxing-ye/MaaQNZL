@@ -24,6 +24,31 @@
             }
         }
     },
+    "CloseLevelUp": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    526,
+                    267,
+                    228,
+                    56
+                ],
+                "template": "Common/等级提升__526_267_228_56__476_217_328_156.png"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    100,
+                    100,
+                    10,
+                    10
+                ]
+            }
+        }
+    },
     "SkipEnergy": {
         "recognition": {
             "type": "TemplateMatch",
