@@ -82,10 +82,10 @@
             "type": "Click"
         },
         "next": [
-            "DungeonBattle"
+            "DragonQuickBattle"
         ]
     },
-    "DungeonBattle": {
+    "DragonQuickBattle": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -99,130 +99,10 @@
             }
         },
         "next": [
-            "DungeonQuickBattleMain"
+            "QuickBattleMain"
         ],
         "interrupt": [
-            "DungeonQuickBattle"
-        ]
-    },
-    "DungeonQuickBattle": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    706,
-                    646,
-                    169,
-                    43
-                ],
-                "template": "Activity/Dragon/快速作战按钮__706_646_169_43__656_596_269_124.png"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "DungeonQuickBattleMain": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    706,
-                    646,
-                    169,
-                    43
-                ],
-                "template": "Activity/Dragon/快速作战取消按钮__706_646_169_43__656_596_269_124.png"
-            }
-        },
-        "next": [
-            "DungeonQuickBattleMaX"
-        ]
-    },
-    "DungeonQuickBattleMaX": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    1105,
-                    546,
-                    51,
-                    27
-                ],
-                "template": "Activity/Dragon/快速作战最大次数__1105_546_51_27__1055_496_151_127.png"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "DungeonQuickBattleGo"
-        ]
-    },
-    "DungeonQuickBattleGo": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    924,
-                    650,
-                    156,
-                    37
-                ],
-                "template": "Activity/Dragon/快速作战出击__924_650_156_37__874_600_256_120.png"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "DungeonQuickBattleFinish",
-            "DragonCloseEnergy"
-        ],
-        "interrupt": [
-            "CloseGetItem"
-        ]
-    },
-    "DragonCloseEnergy": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    421,
-                    483,
-                    84,
-                    35
-                ],
-                "template": "Common/关闭补充体力按钮__421_483_84_35__371_433_184_135.png"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "DungeonQuickBattleFinish": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    558,
-                    625,
-                    170,
-                    39
-                ],
-                "template": "Activity/Dragon/快速作战确认完成__558_625_170_39__508_575_270_139.png"
-            }
-        },
-        "pre_delay": 1500,
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "DungeonQuickBattleMaX"
-        ],
-        "interrupt": [
-            "CloseGetItem",
-            "CloseLevelUp"
+            "ClickQuickBattle"
         ]
     },
     "DragonShop": {

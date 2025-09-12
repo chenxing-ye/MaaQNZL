@@ -1,0 +1,207 @@
+{
+    "ClickQuickBattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    706,
+                    646,
+                    169,
+                    43
+                ],
+                "template": "Battle/快速作战按钮__706_646_169_43__656_596_269_124.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "QuickBattleMain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    706,
+                    646,
+                    169,
+                    43
+                ],
+                "template": "Battle/快速作战取消按钮__706_646_169_43__656_596_269_124.png"
+            }
+        },
+        "next": [
+            "QuickBattleMaX"
+        ]
+    },
+    "QuickBattleMaX": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1105,
+                    546,
+                    51,
+                    27
+                ],
+                "template": "Battle/快速作战最大次数__1105_546_51_27__1055_496_151_127.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "QuickBattleGo"
+        ]
+    },
+    "QuickBattleGo": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    924,
+                    650,
+                    156,
+                    37
+                ],
+                "template": "Battle/快速作战出击__924_650_156_37__874_600_256_120.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "QuickBattleFinish",
+            "CloseEnergy"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "QuickBattleFinish": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    558,
+                    625,
+                    170,
+                    39
+                ],
+                "template": "Battle/快速作战确认完成__558_625_170_39__508_575_270_139.png"
+            }
+        },
+        "pre_delay": 1500,
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "QuickBattleMaX"
+        ],
+        "interrupt": [
+            "CloseGetItem",
+            "CloseLevelUp"
+        ]
+    },
+    "SkipEnergy": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    567,
+                    130,
+                    143,
+                    42
+                ],
+                "template": "Battle/补充星魂力__567_130_143_42__517_80_243_142.png"
+            }
+        },
+        "next": [
+            "CloseEnergy"
+        ]
+    },
+    "CloseEnergy": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    421,
+                    483,
+                    84,
+                    35
+                ],
+                "template": "Battle/关闭补充体力按钮__421_483_84_35__371_433_184_135.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "ClickBattleConfirm": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1070,
+                    654,
+                    158,
+                    43
+                ],
+                "template": "Battle/选人界面出击按钮__1070_654_158_43__1020_604_258_116.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 120000,
+        "next": [
+            "CheckBattleFinish",
+            "ClickBattleConfirm"
+        ],
+        "interrupt": [
+            "OpenAutobattle"
+        ]
+    },
+    "OpenAutobattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1028,
+                    26,
+                    43,
+                    38
+                ],
+                "template": "Battle/自动战斗按钮__1028_26_43_38__978_0_143_114.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "CheckBattleFinish": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    38,
+                    625,
+                    126,
+                    37
+                ],
+                "template": "Battle/再次挑战__38_625_126_37__0_575_214_137.png"
+            }
+        },
+        "pre_delay": 3000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    -100,
+                    0,
+                    0
+                ]
+            }
+        }
+    }
+}

@@ -54,6 +54,13 @@
             "entry": "Harvest"
         },
         {
+            "name": "刷本-清体力",
+            "entry": "Farm",
+            "option": [
+                "副本"
+            ],
+        },
+        {
             "name": "公会每日",
             "entry": "GuildDaily"
         },
@@ -61,5 +68,139 @@
             "name": "每日任务",
             "entry": "Task"
         }
-    ]
+    ],
+    "option": {
+        "要打的本": {
+            "cases": [
+                {
+                    "name": "本勒收集7",
+                    "pipeline_override": {
+                        "SelectFarmFirst": {
+                            "expected": "本勒收集"
+                        },
+                        "SelectFarmSecond": {
+                            "expected": "本勒收集7"
+                        }
+                    }
+                },
+                {
+                    "name": "经验获取7",
+                    "pipeline_override": {
+                        "SelectFarmFirst": {
+                            "expected": "经验获取"
+                        },
+                        "SelectFarmSecond": {
+                            "expected": "经验获取7"
+                        }
+                    }
+                },
+                {
+                    "name": "技能材料7",
+                    "pipeline_override": {
+                        "SelectFarmFirst": {
+                            "expected": "技能材料"
+                        },
+                        "SelectFarmSecond": {
+                            "expected": "技能材料7"
+                        }
+                    }
+                },
+                {
+                    "name": "符文之地漆黑之地-3",
+                    "pipeline_override": {
+                        "SelectFarmFirst": {
+                            "expected": "符文之地",
+                            "interrupt": []
+                        },
+                        "SelectFarmSecond": {
+                            "expected": "符文之地",
+                            "roi": [
+                                59,
+                                592,
+                                122,
+                                47
+                            ]
+                        },
+                        "SelectFarmThree": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "符文之地天界光辉-3",
+                    "pipeline_override": {
+                        "SelectFarmFirst": {
+                            "expected": "符文之地",
+                            "interrupt": []
+                        },
+                        "SelectFarmSecond": {
+                            "expected": "符文之地",
+                            "roi": [
+                                341,
+                                599,
+                                125,
+                                38
+                            ]
+                        },
+                        "SelectFarmThree": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "符文之地战争传奇-3",
+                    "pipeline_override": {
+                        "SelectFarmFirst": {
+                            "expected": "符文之地",
+                            "interrupt": []
+                        },
+                        "SelectFarmSecond": {
+                            "expected": "符文之地",
+                            "roi": [
+                                620,
+                                598,
+                                128,
+                                45
+                            ]
+                        },
+                        "SelectFarmThree": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "符文之地上古之战-3",
+                    "pipeline_override": {
+                        "SelectFarmFirst": {
+                            "expected": "符文之地",
+                            "interrupt": []
+                        },
+                        "SelectFarmSecond": {
+                            "expected": "符文之地",
+                            "roi": [
+                                902,
+                                599,
+                                122,
+                                43
+                            ]
+                        },
+                        "SelectFarmThree": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "骚灵之境6",
+                    "pipeline_override": {
+                        "SelectFarmFirst": {
+                            "expected": "骚灵之境"
+                        },
+                        "SelectFarmSecond": {
+                            "expected": "骚灵之境6"
+                        }
+                    }
+                }
+            ]
+        }
+    }
 }

@@ -1,0 +1,164 @@
+{
+    "Farm": {
+        "next": [
+            "EnterFarm"
+        ],
+        "interrupt": [
+            "ReturnMain"
+        ]
+    },
+    "EnterFarm": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1092,
+                    615,
+                    76,
+                    48
+                ],
+                "template": "Main/出击按钮__1092_615_76_48__1042_565_176_148.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ClickFarm"
+        ]
+    },
+    "ClickFarm": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    604,
+                    662,
+                    109,
+                    49
+                ],
+                "expected": "宝库之门"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "SelectFarmFirst"
+        ],
+        "interrupt": [
+            "SelectFarmSwipeUp"
+        ]
+    },
+    "SelectFarmFirst": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    352,
+                    44,
+                    345,
+                    603
+                ],
+                "expected": "骚灵之境"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "SelectFarmSecond"
+        ],
+        "interrupt": [
+            "SelectFarmSwipeLeft"
+        ]
+    },
+    "SelectFarmSecond": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    231,
+                    1280,
+                    418
+                ],
+                "expected": "骚灵之境4"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "SelectFarmThree",
+            "QuickBattleMain"
+        ],
+        "interrupt": [
+            "ClickQuickBattle"
+        ]
+    },
+    "SelectFarmThree": {
+        "enabled": false,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    231,
+                    1280,
+                    418
+                ],
+                "expected": "符文之地3"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "QuickBattleMain"
+        ],
+        "interrupt": [
+            "ClickQuickBattle"
+        ]
+    },
+    "SelectFarmSwipeUp": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    695,
+                    630,
+                    26,
+                    21
+                ],
+                "end": [
+                    694,
+                    32,
+                    27,
+                    22
+                ],
+                "duration": 1000
+            }
+        }
+    },
+    "SelectFarmSwipeLeft": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    889,
+                    333,
+                    26,
+                    31
+                ],
+                "end": [
+                    406,
+                    337,
+                    27,
+                    27
+                ],
+                "duration": 1000
+            }
+        }
+    }
+}
