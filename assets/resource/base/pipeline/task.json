@@ -152,7 +152,14 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "DailyFriendPoint"
+        ],
+        "interrupt": [
+            "CloseGetItem",
+            "TaskReturn"
+        ]
     },
     "TaskWeeklyCant": {
         "recognition": {
@@ -169,7 +176,13 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "DailyFriendPoint"
+        ],
+        "interrupt": [
+            "TaskReturn"
+        ]
     },
     "TaskWeeklyFinish": {
         "recognition": {
@@ -183,6 +196,29 @@
                 ],
                 "expected": "任务完美收官"
             }
+        },
+        "next": [
+            "DailyFriendPoint"
+        ],
+        "interrupt": [
+            "TaskReturn"
+        ]
+    },
+    "TaskReturn": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    143,
+                    19,
+                    60,
+                    27
+                ],
+                "template": "Common/返回主界面按钮__143_19_60_27__93_0_160_96.png"
+            }
+        },
+        "action": {
+            "type": "Click"
         }
     },
     "TaskDailyFinish": {
@@ -204,5 +240,81 @@
         "interrupt": [
             "TaskWeekly"
         ]
+    },
+    "DailyFriendPoint": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    43,
+                    129,
+                    24,
+                    33
+                ],
+                "template": "Main/任务__43_129_24_33__0_79_117_133.png"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    -80,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "DailyFriendPointGain"
+        ]
+    },
+    "DailyFriendPointGain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1165,
+                    425,
+                    45,
+                    26
+                ],
+                "template": "Common/助战记录__1165_425_45_26__1115_375_145_126.png"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    40,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "DailyFriendPointReturn"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "DailyFriendPointReturn": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    20,
+                    16,
+                    77,
+                    29
+                ],
+                "template": "Common/返回上一级按钮__20_16_77_29__0_0_147_95.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

@@ -133,7 +133,7 @@
             "CloseGetItem"
         ],
         "next": [
-            "DailyFriendPoint"
+            "DailyMemory"
         ]
     },
     "DailyMemory": {
@@ -154,73 +154,6 @@
         },
         "next": [
             "StorySkip"
-        ]
-    },
-    "DailyFriendPoint": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    10,
-                    10,
-                    10,
-                    10
-                ]
-            }
-        },
-        "next": [
-            "DailyFriendPointGain"
-        ]
-    },
-    "DailyFriendPointGain": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    1165,
-                    425,
-                    45,
-                    26
-                ],
-                "template": "Common/助战记录__1165_425_45_26__1115_375_145_126.png"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target_offset": [
-                    0,
-                    40,
-                    0,
-                    0
-                ]
-            }
-        },
-        "next": [
-            "DailyFriendPointReturn"
-        ],
-        "interrupt": [
-            "CloseGetItem"
-        ]
-    },
-    "DailyFriendPointReturn": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    20,
-                    16,
-                    77,
-                    29
-                ],
-                "template": "Common/返回上一级按钮__20_16_77_29__0_0_147_95.png"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "DailyMemory"
         ]
     }
 }
