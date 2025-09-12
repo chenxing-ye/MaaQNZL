@@ -14,7 +14,9 @@
             "BackButton",
             "HomeButton",
             "StartQNZL",
-            "ClickHomeCount"
+            "ClickHomeCount",
+            "LoadingGameEnter",
+            "Download"
         ]
     },
     "HomeFlag": {
@@ -136,12 +138,12 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    1142,
-                    616,
-                    59,
-                    67
+                    1157,
+                    637,
+                    28,
+                    38
                 ],
-                "template": "StartUp/启动文件加载__1142_616_59_67__1092_566_159_154.png"
+                "template": "StartUp/资源加载或下载__1157_637_28_38__1107_587_128_133.png"
             }
         },
         "post_delay": 3000
@@ -288,6 +290,52 @@
                 ],
                 "expected": [
                     "战斗胜利"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "LoadingGameEnter": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1080,
+                    645,
+                    85,
+                    27
+                ],
+                "expected": [
+                    "进入游戏"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -100,
+                    -100,
+                    10,
+                    10
+                ]
+            }
+        }
+    },
+    "Download": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    796,
+                    475,
+                    81,
+                    35
+                ],
+                "template": [
+                    "StartUp/游戏资源下载确定按钮__796_475_81_35__746_425_181_135.png"
                 ]
             }
         },
