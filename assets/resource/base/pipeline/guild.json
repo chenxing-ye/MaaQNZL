@@ -170,6 +170,24 @@
         },
         "next": [
             "GuildDailyReward",
+            "GuildTaskFinish",
+            "GuildTaskWeekly"
+        ]
+    },
+    "GuildTaskFinish": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    691,
+                    309,
+                    246,
+                    52
+                ],
+                "expected": "任务完美收官"
+            }
+        },
+        "next": [
             "GuildTaskWeekly"
         ]
     },
@@ -213,10 +231,24 @@
         "action": {
             "type": "Click"
         },
-        "timeout": 5000,
         "next": [
-            "GuildWeeklyReward"
+            "GuildWeeklyReward",
+            "GuildWeeklyFinish"
         ]
+    },
+    "GuildWeeklyFinish": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    691,
+                    309,
+                    246,
+                    52
+                ],
+                "expected": "任务完美收官"
+            }
+        }
     },
     "GuildWeeklyReward": {
         "recognition": {
