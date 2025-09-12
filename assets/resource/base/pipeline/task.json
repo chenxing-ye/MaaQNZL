@@ -24,7 +24,9 @@
             "type": "Click"
         },
         "next": [
-            "TaskDailyGain"
+            "TaskDailyGain",
+            "TaskDailyCant",
+            "TaskDailyFinish"
         ]
     },
     "TaskDailyGain": {
@@ -43,8 +45,10 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 2000,
         "next": [
+            "TaskWeeklyMain"
+        ],
+        "interrupt": [
             "TaskDailyCloseGet",
             "TaskWeekly"
         ]
@@ -72,10 +76,7 @@
                     10
                 ]
             }
-        },
-        "next": [
-            "TaskWeekly"
-        ]
+        }
     },
     "TaskDailyCant": {
         "recognition": {
@@ -94,6 +95,9 @@
             "type": "Click"
         },
         "next": [
+            "TaskWeeklyMain"
+        ],
+        "interrupt": [
             "TaskWeekly"
         ]
     },
@@ -112,11 +116,25 @@
         },
         "action": {
             "type": "Click"
+        }
+    },
+    "TaskWeeklyMain": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1058,
+                    133,
+                    58,
+                    24
+                ],
+                "expected": "防御力"
+            }
         },
         "next": [
             "TaskWeeklyGain",
             "TaskWeeklyCant",
-            "TaskWeekly"
+            "TaskWeeklyFinish"
         ]
     },
     "TaskWeeklyGain": {
@@ -152,5 +170,39 @@
         "action": {
             "type": "Click"
         }
+    },
+    "TaskWeeklyFinish": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    450,
+                    590,
+                    254,
+                    57
+                ],
+                "expected": "任务完美收官"
+            }
+        }
+    },
+    "TaskDailyFinish": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    450,
+                    590,
+                    254,
+                    57
+                ],
+                "expected": "任务完美收官"
+            }
+        },
+        "next": [
+            "TaskWeeklyMain"
+        ],
+        "interrupt": [
+            "TaskWeekly"
+        ]
     }
 }

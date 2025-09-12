@@ -1,6 +1,7 @@
 {
     "name": "MaaQNZL",
     "url": "https://github.com/chenxing-ye/MaaQNZL",
+    "custom_title": "千年之旅小助手",
     "controller": [
         {
             "name": "安卓端",
