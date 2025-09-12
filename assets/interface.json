@@ -29,14 +29,16 @@
             "entry": "StartUp"
         },
         {
-            "name": "商店",
-            "entry": "Shop"
+            "name": "神谕司",
+            "entry": "Harvest"
         },
         {
-            "name": "出击-助战",
-            "entry": "AssistInFighting",
-            "repeatable": true,
-            "repeat_count": 3
+            "name": "每日骰子",
+            "entry": "Daily"
+        },
+        {
+            "name": "商店",
+            "entry": "Shop"
         },
         {
             "name": "恶龙计划清体力",
@@ -45,14 +47,6 @@
         {
             "name": "恶龙计划商店",
             "entry": "DragonShop"
-        },
-        {
-            "name": "每日骰子",
-            "entry": "Daily"
-        },
-        {
-            "name": "神谕司",
-            "entry": "Harvest"
         },
         {
             "name": "刷本-清体力",
@@ -64,6 +58,12 @@
         {
             "name": "公会每日",
             "entry": "GuildDaily"
+        },
+        {
+            "name": "出击-助战",
+            "entry": "AssistInFighting",
+            "repeatable": true,
+            "repeat_count": 3
         },
         {
             "name": "每日任务",
