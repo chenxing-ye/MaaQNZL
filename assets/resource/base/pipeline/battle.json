@@ -173,6 +173,8 @@
         "next": [
             "CheckBattleFinish",
             "CheckBattleFinish1",
+            "CheckBattleFinish2",
+            "CheckBattleFinish3",
             "CheckGuildBattleFinish",
             "ClickBattleConfirm"
         ],
@@ -198,6 +200,8 @@
         "next": [
             "CheckBattleFinish",
             "CheckBattleFinish1",
+            "CheckBattleFinish2",
+            "CheckBattleFinish3",
             "CheckGuildBattleFinish"
         ],
         "interrupt": [
@@ -348,6 +352,39 @@
                 "expected": [
                     "VICTORY",
                     "VCTORY"
+                ]
+            }
+        }
+    },
+    "CheckBattleFinish2": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    829,
+                    404,
+                    260,
+                    32
+                ],
+                "template": [
+                    "Roguelike/战斗失败界面标记__829_404_260_32__779_354_360_132.png"
+                ]
+            }
+        }
+    },
+    "CheckBattleFinish3": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    683,
+                    341,
+                    51,
+                    22
+                ],
+                "expected": [
+                    "Level",
+                    "eve"
                 ]
             }
         }
