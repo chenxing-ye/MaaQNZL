@@ -1,0 +1,146 @@
+{
+    "ColumnMatrix": {
+        "next": [
+            "EnterColumnMatrix"
+        ],
+        "interrupt": [
+            "ReturnMain"
+        ]
+    },
+    "EnterColumnMatrix": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1092,
+                    615,
+                    76,
+                    48
+                ],
+                "template": "Main/出击按钮__1092_615_76_48__1042_565_176_148.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "EnterColumnMatrix1"
+        ]
+    },
+    "EnterColumnMatrix1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    354,
+                    669,
+                    101,
+                    34
+                ],
+                "expected": "多维策略"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "StartColumnMatrix"
+        ]
+    },
+    "StartColumnMatrix": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    838,
+                    486,
+                    158,
+                    104
+                ],
+                "expected": [
+                    "进入",
+                    "主题"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ColumnMatrixFinish"
+        ],
+        "interrupt": [
+            "ColumnMatrixMatch",
+            "ColumnMatrixBattleSkip",
+            "ColumnMatrixBattleFinish"
+        ]
+    },
+    "ColumnMatrixFinish": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    429,
+                    458,
+                    79,
+                    28
+                ],
+                "template": "ColumnMatrix/怪物列阵次数不足关闭界面__429_458_79_28__379_408_179_128.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "ColumnMatrixMatch": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    551,
+                    591,
+                    180,
+                    43
+                ],
+                "template": "ColumnMatrix/怪物列阵匹配作战__551_591_180_43__501_541_280_143.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "ColumnMatrixBattleSkip": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1205,
+                    29,
+                    43,
+                    37
+                ],
+                "template": "ColumnMatrix/怪物列阵跳过__1205_29_43_37__1155_0_125_116.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "ColumnMatrixBattleFinish": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    710,
+                    485,
+                    110,
+                    36
+                ],
+                "template": "ColumnMatrix/怪物列阵战斗结束__710_485_110_36__660_435_210_136.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+}

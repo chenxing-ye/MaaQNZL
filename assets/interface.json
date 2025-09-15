@@ -80,8 +80,8 @@
             ]
         },
         {
-            "name": "Test",
-            "entry": "SettingAutobattle"
+            "name": "怪物列阵",
+            "entry": "ColumnMatrix"
         }
     ],
     "option": {
