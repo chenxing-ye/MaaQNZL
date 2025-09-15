@@ -343,7 +343,7 @@
             "type": "Click"
         },
         "next": [
-            "ClickBattleConfirm"
+            "StartBattle"
         ],
         "interrupt": [
             "ClickReplaceOrRelieveConfirm"

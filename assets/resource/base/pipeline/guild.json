@@ -233,7 +233,11 @@
         },
         "next": [
             "GuildWeeklyReward",
-            "GuildWeeklyFinish"
+            "GuildWeeklyFinish",
+            "GuildWeeklyRewardNo"
+        ],
+        "interrupt": [
+            "CloseGetItem"
         ]
     },
     "GuildWeeklyFinish": {
@@ -266,6 +270,21 @@
         "action": {
             "type": "Click"
         }
+    },
+    "GuildWeeklyRewardNo": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    989,
+                    158,
+                    126,
+                    35
+                ],
+                "template": "Guild/公会全部领取__989_158_126_35__939_108_226_135.png"
+            }
+        },
+        "inverse": true
     },
     "GuildActivity": {
         "recognition": {
@@ -335,10 +354,64 @@
         "next": [
             "GuildBossCant",
             "GuildBossCant1",
-            "GuildBossFinish"
+            "GuildBossStartBattle"
+        ]
+    },
+    "GuildBossStartBattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1070,
+                    654,
+                    158,
+                    43
+                ],
+                "template": "Battle/选人界面出击按钮__1070_654_158_43__1020_604_258_116.png"
+            }
+        },
+        "next": [
+            "GuildBossSwitchTeam"
+        ]
+    },
+    "GuildBossSwitchTeam": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    45,
+                    668,
+                    96,
+                    26
+                ]
+            }
+        },
+        "next": [
+            "GuildBossBattleStart"
+        ]
+    },
+    "GuildBossBattleStart": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1070,
+                    654,
+                    158,
+                    43
+                ],
+                "template": "Battle/选人界面出击按钮__1070_654_158_43__1020_604_258_116.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 3000,
+        "next": [
+            "GuildBossReturn"
         ],
         "interrupt": [
-            "ClickBattleConfirm"
+            "Battling"
         ]
     },
     "GuildBossCant": {
@@ -374,27 +447,6 @@
                 "template": "Guild/公会首领不在时间内__556_20_166_27__506_0_266_97.png"
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "GuildBossReturn"
-        ]
-    },
-    "GuildBossFinish": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    877,
-                    546,
-                    124,
-                    43
-                ],
-                "template": "Guild/公会首领总伤害__877_546_124_43__827_496_224_143.png"
-            }
-        },
-        "timeout": 120000,
         "action": {
             "type": "Click"
         },

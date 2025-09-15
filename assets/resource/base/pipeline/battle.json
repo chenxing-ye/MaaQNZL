@@ -136,6 +136,23 @@
             "type": "Click"
         }
     },
+    "StartBattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1070,
+                    654,
+                    158,
+                    43
+                ],
+                "template": "Battle/选人界面出击按钮__1070_654_158_43__1020_604_258_116.png"
+            }
+        },
+        "next": [
+            "SwitchTeam"
+        ]
+    },
     "ClickBattleConfirm": {
         "recognition": {
             "type": "TemplateMatch",
@@ -155,11 +172,51 @@
         "timeout": 180000,
         "next": [
             "CheckBattleFinish",
+            "CheckGuildBattleFinish",
             "ClickBattleConfirm"
         ],
         "interrupt": [
-            "OpenAutobattle"
+            "SettingAutobattle",
+            "Autobattling"
         ]
+    },
+    "Battling": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    890,
+                    36,
+                    48,
+                    23
+                ],
+                "expected": "波数"
+            }
+        },
+        "timeout": 180000,
+        "next": [
+            "CheckBattleFinish",
+            "CheckGuildBattleFinish"
+        ],
+        "interrupt": [
+            "SettingAutobattle",
+            "Autobattling"
+        ]
+    },
+    "Autobattling": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1034,
+                    22,
+                    37,
+                    44
+                ],
+                "template": "Battle/自动战斗中__1034_22_37_44__984_0_137_116.png"
+            }
+        },
+        "post_delay": 3000
     },
     "OpenAutobattle": {
         "recognition": {
@@ -172,6 +229,78 @@
                     38
                 ],
                 "template": "Battle/自动战斗按钮__1028_26_43_38__978_0_143_114.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "SettingAutobattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1028,
+                    26,
+                    43,
+                    38
+                ],
+                "template": "Battle/自动战斗按钮__1028_26_43_38__978_0_143_114.png"
+            }
+        },
+        "next": [
+            "SettingSpeedFinish"
+        ],
+        "interrupt": [
+            "SettingSpeed1",
+            "SettingSpeed2"
+        ]
+    },
+    "SettingSpeedFinish": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1105,
+                    25,
+                    34,
+                    40
+                ],
+                "expected": "4"
+            }
+        },
+        "next": [
+            "OpenAutobattle"
+        ]
+    },
+    "SettingSpeed1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1123,
+                    26,
+                    36,
+                    34
+                ],
+                "template": "Battle/1倍速__1123_26_36_34__1073_0_136_110.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "SettingSpeed2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1105,
+                    25,
+                    34,
+                    40
+                ],
+                "expected": "2"
             }
         },
         "action": {
@@ -203,5 +332,38 @@
                 ]
             }
         }
+    },
+    "CheckGuildBattleFinish": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    877,
+                    546,
+                    124,
+                    43
+                ],
+                "template": "Guild/公会首领总伤害__877_546_124_43__827_496_224_143.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "SwitchTeam": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    45,
+                    668,
+                    96,
+                    26
+                ]
+            }
+        },
+        "next": [
+            "ClickBattleConfirm"
+        ]
     }
 }
