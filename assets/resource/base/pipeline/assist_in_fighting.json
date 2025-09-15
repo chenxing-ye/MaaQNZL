@@ -2,7 +2,6 @@
     "AssistInFighting": {
         "next": [
             "ClickBattleButton",
-            "ClickAssistButton",
             "ClickChapter1",
             "EnterFighting"
         ],
@@ -27,7 +26,6 @@
             "type": "Click"
         },
         "next": [
-            "ClickAssistButton",
             "ClickBattleButton",
             "ClickChapter1",
             "EnterFighting"
@@ -128,6 +126,23 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_delay": 2000,
+        "next": [
+            "AssistSwitchSteam"
+        ]
+    },
+    "AssistSwitchSteam": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    45,
+                    668,
+                    96,
+                    26
+                ]
+            }
         },
         "next": [
             "ClickAssistButton"
