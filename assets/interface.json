@@ -66,7 +66,8 @@
             "name": "出击-助战",
             "entry": "AssistInFighting",
             "repeatable": true,
-            "repeat_count": 3
+            "repeat_count": 3,
+            "doc": "助战会默认使用一队进行，导致一队角色混乱，其他玩法需要打高分，建议手动设置好二队及其自动轴"
         },
         {
             "name": "每日任务",
@@ -82,6 +83,13 @@
         {
             "name": "怪物列阵",
             "entry": "ColumnMatrix"
+        },
+        {
+            "name": "黯影地牢",
+            "entry": "Roguelike",
+            "option": [
+                "出战队伍"
+            ]
         }
     ],
     "option": {

@@ -1,0 +1,245 @@
+{
+    "Roguelike": {
+        "next": [
+            "EnterRoguelike"
+        ],
+        "interrupt": [
+            "ReturnMain"
+        ]
+    },
+    "EnterRoguelike": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1092,
+                    615,
+                    76,
+                    48
+                ],
+                "template": "Main/出击按钮__1092_615_76_48__1042_565_176_148.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "EnterRoguelike1"
+        ]
+    },
+    "EnterRoguelike1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    870,
+                    672,
+                    95,
+                    30
+                ],
+                "expected": "挑战关卡"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "EnterRoguelike2"
+        ]
+    },
+    "EnterRoguelike2": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    445,
+                    381,
+                    127,
+                    31
+                ],
+                "template": [
+                    "Roguelike/黯影地牢__445_381_127_31__395_331_227_131.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "RoguelikeFinish"
+        ],
+        "interrupt": [
+            "RoguelikeDungeonStart",
+            "RoguelikeBattleVictory",
+            "RoguelikeBuffSelect"
+        ]
+    },
+    "RoguelikeDungeonStart": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    85,
+                    103,
+                    988,
+                    400
+                ],
+                "template": "Roguelike/肉鸽挑战中标记__535_387_28_30__485_337_128_130.png",
+                "threshold": 0.55
+            }
+        },
+        "timeout": 2000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    50,
+                    50,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "RoguelikeBattle"
+        ]
+    },
+    "RoguelikeBattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    812,
+                    645,
+                    119,
+                    37
+                ],
+                "template": [
+                    "Roguelike/肉鸽快速作战__812_645_119_37__762_595_219_125.png"
+                ]
+            }
+        },
+        "next": [
+            "RoguelikeQuickBattle"
+        ]
+    },
+    "RoguelikeQuickBattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    812,
+                    645,
+                    119,
+                    37
+                ],
+                "template": [
+                    "Roguelike/肉鸽快速作战__812_645_119_37__762_595_219_125.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "RoguelikeQuickBattleCant"
+        ]
+    },
+    "RoguelikeQuickBattleCant": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    486,
+                    19,
+                    74,
+                    27
+                ],
+                "template": [
+                    "Roguelike/肉鸽不可快速作战__486_19_74_27__436_0_174_96.png"
+                ]
+            }
+        },
+        "next": [
+            "RoguelikeBattleConfirm"
+        ]
+    },
+    "RoguelikeBattleConfirm": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1067,
+                    648,
+                    56,
+                    33
+                ],
+                "template": [
+                    "Roguelike/肉鸽出击__1067_648_56_33__1017_598_156_122.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "StartBattle"
+        ]
+    },
+    "RoguelikeBattleVictory": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    871,
+                    147,
+                    154,
+                    33
+                ],
+                "expected": [
+                    "VICTORY",
+                    "VCTORY"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "RoguelikeBuffSelect": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    730,
+                    632,
+                    101,
+                    33
+                ],
+                "template": "Roguelike/肉鸽buff确认选择__730_632_101_33__680_582_201_133.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "RoguelikeFinish": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    829,
+                    404,
+                    260,
+                    32
+                ],
+                "template": [
+                    "Roguelike/战斗失败界面标记__829_404_260_32__779_354_360_132.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

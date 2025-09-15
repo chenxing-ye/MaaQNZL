@@ -172,6 +172,7 @@
         "timeout": 180000,
         "next": [
             "CheckBattleFinish",
+            "CheckBattleFinish1",
             "CheckGuildBattleFinish",
             "ClickBattleConfirm"
         ],
@@ -196,6 +197,7 @@
         "timeout": 180000,
         "next": [
             "CheckBattleFinish",
+            "CheckBattleFinish1",
             "CheckGuildBattleFinish"
         ],
         "interrupt": [
@@ -329,6 +331,23 @@
                     -100,
                     0,
                     0
+                ]
+            }
+        }
+    },
+    "CheckBattleFinish1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    871,
+                    147,
+                    154,
+                    33
+                ],
+                "expected": [
+                    "VICTORY",
+                    "VCTORY"
                 ]
             }
         }
