@@ -101,7 +101,8 @@
             }
         },
         "next": [
-            "RoguelikeBattle"
+            "RoguelikeBattle",
+            "RoguelikeBattle1"
         ]
     },
     "RoguelikeBattle": {
@@ -121,6 +122,28 @@
         },
         "next": [
             "RoguelikeQuickBattle"
+        ]
+    },
+    "RoguelikeBattle1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    937,
+                    646,
+                    93,
+                    36
+                ],
+                "template": [
+                    "Roguelike/肉鸽出击按钮__937_646_93_36__887_596_193_124.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "StartBattle"
         ]
     },
     "RoguelikeQuickBattle": {
