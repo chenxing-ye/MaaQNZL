@@ -1,0 +1,90 @@
+{
+    "Abyss": {
+        "next": [
+            "EnterAbyss"
+        ],
+        "interrupt": [
+            "ReturnMain"
+        ]
+    },
+    "EnterAbyss": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1092,
+                    615,
+                    76,
+                    48
+                ],
+                "template": "Main/出击按钮__1092_615_76_48__1042_565_176_148.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ClickAbyss"
+        ]
+    },
+    "ClickAbyss": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    870,
+                    672,
+                    95,
+                    30
+                ],
+                "expected": "挑战关卡"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "SelectAbyss"
+        ]
+    },
+    "SelectAbyss": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    518,
+                    176,
+                    125,
+                    33
+                ],
+                "expected": "深渊之域"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "SelectAbyssSecond"
+        ]
+    },
+    "SelectAbyssSecond": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    964,
+                    622,
+                    57,
+                    33
+                ],
+                "expected": "出击"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "StartBattle"
+        ]
+    }
+}

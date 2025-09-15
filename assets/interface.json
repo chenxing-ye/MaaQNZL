@@ -57,7 +57,10 @@
         },
         {
             "name": "公会每日",
-            "entry": "GuildDaily"
+            "entry": "GuildDaily",
+            "option": [
+                "公会首领出战队伍"
+            ]
         },
         {
             "name": "出击-助战",
@@ -68,9 +71,132 @@
         {
             "name": "每日任务",
             "entry": "Task"
+        },
+        {
+            "name": "深渊之域",
+            "entry": "Abyss",
+            "option": [
+                "出战队伍"
+            ]
+        },
+        {
+            "name": "Test",
+            "entry": "SettingAutobattle"
         }
     ],
     "option": {
+        "出战队伍": {
+            "cases": [
+                {
+                    "name": "1",
+                    "pipeline_override": {
+                        "SwitchTeam": {
+                            "target": [
+                                45,
+                                668,
+                                96,
+                                26
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "2",
+                    "pipeline_override": {
+                        "SwitchTeam": {
+                            "target": [
+                                245,
+                                669,
+                                92,
+                                27
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "3",
+                    "pipeline_override": {
+                        "SwitchTeam": {
+                            "target": [
+                                442,
+                                668,
+                                96,
+                                29
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "4",
+                    "pipeline_override": {
+                        "SwitchTeam": {
+                            "target": [
+                                645,
+                                669,
+                                93,
+                                26
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "公会首领出战队伍": {
+            "cases": [
+                {
+                    "name": "1",
+                    "pipeline_override": {
+                        "GuildBossSwitchTeam": {
+                            "target": [
+                                45,
+                                668,
+                                96,
+                                26
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "2",
+                    "pipeline_override": {
+                        "GuildBossSwitchTeam": {
+                            "target": [
+                                245,
+                                669,
+                                92,
+                                27
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "3",
+                    "pipeline_override": {
+                        "GuildBossSwitchTeam": {
+                            "target": [
+                                442,
+                                668,
+                                96,
+                                29
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "4",
+                    "pipeline_override": {
+                        "GuildBossSwitchTeam": {
+                            "target": [
+                                645,
+                                669,
+                                93,
+                                26
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
         "副本": {
             "cases": [
                 {
