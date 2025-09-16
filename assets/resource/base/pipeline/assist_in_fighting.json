@@ -320,7 +320,8 @@
                     35,
                     374
                 ],
-                "template": "AssistInFighting/支援标记__784_507_18_18__734_457_118_118.png"
+                "template": "AssistInFighting/支援标记__784_507_18_18__734_457_118_118.png",
+                "threshold": 0.6
             }
         },
         "action": {
