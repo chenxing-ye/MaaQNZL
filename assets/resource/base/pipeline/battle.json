@@ -401,6 +401,20 @@
                 ],
                 "template": "Guild/公会首领总伤害__877_546_124_43__827_496_224_143.png"
             }
+        }
+    },
+    "ClickGuildBattleFinish": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    877,
+                    546,
+                    124,
+                    43
+                ],
+                "template": "Guild/公会首领总伤害__877_546_124_43__827_496_224_143.png"
+            }
         },
         "action": {
             "type": "Click"

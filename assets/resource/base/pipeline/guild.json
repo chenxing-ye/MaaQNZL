@@ -411,7 +411,8 @@
             "GuildBossReturn"
         ],
         "interrupt": [
-            "Battling"
+            "Battling",
+            "ClickGuildBattleFinish"
         ]
     },
     "GuildBossCant": {
