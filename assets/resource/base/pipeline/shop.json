@@ -178,6 +178,7 @@
             "type": "Click"
         },
         "next": [
+            "ShopExchangeItemNo",
             "ShopExchangeItemBuy"
         ]
     },
@@ -204,5 +205,19 @@
         "interrupt": [
             "CloseGetItem"
         ]
+    },
+    "ShopExchangeItemNo": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    587,
+                    15,
+                    102,
+                    34
+                ],
+                "template": "Shop/基础商店已售罄__587_15_102_34__537_0_202_99.png"
+            }
+        }
     }
 }
