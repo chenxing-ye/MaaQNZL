@@ -150,15 +150,19 @@
     },
     "ClickAssistButton": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    1143,
-                    204,
-                    111,
-                    105
+                    1160,
+                    150,
+                    87,
+                    210
                 ],
-                "template": "AssistInFighting/支援星痕按钮__1143_204_111_105__1093_154_187_205.png"
+                "expected": [
+                    "支援星痕",
+                    "支援",
+                    "星痕"
+                ]
             }
         },
         "action": {

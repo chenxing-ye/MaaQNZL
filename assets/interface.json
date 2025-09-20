@@ -41,12 +41,12 @@
             "entry": "Shop"
         },
         {
-            "name": "恶龙计划清体力",
-            "entry": "DragonDungeon"
+            "name": "一等星清体力",
+            "entry": "FirstStarDungeon"
         },
         {
-            "name": "恶龙计划商店",
-            "entry": "DragonShop"
+            "name": "一等星商店",
+            "entry": "FirstStarShop"
         },
         {
             "name": "刷本-清体力",

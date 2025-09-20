@@ -10,6 +10,7 @@
             "启动logo",
             "GameLoading",
             "ClosePage",
+            "MonCard",
             "VictoryReturn",
             "BackButton",
             "HomeButton",
@@ -67,6 +68,7 @@
         ],
         "interrupt": [
             "ClosePage",
+            "MonCard",
             "BackButton",
             "HomeButton",
             "ClickHomeCount"
@@ -91,6 +93,7 @@
             "BackButton",
             "ClosePage",
             "StartGame",
+            "MonCard",
             "VictoryReturn",
             "CloseEnergy",
             "ClickHomeCount"
@@ -337,6 +340,25 @@
                 ],
                 "template": [
                     "StartUp/游戏资源下载确定按钮__796_475_81_35__746_425_181_135.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "MonCard": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    507,
+                    540,
+                    269,
+                    39
+                ],
+                "template": [
+                    "StartUp/月卡领取__507_540_269_39__457_490_369_139.png"
                 ]
             }
         },

@@ -1,24 +1,28 @@
 {
-    "DragonDungeon": {
+    "FirstStarDungeon": {
         "next": [
-            "EnterDragonDungeon"
+            "EnterFirstStarDungeon"
         ],
         "interrupt": [
-            "EnterDragon",
+            "EnterFirstStar",
             "ReturnMain"
         ]
     },
-    "EnterDragon": {
+    "EnterFirstStar": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    1018,
-                    204,
-                    166,
-                    59
+                    1098,
+                    187,
+                    82,
+                    91
                 ],
-                "template": "Activity/Dragon/恶龙计划入口__1018_204_166_59__968_154_266_159.png"
+                "expected": [
+                    "星",
+                    "BRIGHT",
+                    "GHT"
+                ]
             }
         },
         "action": {
@@ -26,76 +30,76 @@
         },
         "pre_delay": 2000,
         "next": [
-            "DragonMain",
-            "EnterDragon"
+            "FirstStarMain",
+            "EnterFirstStar"
         ]
     },
-    "DragonMain": {
+    "FirstStarMain": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    487,
-                    555,
-                    310,
-                    109
+                    564,
+                    115,
+                    145,
+                    204
                 ],
-                "template": "Activity/Dragon/恶龙计划活动界面__487_555_310_109__437_505_410_209.png"
+                "template": "Activity/FirstStar/一等星主界面__564_115_145_204__514_65_245_304.png"
             }
         }
     },
-    "EnterDragonDungeon": {
+    "EnterFirstStarDungeon": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    141,
-                    465,
-                    171,
-                    28
-                ],
-                "template": "Activity/Dragon/恶龙计划-进阶__141_465_171_28__91_415_271_128.png"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "DungeonButtton",
-            "EnterDragonDungeon"
-        ]
-    },
-    "DungeonButtton": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    701,
-                    396,
-                    134,
+                    265,
+                    516,
+                    93,
                     33
                 ],
-                "template": "Activity/Dragon/认证2-进阶__701_396_134_33__651_346_234_133.png"
+                "template": "Activity/FirstStar/一等星副本入口__265_516_93_33__215_466_193_133.png"
             }
         },
         "action": {
             "type": "Click"
         },
         "next": [
-            "DragonQuickBattle"
+            "FirstStarDungeonButtton",
+            "EnterFirstStarDungeon"
         ]
     },
-    "DragonQuickBattle": {
+    "FirstStarDungeonButtton": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    711,
-                    55,
-                    200,
-                    48
+                    1,
+                    537,
+                    85,
+                    46
                 ],
-                "template": "Activity/Dragon/认证2进阶战斗界面__711_55_200_48__661_5_300_148.png"
+                "template": "Activity/FirstStar/一等星刷体力副本__1_537_85_46__0_487_136_146.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "FirstStarQuickBattle"
+        ]
+    },
+    "FirstStarQuickBattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    715,
+                    59,
+                    121,
+                    40
+                ],
+                "template": "Activity/FirstStar/一等星副本详情__715_59_121_40__665_9_221_140.png"
             }
         },
         "next": [
@@ -105,26 +109,26 @@
             "ClickQuickBattle"
         ]
     },
-    "DragonShop": {
+    "FirstStarShop": {
         "next": [
-            "EnterDragonShop"
+            "EnterFirstStarShop"
         ],
         "interrupt": [
-            "EnterDragon",
+            "EnterFirstStar",
             "ReturnMain"
         ]
     },
-    "EnterDragonShop": {
+    "EnterFirstStarShop": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    873,
-                    604,
-                    155,
-                    36
+                    989,
+                    615,
+                    101,
+                    33
                 ],
-                "template": "Activity/Dragon/完美计划补给__873_604_155_36__823_554_255_136.png"
+                "template": "Activity/FirstStar/一等星商店__989_615_101_33__939_565_201_133.png"
             }
         },
         "post_delay": 1000,
@@ -132,30 +136,30 @@
             "type": "Click"
         },
         "next": [
-            "DragonShopItem"
+            "FirstStarShopItem"
         ]
     },
-    "DragonShopItem": {
+    "FirstStarShopItem": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    472,
-                    192,
-                    47,
-                    37
+                    476,
+                    180,
+                    39,
+                    32
                 ],
-                "template": "Activity/Dragon/商店价格图标__472_192_47_37__422_142_147_137.png"
+                "template": "Activity/FirstStar/一等星商店价格图标__476_180_39_32__426_130_139_132.png"
             }
         },
         "action": {
             "type": "Click"
         },
         "next": [
-            "DragonShopItemMax"
+            "FirstStarShopItemMax"
         ]
     },
-    "DragonShopItemMax": {
+    "FirstStarShopItemMax": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -172,10 +176,10 @@
             "type": "Click"
         },
         "next": [
-            "DragonShopItemBuy"
+            "FirstStarShopItemBuy"
         ]
     },
-    "DragonShopItemBuy": {
+    "FirstStarShopItemBuy": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -193,14 +197,14 @@
         },
         "post_delay": 1500,
         "next": [
-            "DragonShopItemCant",
-            "DragonShopItem"
+            "FirstStarShopItemCant",
+            "FirstStarShopItem"
         ],
         "interrupt": [
             "CloseGetItem"
         ]
     },
-    "DragonShopItemCant": {
+    "FirstStarShopItemCant": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -218,11 +222,11 @@
         },
         "post_delay": 1500,
         "next": [
-            "DragonShopBuyCancel",
-            "DragonShopReturn"
+            "FirstStarShopBuyCancel",
+            "FirstStarShopReturn"
         ]
     },
-    "DragonShopBuyCancel": {
+    "FirstStarShopBuyCancel": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -240,10 +244,10 @@
         },
         "post_delay": 1500,
         "next": [
-            "DragonShopReturn"
+            "FirstStarShopReturn"
         ]
     },
-    "DragonShopReturn": {
+    "FirstStarShopReturn": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -260,40 +264,40 @@
             "type": "Click"
         },
         "next": [
-            "DragonDaily"
+            "FirstStarDaily"
         ]
     },
-    "DragonDaily": {
+    "FirstStarDaily": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    968,
-                    457,
-                    160,
-                    41
+                    901,
+                    520,
+                    123,
+                    31
                 ],
-                "template": "Activity/Dragon/完美计划收获__968_457_160_41__918_407_260_141.png"
+                "template": "Activity/FirstStar/一等星每日__901_520_123_31__851_470_223_131.png"
             }
         },
         "action": {
             "type": "Click"
         },
         "next": [
-            "DragonDailyGain"
+            "FirstStarDailyGain"
         ]
     },
-    "DragonDailyGain": {
+    "FirstStarDailyGain": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    1105,
-                    24,
-                    80,
-                    23
+                    1046,
+                    19,
+                    83,
+                    28
                 ],
-                "template": "Activity/Dragon/完美计划收获全部领取__1105_24_80_23__1055_0_180_97.png"
+                "template": "Activity/FirstStar/一等星每日全部领取__1046_19_83_28__996_0_183_97.png"
             }
         },
         "action": {
