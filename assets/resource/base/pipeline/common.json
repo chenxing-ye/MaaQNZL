@@ -106,5 +106,18 @@
         "action": {
             "type": "Click"
         }
+    },
+    "VoidTap": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    640,
+                    10,
+                    10,
+                    10
+                ]
+            }
+        }
     }
 }

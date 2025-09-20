@@ -64,7 +64,33 @@
             "type": "Click"
         },
         "next": [
+            "AbyssDailyReward"
+        ]
+    },
+    "AbyssDailyReward": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    45,
+                    230,
+                    86,
+                    27
+                ],
+                "expected": [
+                    "排名",
+                    "奖励"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
             "SelectAbyssSecond"
+        ],
+        "interrupt": [
+            "VoidTap"
         ]
     },
     "SelectAbyssSecond": {
@@ -80,8 +106,16 @@
                 "expected": "出击"
             }
         },
+        "next": [
+            "SelectAbyssThree"
+        ]
+    },
+    "SelectAbyssThree": {
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target": "SelectAbyssSecond"
+            }
         },
         "next": [
             "StartBattle"
