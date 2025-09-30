@@ -90,6 +90,10 @@
             "option": [
                 "出战队伍"
             ]
+        },
+        {
+            "name": "结束游戏",
+            "entry": "CloseQNZL"
         }
     ],
     "option": {
