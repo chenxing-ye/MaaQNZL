@@ -1,0 +1,10 @@
+{
+    "CloseQNZL": {
+        "action": {
+            "type": "StopApp",
+            "param": {
+                "package": "com.yingche.qnzl"
+            }
+        }
+    }
+}
