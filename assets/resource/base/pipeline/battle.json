@@ -435,5 +435,25 @@
         "next": [
             "ClickBattleConfirm"
         ]
+    },
+    "BattleFinishClick": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    683,
+                    341,
+                    51,
+                    22
+                ],
+                "expected": [
+                    "Level",
+                    "eve"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

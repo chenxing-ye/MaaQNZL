@@ -1,0 +1,166 @@
+{
+    "Tower": {
+        "next": [
+            "EnterTower"
+        ],
+        "interrupt": [
+            "ReturnMain"
+        ]
+    },
+    "EnterTower": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1092,
+                    615,
+                    76,
+                    48
+                ],
+                "template": "Main/出击按钮__1092_615_76_48__1042_565_176_148.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ClickTower"
+        ]
+    },
+    "ClickTower": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    870,
+                    672,
+                    95,
+                    30
+                ],
+                "expected": "挑战关卡"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "SelectTower"
+        ]
+    },
+    "SelectTower": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    375,
+                    583,
+                    123,
+                    34
+                ],
+                "expected": "回忆深潜"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "SelectTowerSecond"
+        ],
+        "interrupt": [
+            "SelectTowerSwipeLeft"
+        ]
+    },
+    "SelectTowerSecond": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    21,
+                    458,
+                    1243,
+                    60
+                ],
+                "expected": "城"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "TowerImpossible"
+        ],
+        "interrupt": [
+            "TowerAction_1",
+            "TowerAction_2",
+            "BattleFinishClick"
+        ]
+    },
+    "TowerAction_1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    991,
+                    649,
+                    59,
+                    35
+                ],
+                "expected": "出击"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "TowerAction_2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1103,
+                    659,
+                    59,
+                    35
+                ],
+                "expected": "出击"
+            }
+        },
+        "next": [
+            "SwitchTeam"
+        ]
+    },
+    "TowerImpossible": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1092,
+                    615,
+                    76,
+                    48
+                ],
+                "template": "Main/出击按钮__1092_615_76_48__1042_565_176_148.png"
+            }
+        }
+    },
+    "SelectTowerSwipeLeft": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    889,
+                    333,
+                    26,
+                    31
+                ],
+                "end": [
+                    406,
+                    337,
+                    27,
+                    27
+                ],
+                "duration": 1000
+            }
+        }
+    }
+}
