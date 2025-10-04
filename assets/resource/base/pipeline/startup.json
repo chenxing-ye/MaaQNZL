@@ -96,7 +96,8 @@
             "MonCard",
             "VictoryReturn",
             "CloseEnergy",
-            "ClickHomeCount"
+            "ClickHomeCount",
+            "CloseGetItem"
         ]
     },
     "StartQNZL": {
