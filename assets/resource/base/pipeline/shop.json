@@ -64,11 +64,11 @@
             "type": "Click"
         },
         "next": [
-            "ShopGiftItem",
-            "ShopExchange"
+            "ShopGiftItemFree",
+            "ShopGiftItem"
         ]
     },
-    "ShopGiftItem": {
+    "ShopGiftItemFree": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -85,7 +85,28 @@
             "type": "Click"
         },
         "next": [
-            "ShopGiftBuy"
+            "ShopGiftMain"
+        ],
+        "interrupt": [
+            "ShopGiftBuy",
+            "ShopGiftCloseGet"
+        ]
+    },
+    "ShopGiftItem": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    415,
+                    137,
+                    24,
+                    27
+                ],
+                "template": "Shop/无感叹号商品__415_137_24_27__365_87_124_127.png"
+            }
+        },
+        "next": [
+            "ShopExchange"
         ]
     },
     "ShopGiftBuy": {
@@ -103,10 +124,7 @@
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "ShopGiftCloseGet"
-        ]
+        }
     },
     "ShopGiftCloseGet": {
         "recognition": {
@@ -131,11 +149,7 @@
                     10
                 ]
             }
-        },
-        "next": [
-            "ShopGiftItem",
-            "ShopExchange"
-        ]
+        }
     },
     "ShopExchange": {
         "recognition": {
