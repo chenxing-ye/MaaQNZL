@@ -133,7 +133,26 @@
             "CloseGetItem"
         ],
         "next": [
-            "DailyMemory"
+            "DailyMainFlag",
+            "DailyMailReturn"
+        ]
+    },
+    "DailyMainFlag": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1092,
+                    615,
+                    76,
+                    48
+                ],
+                "template": "Main/出击按钮__1092_615_76_48__1042_565_176_148.png"
+            }
+        },
+        "next": [
+            "DailyMemory",
+            "DailyMemoryNone"
         ]
     },
     "DailyMemory": {
@@ -147,6 +166,41 @@
                     363
                 ],
                 "template": "Main/星痕记忆__1195_420_63_13__1145_370_135_113.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DailyMemoryPlay"
+        ]
+    },
+    "DailyMemoryNone": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    997,
+                    154,
+                    273,
+                    363
+                ],
+                "template": "Main/星痕记忆__1195_420_63_13__1145_370_135_113.png"
+            }
+        },
+        "inverse": true
+    },
+    "DailyMemoryPlay": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    789,
+                    455,
+                    62,
+                    33
+                ],
+                "template": "Daily/星痕记忆确认播放__789_455_62_33__739_405_162_133.png"
             }
         },
         "action": {
