@@ -76,6 +76,14 @@
         {
             "name": "深渊之域",
             "entry": "Abyss",
+            "pipeline_override": {
+                "ClickBattleConfirm": {
+                    "interrupt": [
+                        "CloseAutobattle",
+                        "Skipbattle"
+                    ]
+                }
+            },
             "option": [
                 "出战队伍"
             ]

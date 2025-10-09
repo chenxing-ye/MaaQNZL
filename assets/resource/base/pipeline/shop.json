@@ -29,15 +29,15 @@
     },
     "ShopGift": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    732,
+                    528,
                     672,
-                    101,
+                    704,
                     32
                 ],
-                "template": "Shop/礼包商店__732_672_101_32__682_622_201_98.png"
+                "expected": "礼包"
             }
         },
         "action": {
@@ -153,15 +153,15 @@
     },
     "ShopExchange": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    1136,
-                    671,
-                    92,
-                    30
+                    528,
+                    672,
+                    704,
+                    32
                 ],
-                "template": "Shop/兑换商店__1136_671_92_30__1086_621_192_99.png"
+                "expected": "兑换"
             }
         },
         "action": {
