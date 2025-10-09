@@ -1,0 +1,310 @@
+{
+    "RobinRequiemDungeon": {
+        "next": [
+            "EnterRobinRequiemDungeon"
+        ],
+        "interrupt": [
+            "EnterRobinRequiem",
+            "ReturnMain"
+        ]
+    },
+    "EnterRobinRequiem": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    179,
+                    184,
+                    99
+                ],
+                "expected": [
+                    "鸟",
+                    "的",
+                    "安"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "pre_delay": 2000,
+        "next": [
+            "RobinRequiemMain",
+            "EnterRobinRequiem"
+        ]
+    },
+    "RobinRequiemMain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    510,
+                    503,
+                    225,
+                    136
+                ],
+                "template": "Activity/RobinRequiem/知更鸟主界面__510_503_225_136__460_453_325_236.png"
+            }
+        }
+    },
+    "EnterRobinRequiemDungeon": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    128,
+                    418,
+                    95,
+                    33
+                ],
+                "template": "Activity/RobinRequiem/知更鸟副本入口__128_418_95_33__78_368_195_133.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "RobinRequiemDungeonButtton",
+            "EnterRobinRequiemDungeon"
+        ]
+    },
+    "RobinRequiemDungeonButtton": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    704,
+                    235,
+                    103,
+                    30
+                ],
+                "template": "Activity/RobinRequiem/知更鸟刷体力副本__704_235_103_30__654_185_203_130.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "RobinRequiemQuickBattle"
+        ]
+    },
+    "RobinRequiemQuickBattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    714,
+                    52,
+                    244,
+                    48
+                ],
+                "template": "Activity/RobinRequiem/知更鸟副本详情__714_52_244_48__664_2_344_148.png"
+            }
+        },
+        "next": [
+            "QuickBattleMain"
+        ],
+        "interrupt": [
+            "ClickQuickBattle"
+        ]
+    },
+    "RobinRequiemShop": {
+        "next": [
+            "EnterRobinRequiemShop"
+        ],
+        "interrupt": [
+            "EnterRobinRequiem",
+            "ReturnMain"
+        ]
+    },
+    "EnterRobinRequiemShop": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1003,
+                    636,
+                    197,
+                    51
+                ],
+                "template": "Activity/RobinRequiem/知更鸟商店__1003_636_197_51__953_586_297_134.png"
+            }
+        },
+        "post_delay": 1000,
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "RobinRequiemShopItem"
+        ]
+    },
+    "RobinRequiemShopItem": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    478,
+                    181,
+                    35,
+                    32
+                ],
+                "template": "Activity/RobinRequiem/知更鸟商店价格图标__478_181_35_32__428_131_135_132.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "RobinRequiemShopItemMax"
+        ]
+    },
+    "RobinRequiemShopItemMax": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    765,
+                    468,
+                    56,
+                    43
+                ],
+                "template": "Activity/Common/商店物品最大值__765_468_56_43__715_418_156_143.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "RobinRequiemShopItemBuy"
+        ]
+    },
+    "RobinRequiemShopItemBuy": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    832,
+                    562,
+                    67,
+                    27
+                ],
+                "template": "Activity/Common/商店物品购买__832_562_67_27__782_512_167_127.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "RobinRequiemShopItemCant",
+            "RobinRequiemShopItem"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "RobinRequiemShopItemCant": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    560,
+                    18,
+                    164,
+                    31
+                ],
+                "template": "Common/货币不足无法购买__560_18_164_31__510_0_264_99.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "RobinRequiemShopBuyCancel",
+            "RobinRequiemShopReturn"
+        ]
+    },
+    "RobinRequiemShopBuyCancel": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    372,
+                    562,
+                    63,
+                    26
+                ],
+                "template": "Activity/Common/商店物品购买关闭__372_562_63_26__322_512_163_126.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "RobinRequiemShopReturn"
+        ]
+    },
+    "RobinRequiemShopReturn": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    20,
+                    16,
+                    77,
+                    29
+                ],
+                "template": "Common/返回上一级按钮__20_16_77_29__0_0_147_95.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "RobinRequiemDaily"
+        ]
+    },
+    "RobinRequiemDaily": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    260,
+                    101,
+                    31
+                ],
+                "expected": "侦探茶会"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "RobinRequiemDailyGain"
+        ]
+    },
+    "RobinRequiemDailyGain": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1100,
+                    19,
+                    87,
+                    34
+                ],
+                "expected": [
+                    "全部",
+                    "领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

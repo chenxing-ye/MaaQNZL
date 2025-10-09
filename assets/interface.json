@@ -41,12 +41,12 @@
             "entry": "Shop"
         },
         {
-            "name": "一等星清体力",
-            "entry": "FirstStarDungeon"
+            "name": "知更鸟清体力",
+            "entry": "RobinRequiemDungeon"
         },
         {
-            "name": "一等星商店",
-            "entry": "FirstStarShop"
+            "name": "知更鸟商店",
+            "entry": "RobinRequiemShop"
         },
         {
             "name": "刷本-清体力",

@@ -129,10 +129,7 @@
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "HarvestShop"
-        ]
+        }
     },
     "HarvestShop": {
         "recognition": {
