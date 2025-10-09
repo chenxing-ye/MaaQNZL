@@ -92,6 +92,14 @@
             ]
         },
         {
+            "name": "回忆深潜",
+            "entry": "Tower",
+            "option": [
+                "出战队伍",
+                "塔"
+            ]
+        },
+        {
             "name": "结束游戏",
             "entry": "CloseQNZL"
         }
@@ -336,6 +344,60 @@
                         },
                         "SelectFarmSecond": {
                             "expected": "骚灵之境6"
+                        }
+                    }
+                }
+            ]
+        },
+        "塔": {
+            "cases": [
+                {
+                    "name": "悖逆之城",
+                    "pipeline_override": {
+                        "SelectTowerSecond": {
+                            "expected": [
+                                "悖逆"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "狂风号角",
+                    "pipeline_override": {
+                        "SelectTowerSecond": {
+                            "expected": [
+                                "狂风"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "洞悉之瞳",
+                    "pipeline_override": {
+                        "SelectTowerSecond": {
+                            "expected": [
+                                "洞悉"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "深暗魔井",
+                    "pipeline_override": {
+                        "SelectTowerSecond": {
+                            "expected": [
+                                "深暗"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "镜中异向",
+                    "pipeline_override": {
+                        "SelectTowerSecond": {
+                            "expected": [
+                                "镜中"
+                            ]
                         }
                     }
                 }
