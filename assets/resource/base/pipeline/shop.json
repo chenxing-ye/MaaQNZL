@@ -169,6 +169,30 @@
         },
         "timeout": 5000,
         "next": [
+            "ShopExchangeBase"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "ShopExchangeBase": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    101,
+                    145,
+                    90,
+                    37
+                ],
+                "expected": "基础"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 5000,
+        "next": [
             "ShopExchangeItem"
         ],
         "interrupt": [
@@ -193,7 +217,8 @@
         },
         "next": [
             "ShopExchangeItemNo",
-            "ShopExchangeItemBuy"
+            "ShopExchangeItemBuy",
+            "ShopDaily"
         ]
     },
     "ShopExchangeItemBuy": {
@@ -232,6 +257,87 @@
                 ],
                 "template": "Shop/基础商店已售罄__587_15_102_34__537_0_202_99.png"
             }
-        }
+        },
+        "next": [
+            "ShopDaily"
+        ]
+    },
+    "ShopDaily": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    528,
+                    672,
+                    704,
+                    32
+                ],
+                "expected": "日常"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ShopDailyHarvest",
+            "ShopDaily"
+        ],
+        "timeout": 5000,
+    },
+    "ShopDailyHarvest": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    101,
+                    145,
+                    90,
+                    37
+                ],
+                "expected": "神"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ShopDailyHarvestBuy"
+        ],
+        "on_error": [
+            "Stop"
+        ],
+        "timeout": 5000
+    },
+    "ShopDailyHarvestBuy": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    234,
+                    132,
+                    1040,
+                    486
+                ],
+                "template": [
+                    "Shop/神谕司商店大体力__723_143_163_49__673_93_263_149.png",
+                    "Shop/神谕司商店中体力__723_387_163_49__673_337_263_149.png"
+                ],
+                "threshold": 0.95
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "interrupt": [
+            "ItemBuyMax",
+            "CloseGetItem"
+        ],
+        "next": [
+            "ShopDailyHarvestBuy"
+        ],
+        "on_error": [
+            "Stop"
+        ],
+        "timeout": 5000
     }
 }

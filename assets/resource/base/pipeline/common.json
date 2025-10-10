@@ -119,5 +119,42 @@
                 ]
             }
         }
+    },
+    "ItemBuyMax": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    768,
+                    475,
+                    51,
+                    28
+                ],
+                "template": "Common/物品数量Max__768_475_51_28__718_425_151_128.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ItemBuyConfirm"
+        ]
+    },
+    "ItemBuyConfirm": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    837,
+                    562,
+                    54,
+                    28
+                ],
+                "template": "Common/物品购买确认__837_562_54_28__787_512_154_128.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

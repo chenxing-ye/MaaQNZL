@@ -129,108 +129,185 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "HarvestFarm"
+        ]
     },
-    "HarvestShop": {
+    "HarvestFarm": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    90,
-                    361,
-                    32,
-                    26
+                    66,
+                    70,
+                    82,
+                    604
                 ],
-                "template": "Harvest/神谕司商店按钮__90_361_32_26__40_311_132_126.png"
+                "expected": "农场"
             }
         },
         "action": {
             "type": "Click"
         },
         "next": [
-            "HarvestShopItemClick"
+            "HarvestFarmMain"
         ]
     },
-    "HarvestShopItemClick": {
+    "HarvestFarmMain": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    587,
-                    412,
-                    55,
-                    22
+                    472,
+                    149,
+                    69,
+                    70
                 ],
-                "template": [
-                    "Harvest/可购买标记__602_414_40_21__552_364_140_121.png",
-                    "Harvest/可购买标记2__597_417_35_15__547_367_135_115.png"
+                "template": "Harvest/农场花__472_149_69_70__422_99_169_170.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "HarvestFarmlandMain"
+        ],
+        "interrupt": [
+            "HarvestFarmAngry"
+        ]
+    },
+    "HarvestFarmAngry": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    610,
+                    246,
+                    20,
+                    24
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
         "next": [
-            "HarvestShopFinish",
-            "HarvestShopItemMax"
+            "HarvestFarmland"
         ]
     },
-    "HarvestShopItemMax": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    768,
-                    475,
-                    51,
-                    28
-                ],
-                "template": "Common/物品数量Max__768_475_51_28__718_425_151_128.png"
-            }
-        },
+    "HarvestFarmland": {
         "action": {
-            "type": "Click"
-        },
-        "next": [
-            "HarvestShopItemBuy"
-        ]
-    },
-    "HarvestShopItemBuy": {
-        "recognition": {
-            "type": "TemplateMatch",
+            "type": "Click",
             "param": {
-                "roi": [
-                    837,
-                    562,
-                    54,
-                    28
-                ],
-                "template": "Common/物品购买确认__837_562_54_28__787_512_154_128.png"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "HarvestShopFinish",
-            "HarvestShopItemClick"
-        ],
-        "interrupt": [
-            "CloseGetItem"
-        ]
-    },
-    "HarvestShopFinish": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    525,
-                    483,
-                    75,
-                    34
-                ],
-                "template": "Harvest/神谕司已售罄__525_483_75_34__475_433_175_134.png"
+                "target": "HarvestFarmMain",
+                "target_offset": [
+                    0,
+                    149,
+                    0,
+                    0
+                ]
             }
         }
-    }
+    },
+    "HarvestFarmlandMain": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1039,
+                    77,
+                    60,
+                    46
+                ],
+                "expected": "土地"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "启动logo"
+        ],
+        "interrupt": [
+            "HarvestFarmlandGain",
+            "HarvestFarmlandPlating",
+            "HarvestFarmlandFertilizing",
+            "HarvestFarmlandAllUse",
+            "CloseGetItem"
+        ],
+        "on_error": [
+            "Stop"
+        ],
+        "timeout": 5000
+    },
+    "HarvestFarmlandGain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1033,
+                    608,
+                    88,
+                    30
+                ],
+                "template": "Harvest/农场全部收获__1033_608_88_30__983_558_188_130.png",
+                "threshold": 0.97
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "HarvestFarmlandPlating": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    759,
+                    584,
+                    53,
+                    32
+                ],
+                "template": "Harvest/农场种植__759_584_53_32__709_534_153_132.png",
+                "threshold": 0.97
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "HarvestFarmlandFertilizing": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    467,
+                    607,
+                    64,
+                    36
+                ],
+                "template": "Harvest/农场施肥__467_607_64_36__417_557_164_136.png",
+                "threshold": 0.97
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "HarvestFarmlandAllUse": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    775,
+                    613,
+                    89,
+                    27
+                ],
+                "template": "Harvest/农场批量使用__775_613_89_27__725_563_189_127.png",
+                "threshold": 0.97
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
 }
