@@ -493,7 +493,6 @@
         },
         "next": [
             "GuildDerbySelect",
-            "GuildDerbyLimit",
             "GuildDerbyWinner"
         ]
     },
@@ -514,7 +513,8 @@
             "type": "Click"
         },
         "next": [
-            "GuildDerbyOK"
+            "GuildDerbyOK",
+            "GuildDerbyLimit"
         ]
     },
     "GuildDerbyOK": {

@@ -180,8 +180,29 @@
         ],
         "interrupt": [
             "SettingAutobattle",
-            "Autobattling"
+            "Autobattling",
+            "AbyssNewLevel"
         ]
+    },
+    "AbyssNewLevel": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    533,
+                    402,
+                    219,
+                    44
+                ],
+                "expected": [
+                    "难度",
+                    "开启"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "Battling": {
         "recognition": {
