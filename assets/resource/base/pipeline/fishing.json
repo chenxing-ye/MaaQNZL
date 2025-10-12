@@ -13,6 +13,7 @@
             }
         },
         "next": [
+            "FishingCant",
             "FishingCast"
         ]
     },
@@ -31,6 +32,7 @@
         },
         "action": "Click",
         "next": [
+            "FishingCant",
             "StartFishing"
         ],
         "interrupt": [
@@ -40,6 +42,24 @@
             "FishingGet",
             "FishingSwipeRight"
         ]
+    },
+    "FishingCant": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    515,
+                    19,
+                    249,
+                    33
+                ],
+                "expected": [
+                    "鱼饵",
+                    "不足"
+                ]
+            }
+        },
+        "action": "Click"
     },
     "FishingReelIn": {
         "recognition": {
