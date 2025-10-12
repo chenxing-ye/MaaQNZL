@@ -174,8 +174,9 @@
             "HarvestFarmlandMain"
         ],
         "interrupt": [
-            "HarvestFarmAngry",
-            "CloseGetItem"
+            "CloseGetItem",
+            "HarvestFarmCloseOther",
+            "HarvestFarmAngry"
         ]
     },
     "HarvestFarmCloseOther": {
