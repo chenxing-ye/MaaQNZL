@@ -92,7 +92,7 @@
         "interrupt": [
             "TowerAction_1",
             "TowerAction_2",
-            "BattleFinishClick"
+            "TowerFinishClick"
         ]
     },
     "TowerAction_1": {
@@ -161,6 +161,26 @@
                 ],
                 "duration": 1000
             }
+        }
+    },
+    "TowerFinishClick": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    768,
+                    246,
+                    149,
+                    60
+                ],
+                "expected": [
+                    "回忆",
+                    "深潜"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
         }
     }
 }
