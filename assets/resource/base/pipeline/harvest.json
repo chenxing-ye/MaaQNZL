@@ -178,6 +178,34 @@
             "CloseGetItem"
         ]
     },
+    "HarvestFarmCloseOther": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    336,
+                    186,
+                    113,
+                    40
+                ],
+                "expected": [
+                    "本勒",
+                    "本"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    640,
+                    110,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
     "HarvestFarmAngry": {
         "action": {
             "type": "Click",
