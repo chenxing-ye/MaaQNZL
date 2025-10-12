@@ -1,0 +1,152 @@
+{
+    "StartFishing": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    542,
+                    617,
+                    201,
+                    38
+                ],
+                "expected": "拖动"
+            }
+        },
+        "next": [
+            "FishingCast"
+        ]
+    },
+    "FishingCast": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1022,
+                    462,
+                    59,
+                    59
+                ],
+                "template": "Fishing/拖动中心__1022_462_59_59__972_412_159_159.png"
+            }
+        },
+        "action": "Click",
+        "next": [
+            "StartFishing"
+        ],
+        "interrupt": [
+            "FishingReelIn",
+            "FishingReelIn1",
+            "FishingClick",
+            "FishingGet",
+            "FishingSwipeRight"
+        ]
+    },
+    "FishingReelIn": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1106,
+                    622,
+                    37,
+                    26
+                ],
+                "expected": "收竿"
+            }
+        },
+        "action": "Click"
+    },
+    "FishingReelIn1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1073,
+                    525,
+                    90,
+                    74
+                ],
+                "template": "Fishing/收竿__1073_525_90_74__1023_475_190_174.png"
+            }
+        },
+        "action": "Click"
+    },
+    "FishingClick": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    55,
+                    67,
+                    1046,
+                    509
+                ],
+                "template": [
+                    "Fishing/鱼标记__135_317_109_78__85_267_209_178.png",
+                    "Fishing/鱼标记__624_524_97_77__574_474_197_177.png"
+                ]
+            }
+        },
+        "action": "Click"
+    },
+    "FishingGet": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    495,
+                    370,
+                    253,
+                    164
+                ],
+                "expected": [
+                    "特质",
+                    "重量"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    10,
+                    10,
+                    10
+                ]
+            }
+        }
+    },
+    "FishingSwipeRight": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1022,
+                    462,
+                    59,
+                    59
+                ],
+                "template": "Fishing/拖动中心__1022_462_59_59__972_412_159_159.png"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    1022,
+                    462,
+                    59,
+                    59
+                ],
+                "end": [
+                    1163,
+                    462,
+                    59,
+                    59
+                ],
+                "duration": 1000
+            }
+        }
+    }
+}
