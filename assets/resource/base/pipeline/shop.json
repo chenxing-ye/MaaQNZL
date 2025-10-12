@@ -329,10 +329,10 @@
             "type": "Click"
         },
         "interrupt": [
-            "ItemBuyMax",
             "CloseGetItem"
         ],
         "next": [
+            "ItemBuyMax",
             "ShopDailyHarvestBuy"
         ],
         "on_error": [

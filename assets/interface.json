@@ -38,7 +38,15 @@
         },
         {
             "name": "商店",
-            "entry": "Shop"
+            "entry": "Shop",
+            "pipeline_override": {
+                "ItemBuyConfirm": {
+                    "next": [
+                        "ItemBuyFail",
+                        "ShopDailyHarvestBuy"
+                    ]
+                }
+            }
         },
         {
             "name": "知更鸟清体力",
