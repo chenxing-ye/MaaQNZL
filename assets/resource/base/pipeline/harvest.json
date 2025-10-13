@@ -152,6 +152,10 @@
         },
         "next": [
             "HarvestFarmMain"
+        ],
+        "interrupt": [
+            "CloseGetItem",
+            "HarvestFarmCloseOther"
         ]
     },
     "HarvestFarmMain": {
