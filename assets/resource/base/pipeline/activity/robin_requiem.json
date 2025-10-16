@@ -144,10 +144,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    478,
-                    181,
-                    35,
-                    32
+                    442,
+                    177,
+                    72,
+                    38
                 ],
                 "template": "Activity/RobinRequiem/知更鸟商店价格图标__478_181_35_32__428_131_135_132.png"
             }
