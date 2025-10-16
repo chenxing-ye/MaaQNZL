@@ -171,6 +171,7 @@
         },
         "timeout": 180000,
         "next": [
+            "EnergyMissing",
             "CheckBattleFinish",
             "CheckBattleFinish1",
             "CheckBattleFinish2",
@@ -181,8 +182,27 @@
         "interrupt": [
             "SettingAutobattle",
             "Autobattling",
-            "AbyssNewLevel"
+            "AbyssNewLevel",
+            "AddEnergyMain",
+            "CloseGetItem"
         ]
+    },
+    "EnergyMissing": {
+        "enabled": false,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    565,
+                    136,
+                    141,
+                    35
+                ],
+                "template": [
+                    "Common/补充星魂力主界面__565_136_141_35__515_86_241_135.png"
+                ]
+            }
+        }
     },
     "AbyssNewLevel": {
         "recognition": {
@@ -380,18 +400,6 @@
                 ],
                 "template": "Battle/再次挑战__38_625_126_37__0_575_214_137.png"
             }
-        },
-        "pre_delay": 3000,
-        "action": {
-            "type": "Click",
-            "param": {
-                "target_offset": [
-                    0,
-                    -100,
-                    0,
-                    0
-                ]
-            }
         }
     },
     "CheckBattleFinish1": {
@@ -456,6 +464,40 @@
                 ],
                 "template": "Guild/公会首领总伤害__877_546_124_43__827_496_224_143.png"
             }
+        }
+    },
+    "ClickBattleAgain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    38,
+                    625,
+                    126,
+                    37
+                ],
+                "template": "Battle/再次挑战__38_625_126_37__0_575_214_137.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "ClickBattleNext": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    186,
+                    621,
+                    105,
+                    39
+                ],
+                "template": "Battle/前往下一关__186_621_105_39__136_571_205_139.png"
+            }
+        },
+        "action": {
+            "type": "Click"
         }
     },
     "ClickGuildBattleFinish": {

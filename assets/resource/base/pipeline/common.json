@@ -186,5 +186,144 @@
         "next": [
             "Stop"
         ]
+    },
+    "AddEnergyMain": {
+        "enabled": false,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    565,
+                    136,
+                    141,
+                    35
+                ],
+                "template": [
+                    "Common/补充星魂力主界面__565_136_141_35__515_86_241_135.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "AddEnergyFinish",
+            "AddEnergy"
+        ]
+    },
+    "AddEnergy": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    452,
+                    186,
+                    541,
+                    144
+                ],
+                "template": [
+                    "Common/中体力__766_217_57_89__716_167_157_189.png",
+                    "Common/大体力__902_216_57_89__852_166_157_189.png"
+                ],
+                "threshold": 0.98
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "AddEnergyConfirm"
+        ]
+    },
+    "AddEnergyConfirm": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    495,
+                    443,
+                    314,
+                    29
+                ],
+                "expected": [
+                    "恢复"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ClickConfirm"
+        ]
+    },
+    "ClickConfirm": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    786,
+                    487,
+                    66,
+                    27
+                ],
+                "template": [
+                    "Common/补充体力确定__786_487_66_27__736_437_166_127.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "ItemMissing": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    491,
+                    19,
+                    293,
+                    29
+                ],
+                "template": [
+                    "Common/道具不足__491_19_293_29__441_0_393_98.png"
+                ]
+            }
+        }
+    },
+    "AddEnergyFinish": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    930,
+                    24,
+                    37,
+                    23
+                ],
+                "expected": "^([6-9]\\d|\\d{3,})(/)?$"
+            }
+        },
+        "next": [
+            "AddEnergyClose"
+        ]
+    },
+    "AddEnergyClose": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    438,
+                    488,
+                    54,
+                    29
+                ],
+                "template": "Common/补充体力关闭__438_488_54_29__388_438_154_129.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

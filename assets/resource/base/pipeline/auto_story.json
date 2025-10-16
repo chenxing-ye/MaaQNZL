@@ -1,0 +1,143 @@
+{
+    "AutoStory": {
+        "next": [
+            "AutoStoryCase"
+        ],
+        "interrupt": [
+            "ReturnMain"
+        ]
+    },
+    "AutoStoryCase": {
+        "next": [
+            "AutoStoryFinish",
+            "ItemMissing",
+            "EnergyMissing"
+        ],
+        "interrupt": [
+            "ClickDungeonList",
+            "IsDungeon",
+            "StartBattle",
+            "ClickBattleNext",
+            "DungeonBattleFinishQuit",
+            "WatchStoryButton",
+            "CloseGetItem",
+            "StorySkip",
+            "DailyMemoryPlay",
+            "AddEnergyMain"
+        ]
+    },
+    "AutoStoryFinish": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    61,
+                    244,
+                    86,
+                    68
+                ],
+                "template": [
+                    "AutoStory/自动主线推图结束__61_244_86_68__11_194_186_168.png"
+                ]
+            }
+        }
+    },
+    "ClickDungeonList": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1142,
+                    232,
+                    59,
+                    45
+                ],
+                "template": [
+                    "AutoStory/关卡列表__1142_232_59_45__1092_182_159_145.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "IsDungeon": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    837,
+                    79,
+                    86,
+                    34
+                ],
+                "template": "AutoStory/Next标记__837_79_86_34__787_29_186_134.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DungeonBattleButton",
+            "AddEnergyMain"
+        ]
+    },
+    "DungeonBattleButton": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    874,
+                    284,
+                    161,
+                    41
+                ],
+                "template": "AssistInFighting/列表界面出击按钮__874_284_161_41__824_234_261_141.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 2000
+    },
+    "DungeonBattleFinishQuit": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    186,
+                    620,
+                    187,
+                    68
+                ],
+                "template": [
+                    "AutoStory/战斗结束小律__202_631_29_42__152_581_129_139.png",
+                    "AutoStory/战斗结束白毛__266_634_29_42__216_584_129_136.png",
+                    "AutoStory/战斗结束黑神__328_631_29_42__278_581_129_139.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "WatchStoryButton": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    996,
+                    223,
+                    142,
+                    40
+                ],
+                "template": [
+                    "AutoStory/观看剧情__996_223_142_40__946_173_242_140.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}
