@@ -115,7 +115,7 @@ jobs:
             mkdir -p install
             cp -rpvn MFA/. install/
           # 拼接数据
-            jq  --arg custom_title "树批小助手${{ needs.meta.outputs.tag }}" '. + {"custom_title": $custom_title}' ./assets/interface.json > ./install/interface.json
+            jq  --arg custom_title "千年之旅小助手${{ needs.meta.outputs.tag }}" '. + {"custom_title": $custom_title}' ./assets/interface.json > ./install/interface.json
           else
             echo "MFA directory not found, skipping copy."
           fi
