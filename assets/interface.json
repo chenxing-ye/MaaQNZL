@@ -66,6 +66,14 @@
         {
             "name": "公会每日",
             "entry": "GuildDaily",
+            "pipeline_override": {
+                "Battling": {
+                    "interrupt": [
+                        "CloseAutobattle",
+                        "Skipbattle"
+                    ]
+                }
+            },
             "option": [
                 "公会首领出战队伍"
             ]
