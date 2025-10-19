@@ -324,8 +324,12 @@
                     35,
                     374
                 ],
-                "template": "AssistInFighting/支援标记__784_507_18_18__734_457_118_118.png",
-                "threshold": 0.6
+                "template": [
+                    "AssistInFighting/支援标记__784_507_18_18__734_457_118_118.png",
+                    "AssistInFighting/支援标记__787_390_13_14__737_340_113_114.png"
+                ],
+                "threshold": 0.6,
+                "order_by": "Score"
             }
         },
         "action": {
