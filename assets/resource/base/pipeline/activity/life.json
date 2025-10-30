@@ -1,0 +1,313 @@
+{
+    "LifeDungeon": {
+        "next": [
+            "EnterLifeDungeon"
+        ],
+        "interrupt": [
+            "EnterLife",
+            "ReturnMain"
+        ]
+    },
+    "EnterLife": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1022,
+                    174,
+                    224,
+                    117
+                ],
+                "expected": [
+                    "一生",
+                    "的",
+                    "故事"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "pre_delay": 2000,
+        "next": [
+            "LifeMain",
+            "EnterLife"
+        ]
+    },
+    "LifeMain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    495,
+                    56,
+                    346,
+                    149
+                ],
+                "template": "Activity/Life/一生主界面__495_56_346_149__445_6_446_249.png"
+            }
+        }
+    },
+    "EnterLifeDungeon": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    160,
+                    582,
+                    124,
+                    85
+                ],
+                "template": "Activity/Life/一生副本入口__160_582_124_85__110_532_224_185.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "LifeDungeonButtton",
+            "EnterLifeDungeon"
+        ]
+    },
+    "LifeDungeonButtton": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    703,
+                    203,
+                    123,
+                    54
+                ],
+                "template": "Activity/Life/一生刷体力副本__703_203_123_54__653_153_223_154.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "LifeQuickBattle"
+        ]
+    },
+    "LifeQuickBattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    712,
+                    46,
+                    168,
+                    65
+                ],
+                "template": "Activity/Life/一生副本详情__712_46_168_65__662_0_268_161.png"
+            }
+        },
+        "next": [
+            "QuickBattleMain"
+        ],
+        "interrupt": [
+            "ClickQuickBattle"
+        ]
+    },
+    "LifeShop": {
+        "next": [
+            "EnterLifeShop"
+        ],
+        "interrupt": [
+            "EnterLife",
+            "ReturnMain"
+        ]
+    },
+    "EnterLifeShop": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    981,
+                    589,
+                    202,
+                    71
+                ],
+                "template": "Activity/Life/一生商店__981_589_202_71__931_539_302_171.png"
+            }
+        },
+        "post_delay": 1000,
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "LifeShopItem"
+        ]
+    },
+    "LifeShopItem": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    395,
+                    179,
+                    101,
+                    57
+                ],
+                "template": "Activity/Life/一生商店价格图标__415_191_42_37__365_141_142_137.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "LifeShopItemMax"
+        ]
+    },
+    "LifeShopItemMax": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    765,
+                    468,
+                    56,
+                    43
+                ],
+                "template": "Activity/Common/商店物品最大值__765_468_56_43__715_418_156_143.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "LifeShopItemBuy"
+        ]
+    },
+    "LifeShopItemBuy": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    832,
+                    562,
+                    67,
+                    27
+                ],
+                "template": "Activity/Common/商店物品购买__832_562_67_27__782_512_167_127.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "LifeShopItemCant",
+            "LifeShopItem"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "LifeShopItemCant": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    560,
+                    18,
+                    164,
+                    31
+                ],
+                "template": "Common/货币不足无法购买__560_18_164_31__510_0_264_99.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "LifeShopBuyCancel",
+            "LifeShopReturn"
+        ]
+    },
+    "LifeShopBuyCancel": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    372,
+                    562,
+                    63,
+                    26
+                ],
+                "template": "Activity/Common/商店物品购买关闭__372_562_63_26__322_512_163_126.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "LifeShopReturn"
+        ]
+    },
+    "LifeShopReturn": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    20,
+                    16,
+                    77,
+                    29
+                ],
+                "template": "Common/返回上一级按钮__20_16_77_29__0_0_147_95.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "LifeDaily"
+        ]
+    },
+    "LifeDaily": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1053,
+                    336,
+                    132,
+                    62
+                ],
+                "expected": [
+                    "后厨",
+                    "仓库"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "LifeDailyGain"
+        ]
+    },
+    "LifeDailyGain": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1088,
+                    37,
+                    87,
+                    34
+                ],
+                "expected": [
+                    "全部",
+                    "领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

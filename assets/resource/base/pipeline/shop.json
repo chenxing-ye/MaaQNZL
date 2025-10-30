@@ -49,7 +49,7 @@
     },
     "ShopGiftMain": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
                     103,
@@ -57,7 +57,10 @@
                     102,
                     39
                 ],
-                "template": "Shop/圣城供需官__103_141_102_39__53_91_202_139.png"
+                "expected": [
+                    "圣城",
+                    "供需官"
+                ]
             }
         },
         "action": {

@@ -49,12 +49,12 @@
             }
         },
         {
-            "name": "知更鸟清体力",
-            "entry": "RobinRequiemDungeon"
+            "name": "一生故事清体力",
+            "entry": "LifeDungeon"
         },
         {
-            "name": "知更鸟商店",
-            "entry": "RobinRequiemShop"
+            "name": "一生故事商店",
+            "entry": "LifeShop"
         },
         {
             "name": "刷本-清体力",
