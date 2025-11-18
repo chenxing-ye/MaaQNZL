@@ -76,15 +76,15 @@
     },
     "ReturnMain": {
         "doc": "返回主界面（专供任务开始前使用）",
-        "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": "Count",
-                "custom_recognition_param": {
-                    "target": 2
-                }
-            }
-        },
+        // "recognition": {
+        //     "type": "Custom",
+        //     "param": {
+        //         "custom_recognition": "Count",
+        //         "custom_recognition_param": {
+        //             "target": 2
+        //         }
+        //     }
+        // },
         "next": [
             "HomeFlagCloseReturnMain"
         ],
@@ -237,15 +237,15 @@
         }
     },
     "ClickHomeCount": {
-        "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": "Count",
-                "custom_recognition_param": {
-                    "target": 20
-                }
-            }
-        },
+        // "recognition": {
+        //     "type": "Custom",
+        //     "param": {
+        //         "custom_recognition": "Count",
+        //         "custom_recognition_param": {
+        //             "target": 20
+        //         }
+        //     }
+        // },
         "action": {
             "type": "Click",
             "param": {
