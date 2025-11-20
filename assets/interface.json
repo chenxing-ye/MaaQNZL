@@ -49,12 +49,12 @@
             }
         },
         {
-            "name": "一生故事清体力",
-            "entry": "LifeDungeon"
-        },
-        {
-            "name": "一生故事商店",
-            "entry": "LifeShop"
+            "name": "限时活动",
+            "entry": "ActivityDungeon",
+            "option": [
+                "清体力",
+                "当前活动"
+            ]
         },
         {
             "name": "刷本-清体力",
@@ -458,6 +458,116 @@
                     "pipeline_override": {
                         "EnergyMissing": {
                             "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "清体力": {
+            "cases": [
+                {
+                    "name": "是",
+                    "pipeline_override": {
+                        "ActivityDungeon": {
+                            "next": [
+                                "EnterActivityDungeon"
+                            ]
+                        },
+                        "EnterActivityDungeon": {
+                            "enabled": true
+                        },
+                        "CloseEnergy": {
+                            "next": [
+                                "ActivityShop"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "否",
+                    "pipeline_override": {}
+                }
+            ]
+        },
+        "当前活动": {
+            "cases": [
+                {
+                    "name": "鎏金",
+                    "pipeline_override": {
+                        "EnterActivity": {
+                            "expected": [
+                                "鎏金",
+                                "狂想",
+                                "曲"
+                            ]
+                        },
+                        "ActivityMain": {
+                            "roi": [
+                                470,
+                                529,
+                                367,
+                                98
+                            ],
+                            "template": "Activity/Rhapsody/狂想曲主界面__470_529_367_98__420_479_467_198.png"
+                        },
+                        "EnterActivityDungeon": {
+                            "roi": [
+                                180,
+                                371,
+                                149,
+                                57
+                            ],
+                            "template": "Activity/Rhapsody/狂想曲副本入口__180_371_149_57__130_321_249_157.png"
+                        },
+                        "ActivityDungeonButtton": {
+                            "roi": [
+                                687,
+                                383,
+                                176,
+                                61
+                            ],
+                            "template": "Activity/Rhapsody/狂想曲刷体力副本__687_383_176_61__637_333_276_161.png"
+                        },
+                        "ActivityQuickBattle": {
+                            "roi": [
+                                707,
+                                44,
+                                294,
+                                66
+                            ],
+                            "template": "Activity/Rhapsody/狂想曲副本详情__707_44_294_66__657_0_394_160.png"
+                        },
+                        "EnterActivityShop": {
+                            "roi": [
+                                961,
+                                539,
+                                127,
+                                59
+                            ],
+                            "template": "Activity/Rhapsody/狂想曲商店__961_539_127_59__911_489_227_159.png"
+                        },
+                        "ActivityShopItem": {
+                            "template": "Activity/Rhapsody/狂想曲商店价格图标__470_172_36_32__420_122_136_132.png"
+                        },
+                        "ActivityDaily": {
+                            "roi": [
+                                1003,
+                                377,
+                                133,
+                                51
+                            ],
+                            "expected": [
+                                "受理",
+                                "专处"
+                            ]
+                        },
+                        "ActivityDailyGain": {
+                            "roi": [
+                                1101,
+                                22,
+                                96,
+                                28
+                            ]
                         }
                     }
                 }

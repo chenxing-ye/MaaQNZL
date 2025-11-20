@@ -164,16 +164,16 @@
                 ],
                 "template": "Main/出击按钮__1092_615_76_48__1042_565_176_148.png"
             }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "DisableNode",
-                "custom_action_param": {
-                    "node_name": "ReturnMain"
-                }
-            }
         }
+        // "action": {
+        //     "type": "Custom",
+        //     "param": {
+        //         "custom_action": "DisableNode",
+        //         "custom_action_param": {
+        //             "node_name": "ReturnMain"
+        //         }
+        //     }
+        // }
     },
     "BackButton": {
         "recognition": {

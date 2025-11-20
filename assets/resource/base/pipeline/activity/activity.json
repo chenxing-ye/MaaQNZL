@@ -1,0 +1,315 @@
+{
+    "ActivityDungeon": {
+        "next": [
+            "EnterActivityDungeon",
+            "ActivityShop"
+        ],
+        "interrupt": [
+            "EnterActivity",
+            "ReturnMain"
+        ]
+    },
+    "EnterActivity": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    973,
+                    174,
+                    273,
+                    117
+                ],
+                "expected": [
+                    "一生",
+                    "的",
+                    "故事"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "pre_delay": 2000,
+        "next": [
+            "ActivityMain",
+            "EnterActivity"
+        ]
+    },
+    "ActivityMain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    495,
+                    56,
+                    346,
+                    149
+                ],
+                "template": ""
+            }
+        }
+    },
+    "EnterActivityDungeon": {
+        "enabled": false,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    160,
+                    582,
+                    124,
+                    85
+                ],
+                "template": ""
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ActivityDungeonButtton",
+            "EnterActivityDungeon"
+        ]
+    },
+    "ActivityDungeonButtton": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    703,
+                    203,
+                    123,
+                    54
+                ],
+                "template": ""
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ActivityQuickBattle"
+        ]
+    },
+    "ActivityQuickBattle": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    712,
+                    46,
+                    168,
+                    65
+                ],
+                "template": ""
+            }
+        },
+        "next": [
+            "QuickBattleMain"
+        ],
+        "interrupt": [
+            "ClickQuickBattle"
+        ]
+    },
+    "ActivityShop": {
+        "next": [
+            "EnterActivityShop"
+        ],
+        "interrupt": [
+            "EnterActivity",
+            "ReturnMain"
+        ]
+    },
+    "EnterActivityShop": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    981,
+                    589,
+                    202,
+                    71
+                ],
+                "template": ""
+            }
+        },
+        "post_delay": 1000,
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ActivityShopItem"
+        ]
+    },
+    "ActivityShopItem": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    395,
+                    151,
+                    150,
+                    85
+                ],
+                "template": ""
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ActivityShopItemMax"
+        ]
+    },
+    "ActivityShopItemMax": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    765,
+                    468,
+                    56,
+                    43
+                ],
+                "template": "Activity/Common/商店物品最大值__765_468_56_43__715_418_156_143.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ActivityShopItemBuy"
+        ]
+    },
+    "ActivityShopItemBuy": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    832,
+                    562,
+                    67,
+                    27
+                ],
+                "template": "Activity/Common/商店物品购买__832_562_67_27__782_512_167_127.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "ActivityShopItemCant",
+            "ActivityShopItem"
+        ],
+        "interrupt": [
+            "CloseGetItem"
+        ]
+    },
+    "ActivityShopItemCant": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    560,
+                    18,
+                    164,
+                    31
+                ],
+                "template": "Common/货币不足无法购买__560_18_164_31__510_0_264_99.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "ActivityShopBuyCancel",
+            "ActivityShopReturn"
+        ]
+    },
+    "ActivityShopBuyCancel": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    372,
+                    562,
+                    63,
+                    26
+                ],
+                "template": "Activity/Common/商店物品购买关闭__372_562_63_26__322_512_163_126.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "ActivityShopReturn"
+        ]
+    },
+    "ActivityShopReturn": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    20,
+                    16,
+                    77,
+                    29
+                ],
+                "template": "Common/返回上一级按钮__20_16_77_29__0_0_147_95.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ActivityDaily"
+        ]
+    },
+    "ActivityDaily": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1053,
+                    336,
+                    132,
+                    62
+                ],
+                "expected": [
+                    "后厨",
+                    "仓库"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ActivityDailyGain"
+        ]
+    },
+    "ActivityDailyGain": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1088,
+                    37,
+                    87,
+                    34
+                ],
+                "expected": [
+                    "全部",
+                    "领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}
