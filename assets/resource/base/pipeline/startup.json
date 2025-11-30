@@ -4,20 +4,18 @@
         "timeout": 60000,
         "next": [
             "HomeFlag",
-            "StartGame"
-        ],
-        "interrupt": [
-            "启动logo",
-            "GameLoading",
-            "ClosePage",
-            "MonCard",
-            "VictoryReturn",
-            "BackButton",
-            "HomeButton",
-            "StartQNZL",
-            "ClickHomeCount",
-            "LoadingGameEnter",
-            "Download"
+            "StartGame",
+            "[JumpBack]启动logo",
+            "[JumpBack]GameLoading",
+            "[JumpBack]ClosePage",
+            "[JumpBack]MonCard",
+            "[JumpBack]VictoryReturn",
+            "[JumpBack]BackButton",
+            "[JumpBack]HomeButton",
+            "[JumpBack]StartQNZL",
+            "[JumpBack]ClickHomeCount",
+            "[JumpBack]LoadingGameEnter",
+            "[JumpBack]Download"
         ]
     },
     "HomeFlag": {
@@ -64,14 +62,12 @@
         },
         "next": [
             "HomeFlag",
-            "StartGame"
-        ],
-        "interrupt": [
-            "ClosePage",
-            "MonCard",
-            "BackButton",
-            "HomeButton",
-            "ClickHomeCount"
+            "StartGame",
+            "[JumpBack]ClosePage",
+            "[JumpBack]MonCard",
+            "[JumpBack]BackButton",
+            "[JumpBack]HomeButton",
+            "[JumpBack]ClickHomeCount"
         ]
     },
     "ReturnMain": {
@@ -86,18 +82,16 @@
         //     }
         // },
         "next": [
-            "HomeFlagCloseReturnMain"
-        ],
-        "interrupt": [
-            "HomeButton",
-            "BackButton",
-            "ClosePage",
-            "StartGame",
-            "MonCard",
-            "VictoryReturn",
-            "CloseEnergy",
-            "ClickHomeCount",
-            "CloseGetItem"
+            "HomeFlagCloseReturnMain",
+            "[JumpBack]HomeButton",
+            "[JumpBack]BackButton",
+            "[JumpBack]ClosePage",
+            "[JumpBack]StartGame",
+            "[JumpBack]MonCard",
+            "[JumpBack]VictoryReturn",
+            "[JumpBack]CloseEnergy",
+            "[JumpBack]ClickHomeCount",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "StartQNZL": {

@@ -1,29 +1,25 @@
 {
     "AutoStory": {
         "next": [
-            "AutoStoryCase"
-        ],
-        "interrupt": [
-            "ReturnMain"
+            "AutoStoryCase",
+            "[JumpBack]ReturnMain"
         ]
     },
     "AutoStoryCase": {
         "next": [
             "AutoStoryFinish",
             "ItemMissing",
-            "EnergyMissing"
-        ],
-        "interrupt": [
-            "ClickDungeonList",
-            "IsDungeon",
-            "StartBattle",
-            "ClickBattleNext",
-            "DungeonBattleFinishQuit",
-            "WatchStoryButton",
-            "CloseGetItem",
-            "StorySkip",
-            "DailyMemoryPlay",
-            "AddEnergyMain"
+            "EnergyMissing",
+            "[JumpBack]ClickDungeonList",
+            "[JumpBack]IsDungeon",
+            "[JumpBack]StartBattle",
+            "[JumpBack]ClickBattleNext",
+            "[JumpBack]DungeonBattleFinishQuit",
+            "[JumpBack]WatchStoryButton",
+            "[JumpBack]CloseGetItem",
+            "[JumpBack]StorySkip",
+            "[JumpBack]DailyMemoryPlay",
+            "[JumpBack]AddEnergyMain"
         ]
     },
     "AutoStoryFinish": {

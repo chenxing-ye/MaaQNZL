@@ -1,10 +1,8 @@
 {
     "Harvest": {
         "next": [
-            "StatrHarvest"
-        ],
-        "interrupt": [
-            "ReturnMain"
+            "StatrHarvest",
+            "[JumpBack]ReturnMain"
         ]
     },
     "StatrHarvest": {
@@ -65,10 +63,8 @@
             "type": "Click"
         },
         "next": [
-            "HarvestDispatch"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "HarvestDispatch",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "HarvestNoGain": {
@@ -108,10 +104,8 @@
             "type": "Click"
         },
         "next": [
-            "HarvestReturn"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "HarvestReturn",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "HarvestReturn": {
@@ -151,11 +145,9 @@
             "type": "Click"
         },
         "next": [
-            "HarvestFarmMain"
-        ],
-        "interrupt": [
-            "CloseGetItem",
-            "HarvestFarmCloseOther"
+            "HarvestFarmMain",
+            "[JumpBack]CloseGetItem",
+            "[JumpBack]HarvestFarmCloseOther"
         ]
     },
     "HarvestFarmMain": {
@@ -175,12 +167,10 @@
             "type": "Click"
         },
         "next": [
-            "HarvestFarmlandMain"
-        ],
-        "interrupt": [
-            "CloseGetItem",
-            "HarvestFarmCloseOther",
-            "HarvestFarmAngry"
+            "HarvestFarmlandMain",
+            "[JumpBack]CloseGetItem",
+            "[JumpBack]HarvestFarmCloseOther",
+            "[JumpBack]HarvestFarmAngry"
         ]
     },
     "HarvestFarmCloseOther": {
@@ -258,14 +248,12 @@
             "type": "Click"
         },
         "next": [
-            "启动logo"
-        ],
-        "interrupt": [
-            "HarvestFarmlandGain",
-            "HarvestFarmlandPlating",
-            "HarvestFarmlandFertilizing",
-            "HarvestFarmlandAllUse",
-            "CloseGetItem"
+            "启动logo",
+            "[JumpBack]HarvestFarmlandGain",
+            "[JumpBack]HarvestFarmlandPlating",
+            "[JumpBack]HarvestFarmlandFertilizing",
+            "[JumpBack]HarvestFarmlandAllUse",
+            "[JumpBack]CloseGetItem"
         ],
         "on_error": [
             "Stop"

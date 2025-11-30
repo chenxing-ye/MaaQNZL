@@ -1,11 +1,9 @@
 {
     "LifeDungeon": {
         "next": [
-            "EnterLifeDungeon"
-        ],
-        "interrupt": [
-            "EnterLife",
-            "ReturnMain"
+            "EnterLifeDungeon",
+            "[JumpBack]EnterLife",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterLife": {
@@ -103,19 +101,15 @@
             }
         },
         "next": [
-            "QuickBattleMain"
-        ],
-        "interrupt": [
-            "ClickQuickBattle"
+            "QuickBattleMain",
+            "[JumpBack]ClickQuickBattle"
         ]
     },
     "LifeShop": {
         "next": [
-            "EnterLifeShop"
-        ],
-        "interrupt": [
-            "EnterLife",
-            "ReturnMain"
+            "EnterLifeShop",
+            "[JumpBack]EnterLife",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterLifeShop": {
@@ -198,10 +192,8 @@
         "post_delay": 1500,
         "next": [
             "LifeShopItemCant",
-            "LifeShopItem"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "LifeShopItem",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "LifeShopItemCant": {

@@ -1,10 +1,8 @@
 {
     "Roguelike": {
         "next": [
-            "EnterRoguelike"
-        ],
-        "interrupt": [
-            "ReturnMain"
+            "EnterRoguelike",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterRoguelike": {
@@ -66,12 +64,10 @@
             "type": "Click"
         },
         "next": [
-            "RoguelikeFinish"
-        ],
-        "interrupt": [
-            "RoguelikeDungeonStart",
-            "RoguelikeBattleVictory",
-            "RoguelikeBuffSelect"
+            "RoguelikeFinish",
+            "[JumpBack]RoguelikeDungeonStart",
+            "[JumpBack]RoguelikeBattleVictory",
+            "[JumpBack]RoguelikeBuffSelect"
         ]
     },
     "RoguelikeDungeonStart": {

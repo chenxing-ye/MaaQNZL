@@ -1,11 +1,9 @@
 {
     "RobinRequiemDungeon": {
         "next": [
-            "EnterRobinRequiemDungeon"
-        ],
-        "interrupt": [
-            "EnterRobinRequiem",
-            "ReturnMain"
+            "EnterRobinRequiemDungeon",
+            "[JumpBack]EnterRobinRequiem",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterRobinRequiem": {
@@ -103,19 +101,15 @@
             }
         },
         "next": [
-            "QuickBattleMain"
-        ],
-        "interrupt": [
-            "ClickQuickBattle"
+            "QuickBattleMain",
+            "[JumpBack]ClickQuickBattle"
         ]
     },
     "RobinRequiemShop": {
         "next": [
-            "EnterRobinRequiemShop"
-        ],
-        "interrupt": [
-            "EnterRobinRequiem",
-            "ReturnMain"
+            "EnterRobinRequiemShop",
+            "[JumpBack]EnterRobinRequiem",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterRobinRequiemShop": {
@@ -198,10 +192,8 @@
         "post_delay": 1500,
         "next": [
             "RobinRequiemShopItemCant",
-            "RobinRequiemShopItem"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "RobinRequiemShopItem",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "RobinRequiemShopItemCant": {

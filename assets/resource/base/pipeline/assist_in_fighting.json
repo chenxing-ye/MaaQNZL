@@ -3,10 +3,8 @@
         "next": [
             "ClickBattleButton",
             "ClickChapter1",
-            "EnterFighting"
-        ],
-        "interrupt": [
-            "ReturnMain"
+            "EnterFighting",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterFighting": {
@@ -28,10 +26,8 @@
         "next": [
             "ClickBattleButton",
             "ClickChapter1",
-            "EnterFighting"
-        ],
-        "interrupt": [
-            "ClickStoryLine"
+            "EnterFighting",
+            "[JumpBack]ClickStoryLine"
         ]
     },
     "ClickChapter1": {
@@ -51,10 +47,8 @@
             "type": "Click"
         },
         "next": [
-            "ClickFirst"
-        ],
-        "interrupt": [
-            "Switchhard"
+            "ClickFirst",
+            "[JumpBack]Switchhard"
         ]
     },
     "ClickStoryLine": {
@@ -308,10 +302,8 @@
             }
         },
         "next": [
-            "ClickSelectConfirm"
-        ],
-        "interrupt": [
-            "ClickReplaceOrRelieveConfirm"
+            "ClickSelectConfirm",
+            "[JumpBack]ClickReplaceOrRelieveConfirm"
         ]
     },
     "ClickAssist": {
@@ -344,10 +336,8 @@
             }
         },
         "next": [
-            "ClickSelectConfirm"
-        ],
-        "interrupt": [
-            "ClickReplaceOrRelieveConfirm"
+            "ClickSelectConfirm",
+            "[JumpBack]ClickReplaceOrRelieveConfirm"
         ]
     },
     "ClickSelectConfirm": {
@@ -367,10 +357,8 @@
             "type": "Click"
         },
         "next": [
-            "StartBattle"
-        ],
-        "interrupt": [
-            "ClickReplaceOrRelieveConfirm"
+            "StartBattle",
+            "[JumpBack]ClickReplaceOrRelieveConfirm"
         ]
     },
     "ClickReplaceOrRelieveConfirm": {

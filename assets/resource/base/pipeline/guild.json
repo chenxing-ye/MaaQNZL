@@ -1,10 +1,8 @@
 {
     "GuildDaily": {
         "next": [
-            "EnterGuild"
-        ],
-        "interrupt": [
-            "ReturnMain"
+            "EnterGuild",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterGuild": {
@@ -45,11 +43,9 @@
             "type": "Click"
         },
         "next": [
-            "GuildDonationFinish"
-        ],
-        "interrupt": [
-            "GuildDonationLoop",
-            "CloseGetItem"
+            "GuildDonationFinish",
+            "[JumpBack]GuildDonationLoop",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "GuildDonationLoop": {
@@ -84,10 +80,8 @@
             }
         },
         "next": [
-            "GuildInfo"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "GuildInfo",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "GuildInfo": {
@@ -107,11 +101,9 @@
             "type": "Click"
         },
         "next": [
-            "GuildLikesFinish"
-        ],
-        "interrupt": [
-            "GuildLikes",
-            "CloseGetItem"
+            "GuildLikesFinish",
+            "[JumpBack]GuildLikes",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "GuildLikes": {
@@ -146,10 +138,8 @@
             }
         },
         "next": [
-            "GuildActivity"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "GuildActivity",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "GuildTask": {
@@ -209,10 +199,8 @@
         },
         "post_wait_freezes": 300,
         "next": [
-            "GuildTaskWeekly"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "GuildTaskWeekly",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "GuildTaskWeekly": {
@@ -234,10 +222,8 @@
         "next": [
             "GuildWeeklyReward",
             "GuildWeeklyFinish",
-            "GuildWeeklyRewardNo"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "GuildWeeklyRewardNo",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "GuildWeeklyFinish": {
@@ -408,11 +394,9 @@
         },
         "post_delay": 3000,
         "next": [
-            "GuildBossReturn"
-        ],
-        "interrupt": [
-            "Battling",
-            "ClickGuildBattleFinish"
+            "GuildBossReturn",
+            "[JumpBack]Battling",
+            "[JumpBack]ClickGuildBattleFinish"
         ]
     },
     "GuildBossCant": {

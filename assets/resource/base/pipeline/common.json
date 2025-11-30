@@ -157,10 +157,8 @@
             "type": "Click"
         },
         "next": [
-            "ItemBuyFail"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "ItemBuyFail",
+            "[JumpBack]CloseGetItem"
         ],
         "on_error": [
             "Stop"

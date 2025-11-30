@@ -1,10 +1,8 @@
 {
     "Farm": {
         "next": [
-            "EnterFarm"
-        ],
-        "interrupt": [
-            "ReturnMain"
+            "EnterFarm",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterFarm": {
@@ -44,10 +42,8 @@
             "type": "Click"
         },
         "next": [
-            "SelectFarmFirst"
-        ],
-        "interrupt": [
-            "SelectFarmSwipeUp"
+            "SelectFarmFirst",
+            "[JumpBack]SelectFarmSwipeUp"
         ]
     },
     "SelectFarmFirst": {
@@ -68,10 +64,8 @@
         },
         "post_delay": 1000,
         "next": [
-            "SelectFarmSecond"
-        ],
-        "interrupt": [
-            "SelectFarmSwipeLeft"
+            "SelectFarmSecond",
+            "[JumpBack]SelectFarmSwipeLeft"
         ]
     },
     "SelectFarmSecond": {
@@ -92,10 +86,8 @@
         },
         "next": [
             "SelectFarmThree",
-            "QuickBattleMain"
-        ],
-        "interrupt": [
-            "ClickQuickBattle"
+            "QuickBattleMain",
+            "[JumpBack]ClickQuickBattle"
         ]
     },
     "SelectFarmThree": {
@@ -116,10 +108,8 @@
             "type": "Click"
         },
         "next": [
-            "QuickBattleMain"
-        ],
-        "interrupt": [
-            "ClickQuickBattle"
+            "QuickBattleMain",
+            "[JumpBack]ClickQuickBattle"
         ]
     },
     "SelectFarmSwipeUp": {

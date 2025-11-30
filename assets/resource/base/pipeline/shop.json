@@ -1,10 +1,8 @@
 {
     "Shop": {
         "next": [
-            "StartShop"
-        ],
-        "interrupt": [
-            "ReturnMain"
+            "StartShop",
+            "[JumpBack]ReturnMain"
         ]
     },
     "StartShop": {
@@ -88,11 +86,9 @@
             "type": "Click"
         },
         "next": [
-            "ShopGiftMain"
-        ],
-        "interrupt": [
-            "ShopGiftBuy",
-            "ShopGiftCloseGet"
+            "ShopGiftMain",
+            "[JumpBack]ShopGiftBuy",
+            "[JumpBack]ShopGiftCloseGet"
         ]
     },
     "ShopGiftItem": {
@@ -172,10 +168,8 @@
         },
         "timeout": 5000,
         "next": [
-            "ShopExchangeBase"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "ShopExchangeBase",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "ShopExchangeBase": {
@@ -196,10 +190,8 @@
         },
         "timeout": 5000,
         "next": [
-            "ShopExchangeItem"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "ShopExchangeItem",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "ShopExchangeItem": {
@@ -242,10 +234,8 @@
         },
         "timeout": 5000,
         "next": [
-            "ShopExchangeItem"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "ShopExchangeItem",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "ShopExchangeItemNo": {
@@ -331,12 +321,10 @@
         "action": {
             "type": "Click"
         },
-        "interrupt": [
-            "CloseGetItem"
-        ],
         "next": [
             "ItemBuyMax",
-            "ShopDailyHarvestBuy"
+            "ShopDailyHarvestBuy",
+            "[JumpBack]CloseGetItem"
         ],
         "on_error": [
             "Stop"

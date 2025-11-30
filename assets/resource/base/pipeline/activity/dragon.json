@@ -1,11 +1,9 @@
 {
     "DragonDungeon": {
         "next": [
-            "EnterDragonDungeon"
-        ],
-        "interrupt": [
-            "EnterDragon",
-            "ReturnMain"
+            "EnterDragonDungeon",
+            "[JumpBack]EnterDragon",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterDragon": {
@@ -99,19 +97,15 @@
             }
         },
         "next": [
-            "QuickBattleMain"
-        ],
-        "interrupt": [
-            "ClickQuickBattle"
+            "QuickBattleMain",
+            "[JumpBack]ClickQuickBattle"
         ]
     },
     "DragonShop": {
         "next": [
-            "EnterDragonShop"
-        ],
-        "interrupt": [
-            "EnterDragon",
-            "ReturnMain"
+            "EnterDragonShop",
+            "[JumpBack]EnterDragon",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterDragonShop": {
@@ -194,10 +188,8 @@
         "post_delay": 1500,
         "next": [
             "DragonShopItemCant",
-            "DragonShopItem"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "DragonShopItem",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "DragonShopItemCant": {

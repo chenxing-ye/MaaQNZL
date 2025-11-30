@@ -33,14 +33,12 @@
         "action": "Click",
         "next": [
             "FishingCant",
-            "StartFishing"
-        ],
-        "interrupt": [
-            "FishingReelIn",
-            "FishingReelIn1",
-            "FishingClick",
-            "FishingGet",
-            "FishingSwipeRight"
+            "StartFishing",
+            "[JumpBack]FishingReelIn",
+            "[JumpBack]FishingReelIn1",
+            "[JumpBack]FishingClick",
+            "[JumpBack]FishingGet",
+            "[JumpBack]FishingSwipeRight"
         ]
     },
     "FishingCant": {

@@ -1,10 +1,8 @@
 {
     "Tower": {
         "next": [
-            "EnterTower"
-        ],
-        "interrupt": [
-            "ReturnMain"
+            "EnterTower",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterTower": {
@@ -64,10 +62,8 @@
             "type": "Click"
         },
         "next": [
-            "SelectTowerSecond"
-        ],
-        "interrupt": [
-            "SelectTowerSwipeLeft"
+            "SelectTowerSecond",
+            "[JumpBack]SelectTowerSwipeLeft"
         ]
     },
     "SelectTowerSecond": {
@@ -87,12 +83,10 @@
             "type": "Click"
         },
         "next": [
-            "TowerImpossible"
-        ],
-        "interrupt": [
-            "TowerAction_1",
-            "TowerAction_2",
-            "TowerFinishClick"
+            "TowerImpossible",
+            "[JumpBack]TowerAction_1",
+            "[JumpBack]TowerAction_2",
+            "[JumpBack]TowerFinishClick"
         ]
     },
     "TowerAction_1": {

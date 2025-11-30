@@ -1,10 +1,8 @@
 {
     "Task": {
         "next": [
-            "StartTask"
-        ],
-        "interrupt": [
-            "ReturnMain"
+            "StartTask",
+            "[JumpBack]ReturnMain"
         ]
     },
     "StartTask": {
@@ -46,11 +44,9 @@
             "type": "Click"
         },
         "next": [
-            "TaskWeeklyMain"
-        ],
-        "interrupt": [
-            "TaskDailyCloseGet",
-            "TaskWeekly"
+            "TaskWeeklyMain",
+            "[JumpBack]TaskDailyCloseGet",
+            "[JumpBack]TaskWeekly"
         ]
     },
     "TaskDailyCloseGet": {
@@ -95,10 +91,8 @@
             "type": "Click"
         },
         "next": [
-            "TaskWeeklyMain"
-        ],
-        "interrupt": [
-            "TaskWeekly"
+            "TaskWeeklyMain",
+            "[JumpBack]TaskWeekly"
         ]
     },
     "TaskWeekly": {
@@ -154,11 +148,9 @@
             "type": "Click"
         },
         "next": [
-            "DailyFriendPoint"
-        ],
-        "interrupt": [
-            "CloseGetItem",
-            "TaskReturn"
+            "DailyFriendPoint",
+            "[JumpBack]CloseGetItem",
+            "[JumpBack]TaskReturn"
         ]
     },
     "TaskWeeklyCant": {
@@ -178,10 +170,8 @@
             "type": "Click"
         },
         "next": [
-            "DailyFriendPoint"
-        ],
-        "interrupt": [
-            "TaskReturn"
+            "DailyFriendPoint",
+            "[JumpBack]TaskReturn"
         ]
     },
     "TaskWeeklyFinish": {
@@ -198,10 +188,8 @@
             }
         },
         "next": [
-            "DailyFriendPoint"
-        ],
-        "interrupt": [
-            "TaskReturn"
+            "DailyFriendPoint",
+            "[JumpBack]TaskReturn"
         ]
     },
     "TaskReturn": {
@@ -235,10 +223,8 @@
             }
         },
         "next": [
-            "TaskWeeklyMain"
-        ],
-        "interrupt": [
-            "TaskWeekly"
+            "TaskWeeklyMain",
+            "[JumpBack]TaskWeekly"
         ]
     },
     "DailyFriendPoint": {
@@ -294,10 +280,8 @@
             }
         },
         "next": [
-            "DailyFriendPointReturn"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "DailyFriendPointReturn",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "DailyFriendPointReturn": {

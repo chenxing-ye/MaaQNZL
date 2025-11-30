@@ -1,10 +1,8 @@
 {
     "Abyss": {
         "next": [
-            "EnterAbyss"
-        ],
-        "interrupt": [
-            "ReturnMain"
+            "EnterAbyss",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterAbyss": {
@@ -87,10 +85,8 @@
             "type": "Click"
         },
         "next": [
-            "SelectAbyssSecond"
-        ],
-        "interrupt": [
-            "VoidTap"
+            "SelectAbyssSecond",
+            "[JumpBack]VoidTap"
         ]
     },
     "SelectAbyssSecond": {

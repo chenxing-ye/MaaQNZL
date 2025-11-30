@@ -71,10 +71,8 @@
         },
         "next": [
             "QuickBattleFinish",
-            "CloseEnergy"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "CloseEnergy",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "QuickBattleFinish": {
@@ -95,11 +93,9 @@
             "type": "Click"
         },
         "next": [
-            "QuickBattleMaX"
-        ],
-        "interrupt": [
-            "CloseGetItem",
-            "CloseLevelUp"
+            "QuickBattleMaX",
+            "[JumpBack]CloseGetItem",
+            "[JumpBack]CloseLevelUp"
         ]
     },
     "SkipEnergy": {
@@ -177,14 +173,12 @@
             "CheckBattleFinish2",
             "CheckBattleFinish3",
             "CheckGuildBattleFinish",
-            "ClickBattleConfirm"
-        ],
-        "interrupt": [
-            "SettingAutobattle",
-            "Autobattling",
-            "AbyssNewLevel",
-            "AddEnergyMain",
-            "CloseGetItem"
+            "ClickBattleConfirm",
+            "[JumpBack]SettingAutobattle",
+            "[JumpBack]Autobattling",
+            "[JumpBack]AbyssNewLevel",
+            "[JumpBack]AddEnergyMain",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "EnergyMissing": {
@@ -243,11 +237,9 @@
             "CheckBattleFinish1",
             "CheckBattleFinish2",
             "CheckBattleFinish3",
-            "CheckGuildBattleFinish"
-        ],
-        "interrupt": [
-            "SettingAutobattle",
-            "Autobattling"
+            "CheckGuildBattleFinish",
+            "[JumpBack]SettingAutobattle",
+            "[JumpBack]Autobattling"
         ]
     },
     "Autobattling": {
@@ -330,11 +322,9 @@
             }
         },
         "next": [
-            "SettingSpeedFinish"
-        ],
-        "interrupt": [
-            "SettingSpeed1",
-            "SettingSpeed2"
+            "SettingSpeedFinish",
+            "[JumpBack]SettingSpeed1",
+            "[JumpBack]SettingSpeed2"
         ]
     },
     "SettingSpeedFinish": {

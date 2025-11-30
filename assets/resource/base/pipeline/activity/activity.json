@@ -2,11 +2,9 @@
     "ActivityDungeon": {
         "next": [
             "EnterActivityDungeon",
-            "ActivityShop"
-        ],
-        "interrupt": [
-            "EnterActivity",
-            "ReturnMain"
+            "ActivityShop",
+            "[JumpBack]EnterActivity",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterActivity": {
@@ -105,19 +103,15 @@
             }
         },
         "next": [
-            "QuickBattleMain"
-        ],
-        "interrupt": [
-            "ClickQuickBattle"
+            "QuickBattleMain",
+            "[JumpBack]ClickQuickBattle"
         ]
     },
     "ActivityShop": {
         "next": [
-            "EnterActivityShop"
-        ],
-        "interrupt": [
-            "EnterActivity",
-            "ReturnMain"
+            "EnterActivityShop",
+            "[JumpBack]EnterActivity",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterActivityShop": {
@@ -200,10 +194,8 @@
         "post_delay": 1500,
         "next": [
             "ActivityShopItemCant",
-            "ActivityShopItem"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "ActivityShopItem",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "ActivityShopItemCant": {

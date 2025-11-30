@@ -1,11 +1,9 @@
 {
     "FirstStarDungeon": {
         "next": [
-            "EnterFirstStarDungeon"
-        ],
-        "interrupt": [
-            "EnterFirstStar",
-            "ReturnMain"
+            "EnterFirstStarDungeon",
+            "[JumpBack]EnterFirstStar",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterFirstStar": {
@@ -103,19 +101,15 @@
             }
         },
         "next": [
-            "QuickBattleMain"
-        ],
-        "interrupt": [
-            "ClickQuickBattle"
+            "QuickBattleMain",
+            "[JumpBack]ClickQuickBattle"
         ]
     },
     "FirstStarShop": {
         "next": [
-            "EnterFirstStarShop"
-        ],
-        "interrupt": [
-            "EnterFirstStar",
-            "ReturnMain"
+            "EnterFirstStarShop",
+            "[JumpBack]EnterFirstStar",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterFirstStarShop": {
@@ -198,10 +192,8 @@
         "post_delay": 1500,
         "next": [
             "FirstStarShopItemCant",
-            "FirstStarShopItem"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "FirstStarShopItem",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "FirstStarShopItemCant": {

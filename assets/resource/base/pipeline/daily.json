@@ -1,10 +1,8 @@
 {
     "Daily": {
         "next": [
-            "EnterDaily"
-        ],
-        "interrupt": [
-            "ReturnMain"
+            "EnterDaily",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterDaily": {
@@ -65,10 +63,8 @@
         },
         "post_delay": 1000,
         "next": [
-            "DailyMailMain"
-        ],
-        "interrupt": [
-            "CloseGetItem"
+            "DailyMailMain",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "DailyMailMain": {
@@ -129,12 +125,10 @@
             "type": "Click"
         },
         "timeout": 5,
-        "interrupt": [
-            "CloseGetItem"
-        ],
         "next": [
             "DailyMainFlag",
-            "DailyMailReturn"
+            "DailyMailReturn",
+            "[JumpBack]CloseGetItem"
         ]
     },
     "DailyMainFlag": {

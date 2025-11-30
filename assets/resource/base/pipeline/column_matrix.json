@@ -1,10 +1,8 @@
 {
     "ColumnMatrix": {
         "next": [
-            "EnterColumnMatrix"
-        ],
-        "interrupt": [
-            "ReturnMain"
+            "EnterColumnMatrix",
+            "[JumpBack]ReturnMain"
         ]
     },
     "EnterColumnMatrix": {
@@ -67,12 +65,10 @@
             "type": "Click"
         },
         "next": [
-            "ColumnMatrixFinish"
-        ],
-        "interrupt": [
-            "ColumnMatrixMatch",
-            "ColumnMatrixBattleSkip",
-            "ColumnMatrixBattleFinish"
+            "ColumnMatrixFinish",
+            "[JumpBack]ColumnMatrixMatch",
+            "[JumpBack]ColumnMatrixBattleSkip",
+            "[JumpBack]ColumnMatrixBattleFinish"
         ]
     },
     "ColumnMatrixFinish": {
