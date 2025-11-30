@@ -1,8 +1,7 @@
 [remote.github]
 owner = "chenxing-ye"
 repo = "MaaQNZL"
-#自用时换成自己的仓库owner和repo
-#注意，本地git user需与github一致才能实现成功@
+
 [changelog]
 # 标题
 header = """
@@ -62,6 +61,10 @@ body = """
 
 # 尾部
 footer = """
+
+[已有 Mirror酱 CDK？点击前往高速下载](https://mirrorchyan.com/zh/projects?rid=M9A&source=m9agh-release)
+
+<!--软件本体完全免费，若您有付费购买请立即退款并举报！-->
 """
 
 [git]
