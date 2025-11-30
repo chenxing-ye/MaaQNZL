@@ -24,6 +24,7 @@ jobs:
           filetype: latest-release
           filename: ${{ format('MaaQNZL-{0}-{1}-*', matrix.os, matrix.arch) }}
           mirrorchyan_rid: MaaQNZL
+          tag: ${{ inputs.tag }}
 
           os: ${{ matrix.os }}
           arch: ${{ matrix.arch }}
