@@ -1,0 +1,27 @@
+name: mirrorchyan
+
+on:
+  workflow_dispatch:
+
+jobs:
+  mirrorchyan:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [win, macos, linux]
+        arch: [aarch64, x86_64]
+    steps:
+      - uses: MirrorChyan/uploading-action@v1
+        if: ${{ github.repository_owner == 'chenxing-ye' }}
+        with:
+          filetype: latest-release
+          filename: ${{ matrix.os == 'win' && format('MaaQNZL-{0}-{1}-*.zip', matrix.os, matrix.arch) || format('MaaQNZL-{0}-{1}-*.tar.gz', matrix.os, matrix.arch) }}
+          mirrorchyan_rid: MaaQNZL
+
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.event.repository.name }}
+          upload_token: ${{ secrets.MirrorChyanUploadToken }}
+          os: ${{ matrix.os }}
+          arch: ${{ matrix.arch }}

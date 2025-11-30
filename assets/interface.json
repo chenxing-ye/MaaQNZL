@@ -2,6 +2,8 @@
     "name": "MaaQNZL",
     "url": "https://github.com/chenxing-ye/MaaQNZL",
     "custom_title": "千年之旅小助手",
+    "mirrorchyan_rid": "MaaQNZL",
+    "mirrorchyan_multiplatform": true,
     "controller": [
         {
             "name": "安卓端",
