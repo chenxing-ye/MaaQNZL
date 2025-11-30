@@ -2,19 +2,27 @@ name: mirrorchyan_release_note
 
 on:
   workflow_dispatch:
+    inputs:
+        tag:
+            default: ''
+            required: false
   release:
     types: [edited]
 
 jobs:
   mirrorchyan:
     runs-on: macos-latest
+    # if: ${{ github.repository_owner == 'chenxing-ye' }}
 
     steps:
       - id: uploading
-        if: ${{ github.repository_owner == 'chenxing-ye' }}
         uses: MirrorChyan/release-note-action@v1
         with:
           mirrorchyan_rid: MaaQNZL
+          version_name: ${{ inputs.tag }}
 
-          upload_token: ${{ secrets.MirrorChyanUploadToken }}
+          owner: chenxing-ye
+          repo: MaaQNZL
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          upload_token: ${{ secrets.MirrorChyanUploadToken }}
+          
