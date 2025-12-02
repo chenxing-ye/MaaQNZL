@@ -248,6 +248,76 @@
             "type": "Click"
         },
         "next": [
+            "HarvestFarmlandMain16",
+            "[JumpBack]HarvestFarmlandUp"
+        ]
+    },
+    "HarvestFarmlandUp": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    210,
+                    609,
+                    26,
+                    21
+                ],
+                "end": [
+                    210,
+                    198,
+                    26,
+                    21
+                ],
+                "duration": 1000
+            }
+        }
+    },
+    "HarvestFarmlandMain16": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    143,
+                    154,
+                    164,
+                    497
+                ],
+                "expected": "16"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "启动logo",
+            "[JumpBack]HarvestFarmlandGain",
+            "[JumpBack]HarvestFarmlandPlating",
+            "[JumpBack]HarvestFarmlandFertilizing",
+            "[JumpBack]HarvestFarmlandAllUse",
+            "[JumpBack]CloseGetItem"
+        ],
+        "on_error": [
+            "Stop"
+        ],
+        "timeout": 5000
+    },
+    "HarvestFarmlandTask": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1039,
+                    77,
+                    60,
+                    46
+                ],
+                "expected": "土地"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
             "启动logo",
             "[JumpBack]HarvestFarmlandGain",
             "[JumpBack]HarvestFarmlandPlating",
@@ -331,5 +401,5 @@
         "action": {
             "type": "Click"
         }
-    },
+    }
 }
