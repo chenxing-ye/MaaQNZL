@@ -72,9 +72,9 @@
             "param": {
                 "roi": [
                     21,
-                    458,
+                    365,
                     1243,
-                    60
+                    99
                 ],
                 "expected": "城"
             }
@@ -84,6 +84,7 @@
         },
         "next": [
             "TowerImpossible",
+            "SelectTowerSecond",
             "[JumpBack]TowerAction_1",
             "[JumpBack]TowerAction_2",
             "[JumpBack]TowerFinishClick"
