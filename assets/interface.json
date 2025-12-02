@@ -70,9 +70,14 @@
             "entry": "GuildDaily",
             "pipeline_override": {
                 "Battling": {
-                    "interrupt": [
-                        "CloseAutobattle",
-                        "Skipbattle"
+                    "next": [
+                        "CheckBattleFinish",
+                        "CheckBattleFinish1",
+                        "CheckBattleFinish2",
+                        "CheckBattleFinish3",
+                        "CheckGuildBattleFinish",
+                        "[JumpBack]CloseAutobattle",
+                        "[JumpBack]Skipbattle"
                     ]
                 }
             },
@@ -96,10 +101,17 @@
             "entry": "Abyss",
             "pipeline_override": {
                 "ClickBattleConfirm": {
-                    "interrupt": [
-                        "CloseAutobattle",
-                        "Skipbattle",
-                        "AbyssNewLevel"
+                    "next": [
+                        "EnergyMissing",
+                        "CheckBattleFinish",
+                        "CheckBattleFinish1",
+                        "CheckBattleFinish2",
+                        "CheckBattleFinish3",
+                        "CheckGuildBattleFinish",
+                        "ClickBattleConfirm",
+                        "[JumpBack]CloseAutobattle",
+                        "[JumpBack]Skipbattle",
+                        "[JumpBack]AbyssNewLevel"
                     ]
                 }
             },
@@ -299,7 +311,9 @@
                     "pipeline_override": {
                         "SelectFarmFirst": {
                             "expected": "符文之地",
-                            "interrupt": []
+                            "next": [
+                                "SelectFarmSecond"
+                            ]
                         },
                         "SelectFarmSecond": {
                             "expected": "符文之地",
@@ -320,7 +334,9 @@
                     "pipeline_override": {
                         "SelectFarmFirst": {
                             "expected": "符文之地",
-                            "interrupt": []
+                            "next": [
+                                "SelectFarmSecond"
+                            ]
                         },
                         "SelectFarmSecond": {
                             "expected": "符文之地",
@@ -341,7 +357,9 @@
                     "pipeline_override": {
                         "SelectFarmFirst": {
                             "expected": "符文之地",
-                            "interrupt": []
+                            "next": [
+                                "SelectFarmSecond"
+                            ]
                         },
                         "SelectFarmSecond": {
                             "expected": "符文之地",
@@ -362,7 +380,9 @@
                     "pipeline_override": {
                         "SelectFarmFirst": {
                             "expected": "符文之地",
-                            "interrupt": []
+                            "next": [
+                                "SelectFarmSecond"
+                            ]
                         },
                         "SelectFarmSecond": {
                             "expected": "符文之地",
@@ -398,17 +418,22 @@
                     "pipeline_override": {
                         "SelectTowerSecond": {
                             "expected": [
-                                "悖逆"
+                                "悖",
+                                "逆",
+                                "城"
                             ]
                         }
                     }
                 },
                 {
-                    "name": "狂风号角",
+                    "name": "狂号风暴",
                     "pipeline_override": {
                         "SelectTowerSecond": {
                             "expected": [
-                                "狂风"
+                                "狂",
+                                "号",
+                                "风",
+                                "暴"
                             ]
                         }
                     }
@@ -418,7 +443,9 @@
                     "pipeline_override": {
                         "SelectTowerSecond": {
                             "expected": [
-                                "洞悉"
+                                "洞",
+                                "悉",
+                                "瞳"
                             ]
                         }
                     }
@@ -428,7 +455,10 @@
                     "pipeline_override": {
                         "SelectTowerSecond": {
                             "expected": [
-                                "深暗"
+                                "深",
+                                "暗",
+                                "魔",
+                                "井"
                             ]
                         }
                     }
@@ -438,7 +468,22 @@
                     "pipeline_override": {
                         "SelectTowerSecond": {
                             "expected": [
-                                "镜中"
+                                "镜",
+                                "中",
+                                "异",
+                                "向"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "内陆国度",
+                    "pipeline_override": {
+                        "SelectTowerSecond": {
+                            "expected": [
+                                "陆",
+                                "国",
+                                "度"
                             ]
                         }
                     }
