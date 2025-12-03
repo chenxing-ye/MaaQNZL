@@ -1,0 +1,138 @@
+{
+    "GiftShop": {
+        "next": [
+            "StartGiftShop",
+            "GiftShopClick",
+            "[JumpBack]ReturnMain"
+        ]
+    },
+    "StartGiftShop": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    913,
+                    624,
+                    82,
+                    43
+                ],
+                "template": "Main/商店__913_624_82_43__863_574_182_143.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GiftShopClick"
+        ]
+    },
+    "GiftShopClick": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    69,
+                    642,
+                    1182,
+                    94
+                ],
+                "expected": "礼包"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "GiftShopMain"
+        ]
+    },
+    "GiftShopMain": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    102,
+                    137,
+                    102,
+                    393
+                ],
+                "expected": [
+                    "供需",
+                    "荒野"
+                ]
+            }
+        },
+        "next": [
+            "FreeShop",
+            "GiftShopMain"
+        ]
+    },
+    "FreeShop": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    102,
+                    137,
+                    102,
+                    393
+                ],
+                "expected": [
+                    "圣城",
+                    "供需"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]CloseGetItem",
+            "[JumpBack]FreeGiftBuy"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "Stop"
+        ]
+    },
+    "FreeGiftBuy": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    222,
+                    118,
+                    1046,
+                    506
+                ],
+                "expected": [
+                    "供给"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ShopGiftBuy"
+        ],
+        "max_hit": 4
+    },
+    "ShopGiftBuy": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    655,
+                    426,
+                    350,
+                    156
+                ],
+                "expected": "购买"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

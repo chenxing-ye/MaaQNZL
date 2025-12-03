@@ -1,0 +1,170 @@
+{
+    "ExchangeShop": {
+        "next": [
+            "StartExchangeShop",
+            "ExchangeShopClick",
+            "[JumpBack]ReturnMain"
+        ]
+    },
+    "StartExchangeShop": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    913,
+                    624,
+                    82,
+                    43
+                ],
+                "template": "Main/商店__913_624_82_43__863_574_182_143.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ExchangeShopClick"
+        ]
+    },
+    "ExchangeShopClick": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    69,
+                    642,
+                    1182,
+                    94
+                ],
+                "expected": "兑换"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ExchangeShopMain"
+        ]
+    },
+    "ExchangeShopMain": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    102,
+                    137,
+                    102,
+                    393
+                ],
+                "expected": [
+                    "基础",
+                    "尖方"
+                ]
+            }
+        },
+        "next": [
+            "BaseShop",
+            "ExchangeShopMain"
+        ]
+    },
+    "BaseShop": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    102,
+                    137,
+                    102,
+                    393
+                ],
+                "expected": [
+                    "基础"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]CloseGetItem",
+            "[JumpBack]DiscountBuy"
+        ],
+        "timeout": 2000,
+        "on_error": [
+            "FriendshipShop"
+        ]
+    },
+    "DiscountBuy": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    222,
+                    118,
+                    1046,
+                    506
+                ],
+                "template": "Shop/折扣商品标记__503_171_17_15__453_121_117_115.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ItemBuyMax",
+            "ItemSoldOut"
+        ],
+        "max_hit": 4
+    },
+    "FriendshipShop": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    102,
+                    137,
+                    102,
+                    393
+                ],
+                "expected": [
+                    "友情"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]CloseGetItem",
+            "[JumpBack]TicketBuy"
+        ],
+        "timeout": 2000,
+        "on_error": [
+            "Stop"
+        ]
+    },
+    "TicketBuy": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    222,
+                    118,
+                    1046,
+                    506
+                ],
+                "expected": [
+                    "星痕"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ItemBuyMax",
+            "ItemSoldOut"
+        ],
+        "max_hit": 2
+    }
+}

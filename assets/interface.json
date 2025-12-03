@@ -42,13 +42,21 @@
             "name": "商店",
             "entry": "Shop",
             "pipeline_override": {
-                "ItemBuyConfirm": {
-                    "next": [
-                        "ItemBuyFail",
-                        "ShopDailyHarvestBuy"
-                    ]
+                "FreeShop": {
+                    "on_error": "ExchangeShop"
+                },
+                "FriendshipShop": {
+                    "on_error": "DailyShop"
                 }
-            }
+            },
+            "option": [
+                "神谕司商店礼物",
+                "神谕司商店圣化剂和符文",
+                "幸运丰收肥料",
+                "30000以上种子",
+                "普通鱼饵和幸运饵"
+            ],
+            "doc": "默认购买礼包商店免费礼包、基础商店折扣道具、神谕司体力，请确保神谕司购买时货币充足"
         },
         {
             "name": "限时活动",
@@ -56,7 +64,8 @@
             "option": [
                 "清体力",
                 "当前活动"
-            ]
+            ],
+            "doc": "需要先自行把活动剧情副本通关，会自动刷最后的副本清体力，商店购买和领取每日奖励"
         },
         {
             "name": "刷本-清体力",
@@ -146,8 +155,7 @@
             "name": "钓鱼",
             "entry": "StartFishing",
             "doc": "需要手动选择好钓点后在钓鱼主界面执行，鱼标记点击不准确，建议高等级之后使用(本人钓鱼七级以上使用没问题)"
-        }
-        ,
+        },
         {
             "name": "主线自动推图",
             "entry": "AutoStory",
@@ -617,6 +625,86 @@
                                 96,
                                 28
                             ]
+                        }
+                    }
+                }
+            ]
+        },
+        "神谕司商店礼物": {
+            "cases": [
+                {
+                    "name": "是",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "否",
+                    "pipeline_override": {
+                        "GiftBuy": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "神谕司商店圣化剂和符文": {
+            "cases": [
+                {
+                    "name": "是",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "否",
+                    "pipeline_override": {
+                        "RuneBuy": {
+                            "enabled": false
+                        },
+                    }
+                }
+            ]
+        },
+        "幸运丰收肥料": {
+            "cases": [
+                {
+                    "name": "是",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "否",
+                    "pipeline_override": {
+                        "MuckBuy": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "30000以上种子": {
+            "cases": [
+                {
+                    "name": "是",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "否",
+                    "pipeline_override": {
+                        "SeedBuy": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "普通鱼饵和幸运饵": {
+            "cases": [
+                {
+                    "name": "是",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "否",
+                    "pipeline_override": {
+                        "BaitBuy": {
+                            "enabled": false
                         }
                     }
                 }

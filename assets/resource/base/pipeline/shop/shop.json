@@ -1,0 +1,8 @@
+{
+    "Shop": {
+        "next": [
+            "GiftShop",
+            "[JumpBack]ReturnMain"
+        ]
+    }
+}

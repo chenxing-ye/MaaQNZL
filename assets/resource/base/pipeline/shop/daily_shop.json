@@ -1,0 +1,302 @@
+{
+    "DailyShop": {
+        "next": [
+            "StartDailyShop",
+            "DailyShopClick",
+            "[JumpBack]ReturnMain"
+        ]
+    },
+    "StartDailyShop": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    913,
+                    624,
+                    82,
+                    43
+                ],
+                "template": "Main/商店__913_624_82_43__863_574_182_143.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DailyShopClick"
+        ]
+    },
+    "DailyShopClick": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    69,
+                    642,
+                    1182,
+                    94
+                ],
+                "expected": "日常"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "DailyShopMain"
+        ]
+    },
+    "DailyShopMain": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    102,
+                    137,
+                    102,
+                    393
+                ],
+                "expected": [
+                    "神谕司",
+                    "种子"
+                ]
+            }
+        },
+        "next": [
+            "HarvestShop",
+            "DailyShopMain"
+        ]
+    },
+    "HarvestShop": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    102,
+                    137,
+                    102,
+                    393
+                ],
+                "expected": [
+                    "神谕司"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]CloseGetItem",
+            "[JumpBack]APBuy",
+            "[JumpBack]GiftBuy",
+            "[JumpBack]RuneBuy"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "SeedShop"
+        ]
+    },
+    "APBuy": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    222,
+                    118,
+                    1046,
+                    506
+                ],
+                "expected": [
+                    "星魂",
+                    "精髓"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ItemBuyMax",
+            "ItemSoldOut"
+        ],
+        "max_hit": 3
+    },
+    "GiftBuy": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    222,
+                    118,
+                    1046,
+                    506
+                ],
+                "expected": [
+                    "礼物"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ItemBuyMax",
+            "ItemSoldOut"
+        ],
+        "max_hit": 4
+    },
+    "RuneBuy": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    222,
+                    118,
+                    1046,
+                    506
+                ],
+                "expected": [
+                    "圣化"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ItemBuyMax",
+            "ItemSoldOut"
+        ],
+        "max_hit": 4
+    },
+    "SeedShop": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    102,
+                    137,
+                    102,
+                    393
+                ],
+                "expected": [
+                    "种子"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]CloseGetItem",
+            "[JumpBack]SeedBuy",
+            "[JumpBack]MuckBuy"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "FishShop"
+        ]
+    },
+    "SeedBuy": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    222,
+                    118,
+                    1046,
+                    506
+                ],
+                "expected": [
+                    "30000",
+                    "40000"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ItemBuyMax",
+            "ItemSoldOut"
+        ],
+        "max_hit": 7
+    },
+    "MuckBuy": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    222,
+                    118,
+                    1046,
+                    506
+                ],
+                "expected": [
+                    "幸运",
+                    "丰收"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ItemBuyMax",
+            "ItemSoldOut"
+        ],
+        "max_hit": 3
+    },
+    "FishShop": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    102,
+                    137,
+                    102,
+                    393
+                ],
+                "expected": [
+                    "鱼"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]CloseGetItem",
+            "[JumpBack]BaitBuy"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "Stop"
+        ]
+    },
+    "BaitBuy": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    222,
+                    118,
+                    1046,
+                    506
+                ],
+                "expected": [
+                    "蚯蚓",
+                    "幸运"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ItemBuyMax",
+            "ItemSoldOut"
+        ],
+        "max_hit": 4
+    }
+}

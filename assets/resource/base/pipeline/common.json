@@ -140,6 +140,24 @@
             "ItemBuyConfirm"
         ]
     },
+    "ItemSoldOut": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    587,
+                    15,
+                    102,
+                    34
+                ],
+                "expected": [
+                    "已",
+                    "罄",
+                    "售"
+                ]
+            }
+        }
+    },
     "ItemBuyConfirm": {
         "recognition": {
             "type": "TemplateMatch",
@@ -163,7 +181,7 @@
         "on_error": [
             "Stop"
         ],
-        "timeout": 5000
+        "timeout": 1000
     },
     "ItemBuyFail": {
         "recognition": {
