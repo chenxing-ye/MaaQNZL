@@ -657,7 +657,7 @@
                     "pipeline_override": {
                         "RuneBuy": {
                             "enabled": false
-                        },
+                        }
                     }
                 }
             ]
