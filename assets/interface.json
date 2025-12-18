@@ -549,6 +549,85 @@
         "当前活动": {
             "cases": [
                 {
+                    "name": "落英",
+                    "pipeline_override": {
+                        "EnterActivity": {
+                            "expected": [
+                                "落英",
+                                "归愿"
+                            ]
+                        },
+                        "ActivityMain": {
+                            "roi": [
+                                460,
+                                463,
+                                463,
+                                159
+                            ],
+                            "template": "Activity/FallingFlowers/落英主界面__460_463_463_159__410_413_563_259.png"
+                        },
+                        "EnterActivityDungeon": {
+                            "roi": [
+                                217,
+                                506,
+                                185,
+                                78
+                            ],
+                            "template": "Activity/FallingFlowers/落英副本入口__217_506_185_78__167_456_285_178.png"
+                        },
+                        "ActivityDungeonButtton": {
+                            "roi": [
+                                733,
+                                338,
+                                172,
+                                60
+                            ],
+                            "template": "Activity/FallingFlowers/落英刷体力副本__733_338_172_60__683_288_272_160.png"
+                        },
+                        "ActivityQuickBattle": {
+                            "roi": [
+                                701,
+                                44,
+                                188,
+                                64
+                            ],
+                            "template": "Activity/FallingFlowers/落英副本详情__701_44_188_64__651_0_288_158.png"
+                        },
+                        "EnterActivityShop": {
+                            "roi": [
+                                973,
+                                596,
+                                142,
+                                64
+                            ],
+                            "template": "Activity/FallingFlowers/落英商店__973_596_142_64__923_546_242_164.png"
+                        },
+                        "ActivityShopItem": {
+                            "template": "Activity/FallingFlowers/落英商店价格图标__471_176_38_34__421_126_138_134.png"
+                        },
+                        "ActivityDaily": {
+                            "roi": [
+                                863,
+                                205,
+                                310,
+                                129
+                            ],
+                            "expected": [
+                                "照功",
+                                "行赏"
+                            ]
+                        },
+                        "ActivityDailyGain": {
+                            "roi": [
+                                1011,
+                                12,
+                                196,
+                                45
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "鎏金",
                     "pipeline_override": {
                         "EnterActivity": {
