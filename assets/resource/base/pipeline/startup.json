@@ -72,15 +72,6 @@
     },
     "ReturnMain": {
         "doc": "返回主界面（专供任务开始前使用）",
-        // "recognition": {
-        //     "type": "Custom",
-        //     "param": {
-        //         "custom_recognition": "Count",
-        //         "custom_recognition_param": {
-        //             "target": 2
-        //         }
-        //     }
-        // },
         "next": [
             "HomeFlagCloseReturnMain",
             "[JumpBack]HomeButton",
@@ -101,20 +92,7 @@
                 "package": "com.yingche.qnzl/com.inchigame.elf.YCActivity"
             }
         },
-        "next": [
-            "DisableStartQNZL"
-        ]
-    },
-    "DisableStartQNZL": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "DisableNode",
-                "custom_action_param": {
-                    "node_name": "StartQNZL"
-                }
-            }
-        }
+        "max_hit": 1
     },
     "启动logo": {
         "recognition": {
@@ -159,15 +137,6 @@
                 "template": "Main/出击按钮__1092_615_76_48__1042_565_176_148.png"
             }
         }
-        // "action": {
-        //     "type": "Custom",
-        //     "param": {
-        //         "custom_action": "DisableNode",
-        //         "custom_action_param": {
-        //             "node_name": "ReturnMain"
-        //         }
-        //     }
-        // }
     },
     "BackButton": {
         "recognition": {
@@ -231,15 +200,6 @@
         }
     },
     "ClickHomeCount": {
-        // "recognition": {
-        //     "type": "Custom",
-        //     "param": {
-        //         "custom_recognition": "Count",
-        //         "custom_recognition_param": {
-        //             "target": 20
-        //         }
-        //     }
-        // },
         "action": {
             "type": "Click",
             "param": {
