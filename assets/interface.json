@@ -553,8 +553,10 @@
                     "pipeline_override": {
                         "EnterActivity": {
                             "expected": [
-                                "落英",
-                                "归愿"
+                                "落",
+                                "英",
+                                "归",
+                                "愿"
                             ]
                         },
                         "ActivityMain": {
