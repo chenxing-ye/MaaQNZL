@@ -245,12 +245,11 @@ def main():
         download_url = f"https://github.com/indygreg/python-build-standalone/releases/download/{PYTHON_BUILD_STANDALONE_RELEASE_TAG}/{pbs_filename}"
         tar_filename = pbs_filename  # 使用原始文件名
         tar_filepath = os.path.join(DEST_DIR, tar_filename)  # 下载到目标目录内
-
+        temp_extract_dir = os.path.join(DEST_DIR, "_temp_extract")
         try:
             download_file(download_url, tar_filepath)
             # python-build-standalone 的包解压后通常包含一个名为 'python' 的顶层目录
             # 我们需要将这个 'python' 目录的内容移动到 DEST_DIR
-            temp_extract_dir = os.path.join(DEST_DIR, "_temp_extract")
             os.makedirs(temp_extract_dir, exist_ok=True)
             extract_tar(tar_filepath, temp_extract_dir)
 
