@@ -1,0 +1,211 @@
+{
+    "Spa": {
+        "next": [
+            "EnterSpa0",
+            "[JumpBack]ReturnMain"
+        ]
+    },
+    "EnterSpa0": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    712,
+                    589,
+                    197,
+                    94
+                ],
+                "expected": "神"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "EnterSpa",
+            "EnterSpa0"
+        ]
+    },
+    "EnterSpa": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    13,
+                    235,
+                    82,
+                    452
+                ],
+                "expected": "温泉"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "StartSpa",
+            "EnterSpa"
+        ]
+    },
+    "StartSpa": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    109,
+                    222,
+                    245,
+                    79
+                ],
+                "expected": "温泉"
+            }
+        },
+        "next": [
+            "[JumpBack]SelectSpa1",
+            "[JumpBack]SelectSpa2"
+        ],
+        "timeout": 2000,
+        "on_error": [
+            "Stop"
+        ]
+    },
+    "SelectSpa1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    729,
+                    147,
+                    524,
+                    240
+                ],
+                "expected": "米提亚"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "SpaTaskMain",
+            "[JumpBack]ClickSpa1"
+        ],
+        "max_hit": 1
+    },
+    "SelectSpa2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    729,
+                    147,
+                    524,
+                    240
+                ],
+                "expected": "薄雾"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "SpaTaskMain",
+            "[JumpBack]ClickSpa2"
+        ],
+        "max_hit": 1
+    },
+    "ClickSpa1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    729,
+                    147,
+                    524,
+                    240
+                ],
+                "expected": "米提亚"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "ClickSpa2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    729,
+                    147,
+                    524,
+                    240
+                ],
+                "expected": "薄雾"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "SpaTaskMain": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    49,
+                    93,
+                    195,
+                    90
+                ],
+                "expected": "任务"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]SpaGain",
+            "[JumpBack]CloseGetItem"
+        ],
+        "timeout": 1500,
+        "on_error": [
+            "SpaGainFinish",
+        ]
+    },
+    "SpaGain": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    204,
+                    516,
+                    178,
+                    118
+                ],
+                "template": "Common/黄色感叹号__1209_164_15_20__1159_114_115_120.png"
+            }
+        },
+        "action": "Click"
+    },
+    "SpaGainFinish": {
+        "next": [
+            "SpaMain",
+            "[JumpBack]BackButton",
+            "[JumpBack]CloseGetItem"
+        ]
+    },
+    "SpaMain": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    109,
+                    222,
+                    245,
+                    79
+                ],
+                "expected": "温泉"
+            }
+        }
+    }
+}

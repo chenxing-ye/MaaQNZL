@@ -28,6 +28,10 @@
             "entry": "Harvest"
         },
         {
+            "name": "温泉",
+            "entry": "Spa"
+        },
+        {
             "name": "每日骰子",
             "entry": "Daily"
         },
@@ -541,6 +545,88 @@
         },
         "当前活动": {
             "cases": [
+                {
+                    "name": "春夜腾龙",
+                    "pipeline_override": {
+                        "EnterActivity": {
+                            "expected": [
+                                "腾",
+                                "龙",
+                                "春",
+                                "夜",
+                                "令"
+                            ]
+                        },
+                        "ActivityMain": {
+                            "roi": [
+                                409,
+                                93,
+                                465,
+                                121
+                            ],
+                            "template": "Activity/SpringDragon/春夜腾龙主界面__409_93_465_121__359_43_565_221.png"
+                        },
+                        "EnterActivityDungeon": {
+                            "roi": [
+                                549,
+                                621,
+                                173,
+                                73
+                            ],
+                            "template": "Activity/SpringDragon/春夜腾龙副本入口__549_621_173_73__499_571_273_149.png"
+                        },
+                        "ActivityDungeonButtton": {
+                            "roi": [
+                                593,
+                                217,
+                                296,
+                                121
+                            ],
+                            "template": "Activity/SpringDragon/春夜腾龙刷体力副本__709_259_146_36__659_209_246_136.png"
+                        },
+                        "ActivityQuickBattle": {
+                            "roi": [
+                                703,
+                                40,
+                                177,
+                                78
+                            ],
+                            "template": "Activity/SpringDragon/春夜腾龙副本详情__703_40_177_78__653_0_277_168.png"
+                        },
+                        "EnterActivityShop": {
+                            "roi": [
+                                1086,
+                                596,
+                                146,
+                                65
+                            ],
+                            "template": "Activity/SpringDragon/春夜腾龙商店__1086_596_146_65__1036_546_244_165.png"
+                        },
+                        "ActivityShopItem": {
+                            "template": "Activity/SpringDragon/春夜腾龙商店价格图标__414_190_36_34__364_140_136_134.png"
+                        },
+                        "ActivityDaily": {
+                            "roi": [
+                                822,
+                                598,
+                                164,
+                                80
+                            ],
+                            "expected": [
+                                "新年",
+                                "历板"
+                            ]
+                        },
+                        "ActivityDailyGain": {
+                            "roi": [
+                                1011,
+                                12,
+                                196,
+                                45
+                            ]
+                        }
+                    }
+                },
                 {
                     "name": "落英",
                     "pipeline_override": {
