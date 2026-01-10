@@ -32,6 +32,10 @@
             "entry": "Spa"
         },
         {
+            "name": "农场偷菜",
+            "entry": "HarvestFarmSteal"
+        },
+        {
             "name": "每日骰子",
             "entry": "Daily"
         },

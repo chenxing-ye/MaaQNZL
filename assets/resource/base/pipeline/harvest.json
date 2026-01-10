@@ -401,5 +401,385 @@
         "action": {
             "type": "Click"
         }
+    },
+    "HarvestFarmSteal": {
+        "next": [
+            "StartFarmSteal",
+            "[JumpBack]ReturnMain"
+        ],
+        "comment": "农场偷菜任务入口"
+    },
+    "StartFarmSteal": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    771,
+                    619,
+                    87,
+                    50
+                ],
+                "template": "Main/神谕司__771_619_87_50__721_569_187_150.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "EnterHarvestFarm"
+        ],
+        "comment": "先进入神谕司"
+    },
+    "EnterHarvestFarm": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    272,
+                    155,
+                    164
+                ],
+                "template": "Harvest/农场.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "FarmStealFriendTask"
+        ],
+        "comment": "进去农场界面"
+    },
+    "FarmStealFriendTask": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    895,
+                    614,
+                    226,
+                    106
+                ],
+                "template": "Harvest/社交.png"
+            },
+            "type": "TemplateMatch"
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "FarmStealFriendFinish",
+            "[JumpBack]FarmStealAFriend",
+            "[JumpBack]FarmStealNextPage",
+            "[JumpBack]EnterHarvest"
+        ],
+        "comment": "农场偷取任务"
+    },
+    "FarmStealFriendFinish": {
+        "recognition": {
+            "param": {
+                "all_of": [
+                    {
+                        "recognition": {
+                            "param": {
+                                "roi": [
+                                    208,
+                                    572,
+                                    176,
+                                    124
+                                ],
+                                "template": "Harvest/下一页（无）.png",
+                                "threshold": 0.98
+                            },
+                            "type": "TemplateMatch"
+                        },
+                        "sub_name": "最后一页"
+                    },
+                    {
+                        "recognition": {
+                            "param": {
+                                "roi": [
+                                    344,
+                                    137,
+                                    44,
+                                    470
+                                ],
+                                "template": [
+                                    "Harvest/完全无可偷（好友满）.png"
+                                ],
+                                "threshold": 0.85,
+                                "method": 10001,
+                            },
+                            "type": "TemplateMatch"
+                        },
+                        "sub_name": "没有可偷的"
+                    }
+                ]
+            },
+            "type": "And"
+        },
+        "next": [
+            "ReturnMain"
+        ],
+        "comment": "偷菜任务完成的标志"
+    },
+    "FarmStealAFriend": {
+        "action": {
+            "param": {
+                "target_offset": [
+                    -70,
+                    30,
+                    0,
+                    0
+                ]
+            },
+            "type": "Click"
+        },
+        "next": [
+            "FarmStealGoToFriendHome"
+        ],
+        "recognition": {
+            "param": {
+                "any_of": [
+                    {
+                        "recognition": {
+                            "param": {
+                                "roi": [
+                                    328,
+                                    107,
+                                    81,
+                                    505
+                                ],
+                                "template": "Harvest/可偷1.png",
+                                "threshold": 0.8
+                            },
+                            "type": "TemplateMatch"
+                        },
+                        "sub_name": "非顶部可偷"
+                    },
+                    {
+                        "sub_name": "顶部可偷",
+                        "recognition": {
+                            "type": "TemplateMatch",
+                            "param": {
+                                "roi": [
+                                    328,
+                                    107,
+                                    81,
+                                    505
+                                ],
+                                "template": "Harvest/可偷2.png",
+                                "threshold": 0.8
+                            }
+                        }
+                    }
+                ]
+            },
+            "type": "Or"
+        },
+        "comment": "偷其中一个好友的菜"
+    },
+    "FarmStealGoToFriendHome": {
+        "action": {
+            "param": {
+                "target": [
+                    954,
+                    197,
+                    172,
+                    34
+                ]
+            },
+            "type": "Click"
+        },
+        "next": [
+            "FarmStealFriendOpen"
+        ],
+        "comment": "前往好友的农场"
+    },
+    "FarmStealFriendOpen": {
+        "action": {
+            "param": {
+                "target": [
+                    319,
+                    328,
+                    77,
+                    35
+                ]
+            },
+            "type": "Click"
+        },
+        "next": [
+            "FarmStealSelectStealable",
+            "[JumpBack]FarmStealSwitchStealableNeedSwipe",
+            "[JumpBack]FarmStealSwitchStealableByClick"
+        ],
+        "comment": "打开偷菜界面"
+    },
+    "FarmStealSelectStealable": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    985,
+                    606,
+                    179,
+                    38
+                ],
+                "expected": [
+                    "偷取"
+                ]
+            }
+        },
+        "next": [
+            "FarmStealFriendGain"
+        ],
+        "comment": "选取可偷取的土地"
+    },
+    "FarmStealSwitchStealableByClick": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "Harvest/选中了的土地.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    60,
+                    70,
+                    0,
+                    0
+                ]
+            }
+        },
+        "comment": "切换土地"
+    },
+    "FarmStealSwitchStealableNeedSwipe": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    163,
+                    211,
+                    116,
+                    51
+                ],
+                "expected": [
+                    "12"
+                ]
+            }
+        },
+        "inverse": true,
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    65,
+                    225,
+                    0,
+                    0
+                ],
+                "duration": 1000,
+                "end": [
+                    65,
+                    148,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "FarmStealSwitchStealableAfterSwipe"
+        ],
+        "comment": "滑动后点击以切换土地"
+    },
+    "FarmStealSwitchStealableAfterSwipe": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    95,
+                    161,
+                    259,
+                    57
+                ]
+            }
+        },
+        "comment": "点击切换点击土地"
+    },
+    "FarmStealFriendGain": {
+        "action": {
+            "param": {
+                "target": [
+                    997,
+                    609,
+                    153,
+                    32
+                ]
+            },
+            "type": "Click"
+        },
+        "next": [
+            "FarmStealFriendTask",
+            "[JumpBack]CloseGetItem",
+            "[JumpBack]FarmStealFriendGainClose"
+        ],
+        "pre_delay": 800,
+        "recognition": {
+            "param": {
+                "expected": [
+                    "全部",
+                    "偷取"
+                ],
+                "roi": [
+                    997,
+                    609,
+                    153,
+                    32
+                ]
+            },
+            "type": "OCR"
+        },
+        "comment": "点击一键偷菜"
+    },
+    "FarmStealFriendGainClose": {
+        "action": {
+            "type": "Click"
+        },
+        "recognition": {
+            "param": {
+                "roi": [
+                    1106,
+                    19,
+                    154,
+                    158
+                ],
+                "template": "Harvest/关闭.png"
+            },
+            "type": "TemplateMatch"
+        },
+        "comment": "关闭偷菜界面"
+    },
+    "FarmStealNextPage": {
+        "action": {
+            "type": "Click"
+        },
+        "recognition": {
+            "param": {
+                "roi": [
+                    208,
+                    572,
+                    176,
+                    124
+                ],
+                "template": "Harvest/下一页（有）.png",
+                "threshold": 0.98
+            },
+            "type": "TemplateMatch"
+        },
+        "comment": "还有下一页"
     }
 }
