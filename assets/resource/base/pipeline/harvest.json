@@ -471,7 +471,7 @@
             "FarmStealFriendFinish",
             "[JumpBack]FarmStealAFriend",
             "[JumpBack]FarmStealNextPage",
-            "[JumpBack]EnterHarvest"
+            "[JumpBack]ReturnMain"
         ],
         "comment": "农场偷取任务"
     },
