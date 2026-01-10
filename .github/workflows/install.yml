@@ -168,7 +168,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MaaQNZL-win-${{ matrix.arch }}
+          name: MaaQNZL-win-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}
           path: "install"
 
   linux:
@@ -227,7 +227,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MaaQNZL-linux-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}-Full
+          name: MaaQNZL-linux-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}
           path: "install"
 
   macos:
@@ -301,7 +301,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MaaQNZL-macos-${{ matrix.arch }}
+          name: MaaQNZL-macos-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}
           path: "install"
 
   changelog:
