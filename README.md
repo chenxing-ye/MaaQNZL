@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img alt="LOGO" src="https://cdn.jsdelivr.net/gh/MaaAssistantArknights/design@main/logo/maa-logo_512x512.png" width="256" height="256" />
+<img alt="LOGO" src="assets/logo.png" width="256" height="256" />
 
 # MaaQNZL
 
