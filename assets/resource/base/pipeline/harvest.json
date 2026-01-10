@@ -1,11 +1,11 @@
 {
     "Harvest": {
         "next": [
-            "StatrHarvest",
+            "StartHarvest",
             "[JumpBack]ReturnMain"
         ]
     },
-    "StatrHarvest": {
+    "StartHarvest": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
