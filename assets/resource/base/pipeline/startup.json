@@ -9,6 +9,7 @@
             "[JumpBack]GameLoading",
             "[JumpBack]ClosePage",
             "[JumpBack]MonCard",
+            "[JumpBack]CloseGift6",
             "[JumpBack]VictoryReturn",
             "[JumpBack]BackButton",
             "[JumpBack]HomeButton",
@@ -65,6 +66,7 @@
             "StartGame",
             "[JumpBack]ClosePage",
             "[JumpBack]MonCard",
+            "[JumpBack]CloseGift6",
             "[JumpBack]BackButton",
             "[JumpBack]HomeButton",
             "[JumpBack]ClickHomeCount"
@@ -79,6 +81,7 @@
             "[JumpBack]ClosePage",
             "[JumpBack]StartGame",
             "[JumpBack]MonCard",
+            "[JumpBack]CloseGift6",
             "[JumpBack]VictoryReturn",
             "[JumpBack]CloseEnergy",
             "[JumpBack]ClickHomeCount",
@@ -315,6 +318,25 @@
                 ],
                 "template": [
                     "StartUp/月卡领取__507_540_269_39__457_490_369_139.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "CloseGift6": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    873,
+                    5,
+                    400,
+                    180
+                ],
+                "template": [
+                    "StartUp/超值6元_关闭按钮__1178_59_72_67__1128_9_152_167.png"
                 ]
             }
         },
