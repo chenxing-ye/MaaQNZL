@@ -61,6 +61,7 @@ def install_resource():
         interface = json.load(f)
 
     interface["version"] = version
+    interface["custom_title"] = f"千年之旅小助手 {version}"
 
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         json.dump(interface, f, ensure_ascii=False, indent=4)
@@ -97,7 +98,6 @@ def install_agent():
         interface["agent"]["child_exec"] = r"python3"
 
     interface["agent"]["child_args"] = ["-u", r"{PROJECT_DIR}/agent/main.py"]
-    interface["custom_title"] = f"千年之旅小助手{version}"
 
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         json.dump(interface, f, ensure_ascii=False, indent=4)
