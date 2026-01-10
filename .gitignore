@@ -444,6 +444,7 @@ deps
 build
 install
 download/
+/MFA/
 
 # Tools
 tools/ImageCropper/**/*.png

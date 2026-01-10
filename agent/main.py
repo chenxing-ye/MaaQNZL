@@ -32,25 +32,16 @@ VENV_DIR = Path(project_root_dir) / VENV_NAME
 
 
 def _is_running_in_our_venv():
-    """检查脚本是否在此脚本管理的特定venv中运行。"""
-    current_python = Path(sys.executable).resolve()
+    """检查脚本是否在虚拟环境中运行。"""
+    # 使用 sys.prefix 和 sys.base_prefix 来判断是否在虚拟环境中
+    in_venv = sys.prefix != sys.base_prefix
 
-    logger.debug(f"当前Python解释器: {current_python}")
-
-    if sys.platform.startswith("win"):
-        # Windows: 如果在虚拟环境中，Python应该在 Scripts 目录下
-        if current_python.parent.name == "Scripts":
-            return True
-        else:
-            logger.debug("当前不在目标虚拟环境中")
-            return False
+    if in_venv:
+        logger.debug(f"当前在虚拟环境中运行: {sys.prefix}")
     else:
-        # Linux/Unix: 如果在虚拟环境中，Python应该在 bin 目录下
-        if current_python.parent.name == "bin":
-            return True
-        else:
-            logger.debug("当前不在目标虚拟环境中")
-            return False
+        logger.debug(f"当前不在虚拟环境中，使用系统Python: {sys.prefix}")
+
+    return in_venv
 
 
 def ensure_venv_and_relaunch_if_needed():
@@ -107,7 +98,13 @@ def ensure_venv_and_relaunch_if_needed():
     logger.info(f"正在使用虚拟环境Python重新启动")
 
     try:
-        cmd = [str(python_in_venv)] + sys.argv
+        # Use absolute path to this script when relaunching inside the venv.
+        # sys.argv[0] may be a relative path (e.g. './../agent/main.py') which
+        # resolves differently when cwd changes. Use the absolute path of
+        # the currently running file (`current_file_path`) to avoid that.
+        script_abs = current_file_path
+        args = sys.argv[1:]
+        cmd = [str(python_in_venv), str(script_abs)] + args
         logger.info(f"执行命令: {' '.join(cmd)}")
 
         result = subprocess.run(
@@ -156,13 +153,8 @@ def read_pip_config() -> dict:
     config_path = config_dir / "pip_config.json"
     default_config = {
         "enable_pip_install": True,
-        "last_version": "unknown",
         "mirror": "https://pypi.tuna.tsinghua.edu.cn/simple",
-        "backup_mirrors": [
-            "https://mirrors.ustc.edu.cn/pypi/simple",
-            "https://mirrors.cloud.tencent.com/pypi/simple/",
-            "https://pypi.org/simple",
-        ],
+        "backup_mirror": "https://mirrors.ustc.edu.cn/pypi/simple",
     }
     if not config_path.exists():
         with open(config_path, "w", encoding="utf-8") as f:
@@ -176,55 +168,88 @@ def read_pip_config() -> dict:
         return default_config
 
 
-def update_pip_config_last_version(version: str) -> bool:
-    config_path = Path(project_root_dir) / "config" / "pip_config.json"
+def read_hot_update_config() -> dict:
+    """
+    读取热更配置
+    """
+    config_dir = Path("./config")
+    config_dir.mkdir(exist_ok=True)
+    config_path = config_dir / "hot_update.json"
+    default_conf = {"enable_hot_update": True}
+    if not config_path.exists():
+        try:
+            with open(config_path, "w", encoding="utf-8") as f:
+                json.dump(default_conf, f, indent=4, ensure_ascii=False)
+        except Exception:
+            logger.debug("无法写入 hot_update.json，使用默认配置")
+        return default_conf
     try:
-        config = read_pip_config()
-        config["last_version"] = version
-
-        config_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(config_path, "w", encoding="utf-8") as f:
-            json.dump(config, f, indent=4)
-        return True
+        with open(config_path, "r", encoding="utf-8") as f:
+            return json.load(f)
     except Exception:
-        logger.exception("更新pip配置失败")
-        return False
+        logger.exception("读取 hot_update.json 失败，使用默认配置")
+        return default_conf
 
 
 ### 依赖安装相关 ###
 
 
+def find_local_wheels_dir():
+    """查找本地deps目录中的whl文件"""
+    project_root = Path(project_root_dir)
+    deps_dir = project_root / "deps"
+
+    if deps_dir.exists() and any(deps_dir.glob("*.whl")):
+        whl_count = len(list(deps_dir.glob("*.whl")))
+        logger.debug(f"发现本地deps目录包含 {whl_count} 个 whl 文件")
+        return deps_dir
+
+    logger.debug("未找到deps目录或目录中无 whl 文件")
+    return None
+
+
 def _run_pip_command(cmd_args: list, operation_name: str) -> bool:
     try:
-        result = subprocess.run(
+        logger.info(f"开始 {operation_name}")
+        logger.debug(f"执行命令: {' '.join(cmd_args)}")
+
+        # 使用subprocess.Popen进行实时输出
+        process = subprocess.Popen(
             cmd_args,
             stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            stderr=subprocess.STDOUT,  # 将stderr重定向到stdout
             text=True,
             encoding="utf-8",
             errors="replace",
+            bufsize=1,  # 行缓冲
+            universal_newlines=True,
         )
 
-        if result.returncode == 0:
+        # 收集所有输出用于日志记录
+        all_output = []
+
+        # 实时读取并显示输出
+        for line in iter(process.stdout.readline, ""):
+            line = line.rstrip("\n\r")
+            if line.strip():  # 只显示非空行
+                # print(line)  # 实时显示到终端
+                all_output.append(line)  # 收集到列表中
+
+        # 等待进程结束
+        return_code = process.wait()
+
+        # 记录完整输出到日志
+        if all_output:
+            full_output = "\n".join(all_output)
+            logger.debug(f"{operation_name} 输出:\n{full_output}")
+
+        if return_code == 0:
             logger.info(f"{operation_name} 完成")
-            if result.stdout and result.stdout.strip():
-                logger.debug(
-                    f"{operation_name} 标准输出:\n{result.stdout.strip()}"
-                )  # 仅当stdout不为空时记录
             return True
         else:
-            logger.error(f"{operation_name} 时出错。返回码: {result.returncode}")
-            if result.stdout and result.stdout.strip():
-                logger.error(f"{operation_name} 标准输出:\n{result.stdout.strip()}")
-            if result.stderr and result.stderr.strip():
-                logger.error(f"{operation_name} 标准错误:\n{result.stderr.strip()}")
-
-            # 检查是否403错误
-            if result.stderr and ("403" in result.stderr or "Forbidden" in result.stderr):
-                logger.warning("检测到403错误，当前镜像源可能对某些包有访问限制")
-                return False
-
+            logger.error(f"{operation_name} 时出错。返回码: {return_code}")
             return False
+
     except Exception as e:
         logger.exception(f"{operation_name} 时发生未知异常: {e}")
         return False
@@ -236,11 +261,37 @@ def install_requirements(req_file="requirements.txt", pip_config=None) -> bool:
         logger.error(f"{req_file} 文件不存在于 {req_path.resolve()}")
         return False
 
+    # 查找本地deps目录
+    deps_dir = find_local_wheels_dir()
+    if deps_dir:
+        logger.debug(f"使用本地 whl 文件安装，目录: {deps_dir}")
+
+        cmd = [
+            sys.executable,
+            "-m",
+            "pip",
+            "install",
+            "-U",
+            "-r",
+            str(req_path),
+            "--no-warn-script-location",
+            "--break-system-packages",
+            "--find-links",
+            str(deps_dir),  # pip会优先使用这里的文件
+            "--no-index",  # 禁止在线索引
+        ]
+
+        if _run_pip_command(cmd, f"从本地deps安装依赖"):
+            return True
+        else:
+            logger.warning("本地deps安装失败，回退到纯在线安装")
+
+    # 回退到在线安装
     primary_mirror = pip_config.get("mirror", "")
-    backup_mirrors = pip_config.get("backup_mirrors", [])
+    backup_mirror = pip_config.get("backup_mirror", "")
 
     if primary_mirror:
-        # 构建命令，添加所有备用源作为extra-index-url
+        # 使用主镜像源，只添加一个备用源避免冲突
         cmd = [
             sys.executable,
             "-m",
@@ -255,15 +306,17 @@ def install_requirements(req_file="requirements.txt", pip_config=None) -> bool:
             primary_mirror,
         ]
 
-        # 添加所有备用源作为extra-index-url
-        for backup_mirror in backup_mirrors:
-            if backup_mirror:  # 确保不是None或空字符串
-                cmd.extend(["--extra-index-url", backup_mirror])
+        # 只添加一个备用源
+        if backup_mirror:
+            cmd.extend(["--extra-index-url", backup_mirror])
+            logger.info(f"使用主源 {primary_mirror} 和备用源 {backup_mirror} 安装依赖")
+        else:
+            logger.info(f"使用主源 {primary_mirror} 安装依赖")
 
         if _run_pip_command(cmd, f"从 {req_path.name} 安装依赖"):
             return True
         else:
-            logger.error("所有镜像源策略均失败")
+            logger.error("在线安装失败")
             return False
     else:
         # 如果没有配置主镜像源，使用pip的本地全局配置
@@ -282,7 +335,7 @@ def install_requirements(req_file="requirements.txt", pip_config=None) -> bool:
         if _run_pip_command(cmd, f"从 {req_path.name} 安装依赖 (本地全局配置)"):
             return True
         else:
-            logger.error("使用pip本地全局配置安装也失败")
+            logger.error("使用pip本地全局配置安装失败")
             return False
 
 
@@ -290,35 +343,17 @@ def check_and_install_dependencies():
     """检查并安装项目依赖"""
     pip_config = read_pip_config()
     enable_pip_install = pip_config.get("enable_pip_install", True)
-    current_version = read_interface_version()
-    last_version = pip_config.get("last_version", "unknown")
 
-    logger.info(f"启用 pip 安装依赖: {enable_pip_install}")
-    logger.info(f"当前资源版本: {current_version}, 上次运行版本: {last_version}")
+    logger.debug(f"启用 pip 安装依赖: {enable_pip_install}")
 
-    is_dev_mode = current_version == "DEBUG"
-    version_changed = current_version != last_version or last_version == "unknown"
-    should_install = enable_pip_install and (is_dev_mode or version_changed)
-
-    if should_install:
-        # 执行依赖安装
-        if is_dev_mode:
-            logger.info("当前处于开发模式，安装/更新依赖")
-        else:
-            logger.info("版本不匹配或上次版本未知，开始安装/更新依赖")
-
+    if enable_pip_install:
+        logger.info("开始安装/更新依赖")
         if install_requirements(pip_config=pip_config):
-            update_pip_config_last_version(current_version)
             logger.info("依赖检查和安装完成")
         else:
             logger.warning("依赖安装失败，程序可能无法正常运行")
     else:
-        if not enable_pip_install:
-            logger.info("Pip 依赖安装已禁用")
-        elif not version_changed:
-            logger.info("版本匹配，跳过依赖安装")
-        else:
-            logger.info("跳过依赖安装")
+        logger.info("Pip 依赖安装已禁用，跳过依赖安装")
 
 
 ### 核心业务 ###
@@ -350,6 +385,67 @@ def agent(is_dev_mode=False):
             change_console_level("DEBUG")
             logger.info("开发模式：日志等级已设置为DEBUG")
 
+        if not is_dev_mode:
+            # ========== 版本检查（始终执行） ==========
+            from utils.version_checker import check_resource_version
+
+            version_info = check_resource_version()
+            if not version_info["is_latest"]:
+                logger.warning("检测到资源有新版本!")
+                logger.warning(f"当前资源版本: {version_info['current_version']}")
+                logger.warning(f"最新资源版本: {version_info['latest_version']}")
+            elif version_info["error"]:
+                logger.debug(f"资源版本检查遇到问题: {version_info['error']}")
+
+            # ========== 热更新：基于 manifest 时间戳优化 ==========
+            hot_update_conf = read_hot_update_config()
+            if not hot_update_conf.get("enable_hot_update", True):
+                logger.info("已配置为跳过部分资源热更")
+            else:
+                from utils.manifest_checker import (
+                    check_manifest_updates,
+                    save_manifest_cache_from_result,
+                )
+
+                manifest_result = check_manifest_updates()
+
+                # 如果没有任何更新，跳过热更新
+                if manifest_result["success"] and not manifest_result["has_any_update"]:
+                    logger.debug("资源无更新，跳过热更新")
+                else:
+                    # 有更新或检查失败，执行热更新流程
+                    updated_manifests = manifest_result.get("updated_manifests", [])
+
+                    if updated_manifests or not manifest_result["success"]:
+                        from utils.resource_updater import check_and_update_resources
+
+                        # 只更新有变化的 manifest
+                        manifests = (
+                            updated_manifests if manifest_result["success"] else None
+                        )
+                        if manifests:
+                            logger.debug(f"开始更新 {len(manifests)} 个资源清单...")
+                        else:
+                            logger.debug("开始检查所有资源...")
+
+                        update_result = check_and_update_resources(
+                            resource_manifests=manifests
+                        )
+                        if update_result and update_result.get("updated_files"):
+                            pass
+                        elif update_result and update_result.get("error"):
+                            logger.debug(
+                                f"热更部分资源更新遇到问题: {update_result['error']}"
+                            )
+                        else:
+                            logger.debug("热更部分资源已是最新")
+                    else:
+                        logger.debug("所有 manifest 无更新，跳过热更新")
+
+                # 检查成功后保存 manifest 缓存（无论是否有更新）
+                save_manifest_cache_from_result(manifest_result)
+            # ========== 热更新结束 ==========
+
         from maa.agent.agent_server import AgentServer
         from maa.toolkit import Toolkit
 
@@ -362,7 +458,7 @@ def agent(is_dev_mode=False):
             return
 
         socket_id = sys.argv[-1]
-        logger.info(f"socket_id: {socket_id}")
+        logger.debug(f"socket_id: {socket_id}")
 
         AgentServer.start_up(socket_id)
         logger.info("AgentServer启动")
@@ -386,7 +482,7 @@ def main():
     is_dev_mode = current_version == "DEBUG"
 
     # 如果是Linux系统或开发模式，启动虚拟环境
-    if is_dev_mode:
+    if sys.platform.startswith("linux") or is_dev_mode:
         ensure_venv_and_relaunch_if_needed()
 
     check_and_install_dependencies()

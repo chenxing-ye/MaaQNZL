@@ -19,6 +19,14 @@ on:
       - "**.py"
   workflow_dispatch:
 
+env:
+  MAA_FRAMEWORK_VERSION: "v5.3.3"
+  MFAA_VERSION: "v2.5.0"
+
+permissions:
+  contents: write
+  actions: write
+
 jobs:
   meta:
     runs-on: ubuntu-latest
@@ -80,7 +88,7 @@ jobs:
         with:
           repository: MaaXYZ/MaaFramework
           fileName: "MAA-win-${{ matrix.arch }}*"
-          latest: true
+          tag: ${{ env.MAA_FRAMEWORK_VERSION }}
           out-file-path: "deps"
           extract: true
 
@@ -90,7 +98,7 @@ jobs:
         with:
           repository: SweetSmellFox/MFAAvalonia
           fileName: "MFAAvalonia-*-win-${{ matrix.arch == 'x86_64' && 'x64' || 'arm64' }}*"
-          latest: true
+          tag: ${{ env.MFAA_VERSION }}
           out-file-path: "MFA"
           extract: true
 
@@ -100,6 +108,28 @@ jobs:
           ARCHIVE_FILE_PATH="${{ fromJson(steps.download_mfa.outputs.downloaded_files)[0] }}"
           rm -f "${ARCHIVE_FILE_PATH}"
           echo "Archive cleanup command executed for MFAAvalonia."
+
+      - name: Convert PNG to ICO
+        if: matrix.arch == 'x86_64'
+        shell: bash
+        run: |
+          # 安装 ImageMagick
+          choco install imagemagick -y
+
+          # 转换 PNG 到 ICO
+          magick convert assets/logo.png -define icon:auto-resize=256,128,64,48,32,24,16 qnzl.ico
+
+      - name: Modify MFAAvalonia exe icon
+        if: matrix.arch == 'x86_64'
+        shell: bash
+        run: |
+          # 下载 rcedit
+          curl -L https://github.com/electron/rcedit/releases/download/v2.0.0/rcedit-x64.exe -o rcedit.exe
+
+          # 修改 exe 图标
+          ./rcedit.exe "MFA/MFAAvalonia.exe" --set-icon "qnzl.ico"
+
+          echo "MFAAvalonia icon modified successfully"
 
       - name: Setup Embed Python on Windows
         shell: bash
@@ -116,6 +146,24 @@ jobs:
             cp -rpvn MFA/. install/
           else
             echo "MFA directory not found, skipping copy."
+          fi
+      
+      - name: Replace Assets with custom assets folder
+        shell: bash
+        run: |
+          # 删除大写的 Assets 文件夹
+          if [ -d "install/Assets" ]; then
+            rm -rf install/Assets
+            echo "Removed original Assets folder"
+          fi
+
+          # 创建小写的 assets 文件夹
+          mkdir -p install/assets
+
+          # 如果有自定义图标，复制并重命名为 logo.ico
+          if [ -f "qnzl.ico" ]; then
+            cp qnzl.ico install/assets/logo.ico
+            echo "Copied custom icon to assets/logo.ico"
           fi
 
       - uses: actions/upload-artifact@v4
@@ -179,7 +227,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MaaQNZL-linux-${{ matrix.arch }}
+          name: MaaQNZL-linux-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}-Full
           path: "install"
 
   macos:
