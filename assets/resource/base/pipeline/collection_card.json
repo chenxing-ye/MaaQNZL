@@ -1,0 +1,257 @@
+{
+    "CollectionCardTaskEntry": {
+        "next": [
+            "CollectionCardEnterWarehouse",
+            "[JumpBack]ReturnMain"
+        ],
+        "comment": "收藏卡开包"
+    },
+    "CollectionCardEnterWarehouse": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    4,
+                    325,
+                    129,
+                    85
+                ],
+                "template": "Main/仓库.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "CollectionCardEnterCollection"
+        ],
+        "comment": "点击仓库按钮"
+    },
+    "CollectionCardEnterCollection": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    638,
+                    177,
+                    82
+                ],
+                "expected": "收藏册"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "CollectionCardOpenable",
+            "ReturnMain"
+        ],
+        "comment": "进入收藏册界面，检测是否有可开启的收藏卡，没有则返回主界面"
+    },
+    "CollectionCardOpenable": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    574,
+                    131,
+                    146
+                ],
+                "template": "CollectionCard/待开包.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "CollectionCardOpen10"
+        ],
+        "comment": "检测是否有可开启的收藏卡，如果有则尝试开启"
+    },
+    "CollectionCardOpen10": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    873,
+                    501,
+                    94,
+                    35
+                ],
+                "expected": [
+                    "开启十包"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    873,
+                    501,
+                    94,
+                    35
+                ]
+            }
+        },
+        "next": [
+            "CollectionCardOpen10Able",
+            "CollectionCardOpen1",
+            "ReturnMain"
+        ],
+        "comment": "打开10个收藏卡,不足则转为单包开启"
+    },
+    "CollectionCardOpen10Able": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    444,
+                    0,
+                    392,
+                    78
+                ],
+                "template": "CollectionCard/不足提示.png"
+            }
+        },
+        "inverse": true,
+        "next": [
+            "CollectionCardSwipeRoll"
+        ],
+        "comment": "可以开10包"
+    },
+    "CollectionCardOpen1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    627,
+                    505,
+                    106,
+                    27
+                ],
+                "expected": "开启一包"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    625,
+                    502,
+                    102,
+                    35
+                ]
+            }
+        },
+        "post_delay": 7000,
+        "next": [
+            "CollectionCardChoose1"
+        ],
+        "comment": "打开1个收藏卡"
+    },
+    "CollectionCardChoose1": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    628,
+                    252,
+                    5,
+                    5
+                ]
+            }
+        },
+        "post_delay": 2000,
+        "next": [
+            "CollectionCardSwipeRoll"
+        ],
+        "comment": "选择一个收藏卡打开"
+    },
+    "CollectionCardSwipeRoll": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    487,
+                    639,
+                    306,
+                    81
+                ],
+                "template": "CollectionCard/开包滑动.png"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    504,
+                    162
+                ],
+                "end": [
+                    785,
+                    161
+                ],
+                "duration": 500
+            }
+        },
+        "post_delay": 2000,
+        "next": [
+            "CollectionCardSkipResult"
+        ],
+        "comment": "滑动开包"
+    },
+    "CollectionCardSkipResult": {
+        "post_delay": 2000,
+        "next": [
+            "CollectionCardSkip10Card",
+            "CollectionCardSkip1Card"
+        ],
+        "comment": "跳过开包结果(包括10包和单包)"
+    },
+    "CollectionCardSkip10Card": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1131,
+                    0,
+                    149,
+                    86
+                ],
+                "template": "Common/剧情跳过__1178_23_79_30__1128_0_152_103.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 2000,
+        "next": [
+            "CollectionCardSkip1Card"
+        ],
+        "comment": "跳过开包结果"
+    },
+    "CollectionCardSkip1Card": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    487,
+                    639,
+                    306,
+                    81
+                ],
+                "template": "CollectionCard/跳过空白.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "CollectionCardOpen10"
+        ],
+        "comment": "跳过1包的开包结果"
+    }
+}
