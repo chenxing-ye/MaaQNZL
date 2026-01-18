@@ -33,7 +33,8 @@
         },
         {
             "name": "农场偷菜",
-            "entry": "HarvestFarmSteal"
+            "entry": "HarvestFarmStealEntry",
+            "doc": "自动偷取好友农场的作物,流程为:进入农场->打开好友列表->进入可偷取好友农场->偷取作物->返回自己农场->重复以上操作"
         },
         {
             "name": "每日骰子",

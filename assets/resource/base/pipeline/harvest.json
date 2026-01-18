@@ -402,7 +402,7 @@
             "type": "Click"
         }
     },
-    "HarvestFarmSteal": {
+    "HarvestFarmStealEntry": {
         "next": [
             "StartFarmSteal",
             "[JumpBack]ReturnMain"
@@ -446,6 +446,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1500,
         "next": [
             "FarmStealFriendTask"
         ],
@@ -455,89 +456,52 @@
         "recognition": {
             "param": {
                 "roi": [
-                    895,
-                    614,
-                    226,
-                    106
+                    565,
+                    634,
+                    197,
+                    86
                 ],
-                "template": "Harvest/社交.png"
+                "template": "Harvest/建设.png"
             },
             "type": "TemplateMatch"
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target": [
+                    940,
+                    665,
+                    144,
+                    38
+                ]
+            }
         },
         "next": [
-            "FarmStealFriendFinish",
-            "[JumpBack]FarmStealAFriend",
-            "[JumpBack]FarmStealNextPage",
-            "[JumpBack]ReturnMain"
+            "FarmStealFriendTaskExecuteAction"
         ],
         "comment": "农场偷取任务"
     },
-    "FarmStealFriendFinish": {
+    "FarmStealFriendTaskExecuteAction": {
         "recognition": {
+            "type": "TemplateMatch",
             "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "param": {
-                                "roi": [
-                                    208,
-                                    572,
-                                    176,
-                                    124
-                                ],
-                                "template": "Harvest/下一页（无）.png",
-                                "threshold": 0.98
-                            },
-                            "type": "TemplateMatch"
-                        },
-                        "sub_name": "最后一页"
-                    },
-                    {
-                        "recognition": {
-                            "param": {
-                                "roi": [
-                                    344,
-                                    137,
-                                    44,
-                                    470
-                                ],
-                                "template": [
-                                    "Harvest/完全无可偷（好友满）.png"
-                                ],
-                                "threshold": 0.85,
-                                "method": 10001,
-                            },
-                            "type": "TemplateMatch"
-                        },
-                        "sub_name": "没有可偷的"
-                    }
-                ]
-            },
-            "type": "And"
+                "roi": [
+                    1120,
+                    30,
+                    123,
+                    125
+                ],
+                "template": "Harvest/关闭.png"
+            }
         },
         "next": [
+            "FarmStealAFriend",
+            "FarmStealNextPage",
             "ReturnMain"
         ],
-        "comment": "偷菜任务完成的标志"
+        "comment": "执行偷菜任务(顺序为先偷一个好友的菜，再翻页偷下一个好友的菜，最后返回主界面)"
     },
     "FarmStealAFriend": {
-        "action": {
-            "param": {
-                "target_offset": [
-                    -70,
-                    30,
-                    0,
-                    0
-                ]
-            },
-            "type": "Click"
-        },
-        "next": [
-            "FarmStealGoToFriendHome"
-        ],
         "recognition": {
             "param": {
                 "any_of": [
@@ -577,6 +541,20 @@
             },
             "type": "Or"
         },
+        "action": {
+            "param": {
+                "target_offset": [
+                    -70,
+                    30,
+                    0,
+                    0
+                ]
+            },
+            "type": "Click"
+        },
+        "next": [
+            "FarmStealGoToFriendHome"
+        ],
         "comment": "偷其中一个好友的菜"
     },
     "FarmStealGoToFriendHome": {
@@ -591,12 +569,26 @@
             },
             "type": "Click"
         },
+        "post_delay": 1500,
         "next": [
             "FarmStealFriendOpen"
         ],
         "comment": "前往好友的农场"
     },
     "FarmStealFriendOpen": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    565,
+                    634,
+                    197,
+                    86
+                ],
+                "template": "Harvest/建设.png"
+            }
+        },
+        "inverse": true,
         "action": {
             "param": {
                 "target": [
@@ -613,7 +605,7 @@
             "[JumpBack]FarmStealSwitchStealableNeedSwipe",
             "[JumpBack]FarmStealSwitchStealableByClick"
         ],
-        "comment": "打开偷菜界面"
+        "comment": "打开偷菜界面(通过是否存在建设按钮进行判断)"
     },
     "FarmStealSelectStealable": {
         "recognition": {
@@ -723,7 +715,7 @@
             "type": "Click"
         },
         "next": [
-            "FarmStealFriendTask",
+            "FarmStealFriendReturnFarm",
             "[JumpBack]CloseGetItem",
             "[JumpBack]FarmStealFriendGainClose"
         ],
@@ -743,7 +735,28 @@
             },
             "type": "OCR"
         },
-        "comment": "点击一键偷菜"
+        "comment": "点击一键偷菜,然后返回自己的农场(因为切换到好友农场的时间不固定，因此每次都返回自己农场进行判断)"
+    },
+    "FarmStealFriendReturnFarm": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    20,
+                    16,
+                    77,
+                    29
+                ],
+                "template": "Common/返回上一级按钮__20_16_77_29__0_0_147_95.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "FarmStealFriendTask"
+        ],
+        "comment": "从好友农场返回自己的农场"
     },
     "FarmStealFriendGainClose": {
         "action": {
@@ -780,6 +793,9 @@
             },
             "type": "TemplateMatch"
         },
+        "next": [
+            "FarmStealFriendTaskExecuteAction"
+        ],
         "comment": "还有下一页"
     }
 }
