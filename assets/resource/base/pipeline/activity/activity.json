@@ -27,7 +27,6 @@
         "action": {
             "type": "Click"
         },
-        "pre_delay": 2000,
         "next": [
             "ActivityMain",
             "EnterActivity"
@@ -191,7 +190,6 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 1500,
         "next": [
             "ActivityShopItemCant",
             "ActivityShopItem",

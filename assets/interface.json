@@ -556,6 +556,86 @@
         "当前活动": {
             "cases": [
                 {
+                    "name": "爱之诗",
+                    "pipeline_override": {
+                        "EnterActivity": {
+                            "expected": [
+                                "瑰色",
+                                "的爱",
+                                "爱之"
+                            ]
+                        },
+                        "ActivityMain": {
+                            "roi": [
+                                196,
+                                107,
+                                379,
+                                134
+                            ],
+                            "template": "Activity/LovePoem/爱之诗主界面__196_107_379_134__146_57_479_234.png"
+                        },
+                        "EnterActivityDungeon": {
+                            "roi": [
+                                132,
+                                400,
+                                136,
+                                45
+                            ],
+                            "template": "Activity/LovePoem/爱之诗副本入口__132_400_136_45__82_350_236_145.png"
+                        },
+                        "ActivityDungeonButtton": {
+                            "roi": [
+                                476,
+                                143,
+                                522,
+                                239
+                            ],
+                            "template": "Activity/LovePoem/爱之诗刷体力副本__740_226_101_28__690_176_201_128.png"
+                        },
+                        "ActivityQuickBattle": {
+                            "roi": [
+                                712,
+                                48,
+                                168,
+                                54
+                            ],
+                            "template": "Activity/LovePoem/爱之诗副本详情__712_48_168_54__662_0_268_152.png"
+                        },
+                        "EnterActivityShop": {
+                            "roi": [
+                                921,
+                                521,
+                                158,
+                                46
+                            ],
+                            "template": "Activity/LovePoem/爱之诗商店入口__921_521_158_46__871_471_258_146.png"
+                        },
+                        "ActivityShopItem": {
+                            "template": "Activity/LovePoem/爱之诗商店价格图标__479_175_34_34__429_125_134_134.png"
+                        },
+                        "ActivityDaily": {
+                            "roi": [
+                                549,
+                                550,
+                                208,
+                                96
+                            ],
+                            "expected": [
+                                "领主",
+                                "委托"
+                            ]
+                        },
+                        "ActivityDailyGain": {
+                            "roi": [
+                                1061,
+                                5,
+                                209,
+                                56
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "春夜腾龙",
                     "pipeline_override": {
                         "EnterActivity": {
