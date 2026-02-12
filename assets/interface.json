@@ -556,6 +556,88 @@
         "当前活动": {
             "cases": [
                 {
+                    "name": "幻梦",
+                    "pipeline_override": {
+                        "EnterActivity": {
+                            "expected": [
+                                "幻梦",
+                                "初醒",
+                                "静若"
+                            ]
+                        },
+                        "ActivityMain": {
+                            "roi": [
+                                515,
+                                215,
+                                246,
+                                228
+                            ],
+                            "template": "Activity/Dream/幻梦主界面__515_215_246_228__465_165_346_328.png"
+                        },
+                        "EnterActivityDungeon": {
+                            "roi": [
+                                919,
+                                500,
+                                51,
+                                185
+                            ],
+                            "template": "Activity/Dream/幻梦副本入口__919_500_51_185__869_450_151_270.png"
+                        },
+                        "ActivityDungeonButtton": {
+                            "roi": [
+                                733,
+                                353,
+                                118,
+                                48
+                            ],
+                            "template": "Activity/Dream/幻梦刷体力副本__733_353_118_48__683_303_218_148.png"
+                        },
+                        "ActivityQuickBattle": {
+                            "roi": [
+                                708,
+                                40,
+                                168,
+                                67
+                            ],
+                            "template": "Activity/Dream/幻梦副本详情__708_40_168_67__658_0_268_157.png"
+                        },
+                        "EnterActivityShop": {
+                            "roi": [
+                                33,
+                                333,
+                                50,
+                                174
+                            ],
+                            "template": "Activity/Dream/幻梦商店入口__33_333_50_174__0_283_133_274.png"
+                        },
+                        "ActivityShopItem": {
+                            "template": "Activity/Dream/幻梦商店价格图标__414_194_29_29__364_144_129_129.png"
+                        },
+                        "ActivityDaily": {
+                            "roi": [
+                                151,
+                                430,
+                                81,
+                                179
+                            ],
+                            "expected": [
+                                "映",
+                                "瑞",
+                                "绘",
+                                "本"
+                            ]
+                        },
+                        "ActivityDailyGain": {
+                            "roi": [
+                                1061,
+                                5,
+                                209,
+                                56
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "爱之诗",
                     "pipeline_override": {
                         "EnterActivity": {
