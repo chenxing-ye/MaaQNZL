@@ -556,6 +556,88 @@
         "当前活动": {
             "cases": [
                 {
+                    "name": "遮光",
+                    "pipeline_override": {
+                        "EnterActivity": {
+                            "expected": [
+                                "遮",
+                                "光",
+                                "梦"
+                            ]
+                        },
+                        "ActivityMain": {
+                            "roi": [
+                                470,
+                                497,
+                                325,
+                                145
+                            ],
+                            "template": "Activity/Shading/遮光主界面__470_497_325_145__420_447_425_245.png"
+                        },
+                        "EnterActivityDungeon": {
+                            "roi": [
+                                132,
+                                197,
+                                133,
+                                39
+                            ],
+                            "template": "Activity/Shading/遮光副本入口__132_197_133_39__82_147_233_139.png"
+                        },
+                        "ActivityDungeonButtton": {
+                            "roi": [
+                                740,
+                                258,
+                                97,
+                                46
+                            ],
+                            "template": "Activity/Shading/遮光刷体力副本__740_258_97_46__690_208_197_146.png"
+                        },
+                        "ActivityQuickBattle": {
+                            "roi": [
+                                701,
+                                50,
+                                121,
+                                57
+                            ],
+                            "template": "Activity/Shading/遮光副本详情__701_50_121_57__651_0_221_157.png"
+                        },
+                        "EnterActivityShop": {
+                            "roi": [
+                                1054,
+                                625,
+                                157,
+                                51
+                            ],
+                            "template": "Activity/Shading/遮光商店入口__1054_625_157_51__1004_575_257_145.png"
+                        },
+                        "ActivityShopItem": {
+                            "template": "Activity/Shading/遮光商店价格图标__447_176_34_31__397_126_134_131.png"
+                        },
+                        "ActivityDaily": {
+                            "roi": [
+                                971,
+                                178,
+                                248,
+                                78
+                            ],
+                            "expected": [
+                                "寂",
+                                "落",
+                                "繁",
+                                "星"
+                            ]
+                        },
+                        "ActivityDailyGain": {
+                            "roi": [
+                                1031,
+                                12,
+                                128,
+                                42
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "幻梦",
                     "pipeline_override": {
                         "EnterActivity": {
