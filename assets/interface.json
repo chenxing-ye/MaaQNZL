@@ -556,6 +556,91 @@
         "当前活动": {
             "cases": [
                 {
+                    "name": "新枝萌发",
+                    "pipeline_override": {
+                        "EnterActivity": {
+                            "expected": [
+                                "新",
+                                "枝",
+                                "萌",
+                                "发",
+                                "之",
+                                "日"
+                            ]
+                        },
+                        "ActivityMain": {
+                            "roi": [
+                                207,
+                                357,
+                                290,
+                                215
+                            ],
+                            "template": "Activity/NewBranch/新枝萌发主界面__221_377_246_166__171_327_346_266.png"
+                        },
+                        "EnterActivityDungeon": {
+                            "roi": [
+                                850,
+                                203,
+                                266,
+                                70
+                            ],
+                            "template": "Activity/NewBranch/新枝萌发副本入口__850_203_266_70__800_153_366_170.png"
+                        },
+                        "ActivityDungeonButtton": {
+                            "roi": [
+                                706,
+                                393,
+                                147,
+                                59
+                            ],
+                            "template": "Activity/NewBranch/新枝萌发刷体力副本__706_393_147_59__656_343_247_159.png"
+                        },
+                        "ActivityQuickBattle": {
+                            "roi": [
+                                715,
+                                48,
+                                176,
+                                54
+                            ],
+                            "template": "Activity/NewBranch/新枝萌发副本详情__715_48_176_54__665_0_276_152.png"
+                        },
+                        "EnterActivityShop": {
+                            "roi": [
+                                847,
+                                472,
+                                219,
+                                56
+                            ],
+                            "template": "Activity/NewBranch/新枝萌发商店入口__847_472_219_56__797_422_319_156.png"
+                        },
+                        "ActivityShopItem": {
+                            "template": "Activity/NewBranch/新枝萌发商店价格图标__412_187_38_32__362_137_138_132.png"
+                        },
+                        "ActivityDaily": {
+                            "roi": [
+                                748,
+                                588,
+                                209,
+                                92
+                            ],
+                            "expected": [
+                                "深",
+                                "数",
+                                "刻",
+                                "印"
+                            ]
+                        },
+                        "ActivityDailyGain": {
+                            "roi": [
+                                1067,
+                                7,
+                                200,
+                                55
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "遮光",
                     "pipeline_override": {
                         "EnterActivity": {
