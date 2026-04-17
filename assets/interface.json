@@ -556,6 +556,89 @@
         "当前活动": {
             "cases": [
                 {
+                    "name": "重奏夜歌",
+                    "pipeline_override": {
+                        "EnterActivity": {
+                            "expected": [
+                                "重",
+                                "奏",
+                                "夜",
+                                "歌"
+                            ]
+                        },
+                        "ActivityMain": {
+                            "roi": [
+                                27,
+                                454,
+                                398,
+                                122
+                            ],
+                            "template": "Activity/NightSing/重奏夜歌主界面__27_454_398_122__0_404_475_222.png"
+                        },
+                        "EnterActivityDungeon": {
+                            "roi": [
+                                833,
+                                212,
+                                270,
+                                52
+                            ],
+                            "template": "Activity/NightSing/重奏夜歌副本入口__833_212_270_52__783_162_370_152.png"
+                        },
+                        "ActivityDungeonButtton": {
+                            "roi": [
+                                696,
+                                395,
+                                125,
+                                44
+                            ],
+                            "template": "Activity/NightSing/重奏夜歌刷体力副本__696_395_125_44__646_345_225_144.png"
+                        },
+                        "ActivityQuickBattle": {
+                            "roi": [
+                                715,
+                                41,
+                                158,
+                                75
+                            ],
+                            "template": "Activity/NightSing/重奏夜歌副本详情__715_41_158_75__665_0_258_166.png"
+                        },
+                        "EnterActivityShop": {
+                            "roi": [
+                                860,
+                                473,
+                                179,
+                                63
+                            ],
+                            "template": "Activity/NightSing/重奏夜歌商店入口__860_473_179_63__810_423_279_163.png"
+                        },
+                        "ActivityShopItem": {
+                            "template": "Activity/NightSing/重奏夜歌商店价格图标__412_194_34_29__362_144_134_129.png"
+                        },
+                        "ActivityDaily": {
+                            "roi": [
+                                774,
+                                617,
+                                157,
+                                48
+                            ],
+                            "expected": [
+                                "残",
+                                "缺",
+                                "预",
+                                "言"
+                            ]
+                        },
+                        "ActivityDailyGain": {
+                            "roi": [
+                                1092,
+                                19,
+                                152,
+                                34
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "新枝萌发",
                     "pipeline_override": {
                         "EnterActivity": {
